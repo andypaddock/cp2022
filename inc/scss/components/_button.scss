@@ -1,0 +1,38 @@
+.button {
+  display: block;
+  background: $color-white;
+  color: $color-black;
+  text-align: center;
+  padding: 1rem 4rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  font-weight: 200;
+  margin: 1rem 0;
+  &:hover {
+    &:after {
+      content: "→";
+      transition: all ease 0.5s;
+      opacity: 1;
+      left: 8px;
+    }
+  }
+
+  &:after {
+    content: "→";
+    transition: all ease 0.5s;
+    position: relative;
+    opacity: 0;
+    left: -12px;
+  }
+  i {
+    padding-right: 2rem;
+  }
+}
+.slash {
+  color: $color-primary;
+  font-size: 1.75rem;
+  font-weight: 400;
+  text-align: center;
+}

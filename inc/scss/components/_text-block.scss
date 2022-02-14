@@ -1,0 +1,140 @@
+.section-text {
+  @include backgroundCover;
+  border-radius: 1rem;
+  margin: 5rem 2rem 0;
+  .heading-tertiary {
+    color: $color-primary;
+    font-weight: 700;
+    padding: 2rem 0 0;
+  }
+  .centre-line {
+    display: flex;
+    div {
+      flex: 1;
+    }
+  }
+  .line {
+    border-right: 1px solid $color-primary;
+    height: 2rem;
+    padding: 1rem;
+  }
+  &.center-text {
+    text-align: center;
+    .row {
+      border-radius: 1rem;
+      @include backgroundCover;
+    }
+  }
+  .para-image {
+    @include backgroundPara;
+  }
+  ul {
+    list-style-position: outside;
+    padding-left: 2rem;
+    li::marker {
+      color: $color-primary;
+    }
+  }
+  .text-para {
+    padding-bottom: 2rem;
+  }
+  .button {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .row {
+    padding: 2rem 0;
+  }
+}
+.section-title {
+  text-align: center;
+  padding-bottom: 0;
+  .alt-text {
+    color: $color-white;
+    font-size: 2.5rem;
+  }
+  .centre-line {
+    display: flex;
+    padding: 1rem;
+    div {
+      flex: 1;
+    }
+  }
+  .line {
+    border-right: 1px solid $color-primary;
+    height: 2rem;
+    padding-top: 1rem;
+  }
+  .footer_text {
+    text-align: center;
+    .heading-secondary {
+      color: $color-white;
+      font-size: 2.1rem;
+    }
+  }
+}
+.count2 {
+  column-count: 2;
+}
+.bordered-section {
+  border: 1px solid $color-primary;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  ol,
+  ul {
+    margin: 2rem;
+    font-size: 1.4rem;
+    li {
+      padding: 0.5rem;
+      &::marker {
+        color: $color-primary;
+        font-weight: 700;
+      }
+    }
+  }
+}
+.row.para-image {
+  padding: 3rem 0;
+}
+
+article {
+  p {
+    text-align: center;
+  }
+}
+.read-more,
+.read-less {
+  text-align: center;
+  padding-top: 5rem;
+  a {
+    text-decoration: none;
+    font-weight: 700;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      border-right: 1px solid $color-primary;
+      height: 1.75rem;
+      z-index: 1;
+      top: -3rem;
+      transform: rotate(90deg);
+    }
+  }
+}
+.logo-text {
+  .logo {
+    svg {
+      margin-left: -5.5rem;
+      height: 10rem;
+    }
+    h3 {
+      padding: 3rem 3rem 0 0;
+    }
+  }
+  .text {
+    .lead {
+      font-weight: 700;
+    }
+  }
+}

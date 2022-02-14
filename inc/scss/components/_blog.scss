@@ -1,0 +1,86 @@
+.post-block {
+  .controls {
+    padding: 5rem 0;
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-evenly;
+      cursor: pointer;
+      color: $color-primary;
+      font-weight: 700;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      li {
+        &:first-of-type {
+          font-weight: 200;
+          cursor: none;
+        }
+      }
+    }
+  }
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    @include respond(tab-port) {
+      grid-template-columns: 1fr;
+    }
+    .mix {
+      display: flex;
+      flex-direction: column;
+      .test-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 25rem;
+        @include backgroundCover;
+        border-radius: 1rem 1rem 0 0;
+        text-align: center;
+      }
+      svg {
+        position: absolute;
+      }
+      .heading-tertiary {
+        padding: 0 3rem;
+        font-weight: 200;
+        text-align: center;
+      }
+      .post-excerpt {
+        flex: 1;
+        padding: 0 3rem 2rem 3rem;
+        text-align: center;
+      }
+      .date {
+        color: $color-primary;
+        text-align: center;
+        font-weight: 400;
+        padding-top: 2rem;
+      }
+      .button {
+        margin: 1rem 3rem;
+      }
+    }
+  }
+  video {
+    width: 100%;
+  }
+  .popup__content {
+    text-align: center;
+    .quote-cite {
+      color: $color-primary;
+    }
+  }
+  blockquote {
+    p {
+      font-size: 2.5rem;
+      font-weight: 400;
+    }
+    padding: 3rem;
+  }
+  .popup__left {
+    blockquote p {
+      font-size: 2rem;
+    }
+  }
+}
