@@ -271,3 +271,37 @@
     text-align: center;
   }
 }
+.image-repeat {
+  .split-col {
+    row-gap: 4rem;
+  }
+  .background-image {
+    margin-right: 3rem;
+  }
+  .text-box {
+    border-left: 1px solid $color-white;
+    padding-left: 3rem;
+    .heading-secondary {
+      line-height: 0.7;
+      padding-bottom: 1rem;
+    }
+  }
+}
+.staff-block {
+  .split-col {
+    row-gap: 4rem;
+  }
+  .background-image {
+    margin-right: 3rem;
+    aspect-ratio: 1/1;
+    margin-left: 50%;
+  }
+  .text-box {
+    border-left: 1px solid $color-white;
+    padding-left: 3rem;
+    .heading-secondary {
+      line-height: 0.7;
+      padding-bottom: 1rem;
+    }
+  }
+}

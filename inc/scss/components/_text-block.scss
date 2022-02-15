@@ -37,6 +37,10 @@
   }
   .text-para {
     padding-bottom: 2rem;
+    &.twocol {
+      column-count: 2;
+      column-gap: 4rem;
+    }
   }
   .button {
     width: 50%;

@@ -54,6 +54,12 @@ get_header(); ?>
 <?php get_template_part('template-parts/large_image_link');?>
 <?php elseif( get_row_layout() == 'large_image_text' ):?>
 <?php get_template_part('template-parts/large_image_text');?>
+<?php elseif( get_row_layout() == 'image_text_repeat' ):?>
+<?php get_template_part('template-parts/image_text_repeat');?>
+<?php elseif( get_row_layout() == 'staff_block' ):?>
+<?php get_template_part('template-parts/staff_block');?>
+<?php elseif( get_row_layout() == 'nav_bar' ):?>
+<?php get_template_part('template-parts/nav_bar');?>
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>

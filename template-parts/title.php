@@ -10,8 +10,8 @@ if(get_sub_field('switch_text'))
 	echo 'alt-color';
 }
 ?>">
-            <span class="heading-secondary--main fmbottom"><?php the_field('header'); ?></span>
-            <span class="heading-secondary--sub fmbottom"><?php the_field('sub_header'); ?></span>
+            <span class="heading-secondary--main fmbottom"><?php the_sub_field('title'); ?></span>
+            <span class="heading-secondary--sub fmbottom"><?php the_sub_field('sub_title'); ?></span>
         </h3>
     </div>
 </section>

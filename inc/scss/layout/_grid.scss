@@ -158,3 +158,10 @@ section {
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   grid-gap: $gutter-horizontal;
 }
+.flex-col {
+  display: flex;
+  grid-gap: 2rem;
+  .flex-items {
+    flex: 1;
+  }
+}

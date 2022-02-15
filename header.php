@@ -20,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo the_title(); ?></title>
     <link rel="stylesheet" href="https://use.typekit.net/vpg4cyy.css">
-    <script src="https://kit.fontawesome.com/fbafb66f14.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b7821303ab.js" crossorigin="anonymous"></script>
     <?php wp_head(); ?>
 
 </head>

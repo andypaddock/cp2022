@@ -364,7 +364,7 @@ body {
 }
 .heading-secondary--sub {
   display: block;
-  font-size: 1.6rem;
+  font-size: 2.7rem;
   font-weight: 400;
   letter-spacing: 0.5rem;
 }
@@ -373,6 +373,13 @@ body {
     letter-spacing: 0.5rem;
     padding: 0 1rem;
   }
+}
+.heading-secondary--tertiary {
+  font-size: 1.5rem;
+}
+.heading-secondary--meta {
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
 }
 @media only screen and (max-width: 56.25em) {
   .heading-secondary {
@@ -548,6 +555,19 @@ blockquote {
   text-transform: none;
   font-family: "Poppins", sans-serif;
   padding: 1rem 0;
+}
+.button.page-navbar {
+  padding: 1rem 1rem 1rem 4rem;
+  text-align: left;
+}
+.button.page-navbar i {
+  left: 1rem;
+  right: unset;
+}
+.button.page-navbar.active {
+  color: #fff;
+  background: transparent;
+  border: 1px solid #fff;
 }
 
 .slash {
@@ -864,6 +884,38 @@ blockquote {
           justify-content: center;
   padding: 4rem 25%;
   text-align: center;
+}
+
+.image-repeat .split-col {
+  row-gap: 4rem;
+}
+.image-repeat .background-image {
+  margin-right: 3rem;
+}
+.image-repeat .text-box {
+  border-left: 1px solid #fff;
+  padding-left: 3rem;
+}
+.image-repeat .text-box .heading-secondary {
+  line-height: 0.7;
+  padding-bottom: 1rem;
+}
+
+.staff-block .split-col {
+  row-gap: 4rem;
+}
+.staff-block .background-image {
+  margin-right: 3rem;
+  aspect-ratio: 1/1;
+  margin-left: 50%;
+}
+.staff-block .text-box {
+  border-left: 1px solid #fff;
+  padding-left: 3rem;
+}
+.staff-block .text-box .heading-secondary {
+  line-height: 0.7;
+  padding-bottom: 1rem;
 }
 
 .composition {
@@ -1815,6 +1867,14 @@ span.wpcf7-not-valid-tip {
 .section-text .text-para {
   padding-bottom: 2rem;
 }
+.section-text .text-para.twocol {
+  -webkit-column-count: 2;
+     -moz-column-count: 2;
+          column-count: 2;
+  -webkit-column-gap: 4rem;
+     -moz-column-gap: 4rem;
+          column-gap: 4rem;
+}
 .section-text .button {
   width: 50%;
   margin: 0 auto;
@@ -2460,6 +2520,13 @@ article p {
   width: 100%;
 }
 
+.background-image {
+  background-size: cover !important;
+  /* !important added as result of rule not working inside display:grid */
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
 .footer {
   font-size: 1.4rem;
   color: #f7f7f7;
@@ -3044,6 +3111,18 @@ footer .w90 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   grid-gap: 2rem;
+}
+
+.flex-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-gap: 2rem;
+}
+.flex-col .flex-items {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .header {

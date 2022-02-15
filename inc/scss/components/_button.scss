@@ -35,6 +35,19 @@
     font-family: $alt-font-family;
     padding: 1rem 0;
   }
+  &.page-navbar {
+    padding: 1rem 1rem 1rem 4rem;
+    text-align: left;
+    i {
+      left: 1rem;
+      right: unset;
+    }
+    &.active {
+      color: $color-white;
+      background: transparent;
+      border: 1px solid $color-white;
+    }
+  }
 }
 .slash {
   color: $color-primary;
