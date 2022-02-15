@@ -98,6 +98,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    justify-content: center;
     @include respond(phone) {
       height: unset;
       min-height: 50rem;
@@ -225,7 +226,6 @@
   }
   .logo {
     display: flex;
-    justify-content: center;
     align-items: center;
     padding: 2rem 0;
     svg {
@@ -337,6 +337,47 @@
         opacity: 0.8;
         transform: translateY(0);
       }
+    }
+  }
+}
+.footer-text-container {
+  .footer-text-block {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10rem;
+    @include respond(tab-port) {
+      margin: 0;
+    }
+    .heading-primary {
+      text-transform: unset;
+      font-family: $alt-font-heading;
+      margin-bottom: 3rem;
+      position: relative;
+      &--main {
+        font-size: 9.4rem;
+        @include respond(tab-port) {
+          font-size: 5rem;
+        }
+      }
+      &--tertiary {
+        font-size: 1.4rem;
+        font-family: $alt-font-family;
+        position: absolute;
+        top: 12rem;
+        left: 1rem;
+        font-weight: 400;
+        @include respond(tab-port) {
+          top: 8rem;
+        }
+      }
+    }
+    .button {
+      width: 75%;
+      text-align: left;
+      padding: 3rem 6rem 3rem 3rem;
+      font-weight: 400;
+      line-height: 1.5;
+      border: 1px solid rgba(255, 255, 255, 0.18);
     }
   }
 }

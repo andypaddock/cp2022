@@ -39,8 +39,9 @@
 
     <main>
 
-        <div class="logo-mobile"><a href="<?php echo site_url(); ?>"><?php get_template_part("inc/img/radlogo"); ?></a>
-        </div>
+        <!-- <div class="logo-mobile"><a
+                href="<?php echo site_url(); ?>"><?php get_template_part("inc/img/cplogolrg"); ?></a>
+        </div> -->
 
 
 

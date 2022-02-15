@@ -188,8 +188,6 @@
 .footer-navbar {
   display: inline-flex;
   position: relative;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.5);
   ul {
     list-style: none;
     display: flex;
@@ -339,11 +337,10 @@
   -o-transform: translate3d(0px, 100%, 0px);
 }
 .top-navbar.fixed-menu {
-
-top: -55px;
-transition: transform 1.5s ease 0s;
--webkit-transition: transform 0.3s ease 0s;
--moz-transition: transform 0.3s ease 0s;
--ms-transition: transform 0.3s ease 0s;
--o-transition: transform 0.3s ease 0s;
+  top: -55px;
+  transition: transform 1.5s ease 0s;
+  -webkit-transition: transform 0.3s ease 0s;
+  -moz-transition: transform 0.3s ease 0s;
+  -ms-transition: transform 0.3s ease 0s;
+  -o-transition: transform 0.3s ease 0s;
 }

@@ -10,24 +10,30 @@
   line-height: 1.8rem;
   font-weight: 200;
   margin: 1rem 0;
-  &:hover {
-    &:after {
-      content: "→";
-      transition: all ease 0.5s;
-      opacity: 1;
-      left: 8px;
-    }
+  position: relative;
+  i {
+    position: absolute;
+    right: 2rem;
+    bottom: 50%;
+    transform: translate(0, 50%);
   }
 
-  &:after {
-    content: "→";
-    transition: all ease 0.5s;
-    position: relative;
-    opacity: 0;
-    left: -12px;
+  &.outline {
+    background: none;
+    border: 1px solid $color-white;
+    font-family: $alt-font-family;
+    color: $color-white;
+    &.light {
+      color: $color-white;
+      border: 1px solid $color-white;
+    }
   }
-  i {
-    padding-right: 2rem;
+  &.textonly {
+    background: none;
+    color: $color-white;
+    text-transform: none;
+    font-family: $alt-font-family;
+    padding: 1rem 0;
   }
 }
 .slash {
@@ -35,4 +41,13 @@
   font-size: 1.75rem;
   font-weight: 400;
   text-align: center;
+}
+.draw-border {
+  @include btn-border-drawing(
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 1),
+    1px,
+    bottom,
+    right
+  );
 }

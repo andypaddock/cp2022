@@ -1,32 +1,32 @@
 <?php 
-add_action( 'init', 'custom_post_type_testimonials', 0 );
+add_action( 'init', 'custom_post_type_lodges', 0 );
+add_action( 'init', 'custom_post_type_itineraries', 0 );
 
-
-// ====== Testimonials
-function custom_post_type_testimonials() {
+// ====== Lodges
+function custom_post_type_itineraries() {
 
     $labels = array(
-        'name'                => _x( 'Testimonials', 'Post Type General Name'),
-        'singular_name'       => _x( 'Testimonial',  'Post Type Singular Name'),
-        'menu_name'           => __( 'Testimonials'),
-        'parent_item_colon'   => __( 'Testimonials'),
-        'all_items'           => __( 'All Testimonials'),
-        'view_item'           => __( 'View Testimonials'),
-        'add_new_item'        => __( 'Add New Testimonials'),
-        'add_new'             => __( 'Add Testimonial' ),
-        'edit_item'           => __( 'Edit Testimonial' ),
-        'update_item'         => __( 'Update Testimonial' ),
-        'search_items'        => __( 'Search Testimonials' ),
+        'name'                => _x( 'Itineraries', 'Post Type General Name'),
+        'singular_name'       => _x( 'Itinerary',  'Post Type Singular Name'),
+        'menu_name'           => __( 'Itineraries'),
+        'parent_item_colon'   => __( 'Itineraries'),
+        'all_items'           => __( 'All Itineraries'),
+        'view_item'           => __( 'View Itineraries'),
+        'add_new_item'        => __( 'Add New Itinerary'),
+        'add_new'             => __( 'Add Itinerary' ),
+        'edit_item'           => __( 'Edit Itinerary' ),
+        'update_item'         => __( 'Update Itinerary' ),
+        'search_items'        => __( 'Search Itineraries' ),
         'not_found'           => __( 'Not Found'),
         'not_found_in_trash'  => __( 'Not found in Trash')
     );
 
     $args = array(
-        'label'               => __( 'testimonial' ),
-        'description'         => __( 'testimonial'),
+        'label'               => __( 'Itineraries' ),
+        'description'         => __( 'Itineraries'),
         'labels'              => $labels,
         'supports'            => array( 'title', 'taxonomies', 'thumbnail', 'page-attributes' ),
-        'menu_icon'           => 'dashicons-format-quote',
+        'menu_icon'           => 'dashicons-randomize',
         'hierarchical'        => false,
         'public'              => true,
         'show_ui'             => true,
@@ -40,32 +40,74 @@ function custom_post_type_testimonials() {
         'capability_type'     => 'page'
     );
 
-    register_post_type( 'testimonial', $args );
+    register_post_type( 'itineraries', $args );
 }
-// ====== Type Filter
-function taxonomy_businesstype() {
+
+
+// ====== Lodges
+function custom_post_type_lodges() {
 
     $labels = array(
-        'name'              => _x( 'Business Types', 'taxonomy general name' ),
-        'singular_name'     => _x( 'Business Type', 'taxonomy singular name' ),
-        'search_items'      => __( 'Search Business Types'   ),
-        'all_items'         => __( 'All Business Types'     ),
-        'parent_item'       => __( 'Parent Business Type'   ),
-        'parent_item_colon' => __( 'Parent Business Type:'  ),
-        'edit_item'         => __( 'Edit Business Type'     ),
-        'update_item'       => __( 'Update Business Type'   ),
-        'add_new_item'      => __( 'Add New Business Type'  ),
-        'new_item_name'     => __( 'New Business Type' ),
-        'menu_name'         => __( 'Business Types'         )
+        'name'                => _x( 'Lodges', 'Post Type General Name'),
+        'singular_name'       => _x( 'Lodge',  'Post Type Singular Name'),
+        'menu_name'           => __( 'Lodges'),
+        'parent_item_colon'   => __( 'Lodges'),
+        'all_items'           => __( 'All Lodges'),
+        'view_item'           => __( 'View Lodges'),
+        'add_new_item'        => __( 'Add New Lodges'),
+        'add_new'             => __( 'Add Lodge' ),
+        'edit_item'           => __( 'Edit Lodge' ),
+        'update_item'         => __( 'Update Lodge' ),
+        'search_items'        => __( 'Search Lodges' ),
+        'not_found'           => __( 'Not Found'),
+        'not_found_in_trash'  => __( 'Not found in Trash')
     );
 
-    register_taxonomy( 'businesstype', array( 'testimonial' ), array(
+    $args = array(
+        'label'               => __( 'Lodge' ),
+        'description'         => __( 'Lodge'),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'taxonomies', 'thumbnail', 'page-attributes' ),
+        'menu_icon'           => 'dashicons-admin-multisite',
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'can_export'          => true,
+        'has_archive'         => false,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page'
+    );
+
+    register_post_type( 'lodges', $args );
+}
+// ====== Type Filter
+function taxonomy_destinations() {
+
+    $labels = array(
+        'name'              => _x( 'Destinations', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Destination', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Destinations'   ),
+        'all_items'         => __( 'All Destinations'     ),
+        'parent_item'       => __( 'Parent Destination'   ),
+        'parent_item_colon' => __( 'Parent Destination:'  ),
+        'edit_item'         => __( 'Edit Destination'     ),
+        'update_item'       => __( 'Update Destination'   ),
+        'add_new_item'      => __( 'Add New Destination'  ),
+        'new_item_name'     => __( 'New Destination' ),
+        'menu_name'         => __( 'Destinations'         )
+    );
+
+    register_taxonomy( 'destinations', array( 'itineraries' ), array(
         'hierarchical'      => true,
         'labels'            => $labels,
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'businesstype', 'hierarchical' => true )
+        'rewrite'           => array( 'slug' => 'destinations', 'hierarchical' => true )
     ));
 }
-add_action( 'init', 'taxonomy_businesstype', 0 );
+add_action( 'init', 'taxonomy_destinations', 0 );
