@@ -1,7 +1,8 @@
-<?php 
-add_action( 'init', 'custom_post_type_lodges', 0 );
-add_action( 'init', 'custom_post_type_itineraries', 0 );
+<?php
+add_action( 'init', 'custom_post_type_itineraries', 0 ); 
 add_action( 'init', 'custom_post_type_safari_types', 0 );
+add_action( 'init', 'custom_post_type_lodges', 0 );
+
 
 
 // ====== Safari Types
