@@ -1719,12 +1719,9 @@ span.wpcf7-not-valid-tip {
 
 .block__item {
   margin-bottom: 2.5rem;
-  border: 1px solid #6a6f71;
   border-radius: 0.5rem;
   padding: 2rem 3rem;
-}
-.block__item .alt-color .heading .highlight-letter {
-  color: #6a6f71;
+  background: #fff;
 }
 
 .block__title {
@@ -1753,7 +1750,6 @@ span.wpcf7-not-valid-tip {
   text-transform: uppercase;
   padding-right: 2rem;
   font-weight: 700;
-  color: #fff;
 }
 
 .block__title::before,
@@ -1761,7 +1757,7 @@ span.wpcf7-not-valid-tip {
   content: "";
   width: 16px;
   height: 2px;
-  background-color: #fff;
+  background-color: #6a6f71;
   position: absolute;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;

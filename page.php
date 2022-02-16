@@ -60,6 +60,8 @@ get_header(); ?>
 <?php get_template_part('template-parts/staff_block');?>
 <?php elseif( get_row_layout() == 'nav_bar' ):?>
 <?php get_template_part('template-parts/nav_bar');?>
+<?php elseif( get_row_layout() == 'single_slider' ):?>
+<?php get_template_part('template-parts/single_slider');?>
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>

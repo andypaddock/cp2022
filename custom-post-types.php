@@ -1,6 +1,49 @@
 <?php 
 add_action( 'init', 'custom_post_type_lodges', 0 );
 add_action( 'init', 'custom_post_type_itineraries', 0 );
+add_action( 'init', 'custom_post_type_safari_types', 0 );
+
+
+// ====== Safari Types
+function custom_post_type_safari_types() {
+
+    $labels = array(
+        'name'                => _x( 'Safari types', 'Post Type General Name'),
+        'singular_name'       => _x( 'Safari type',  'Post Type Singular Name'),
+        'menu_name'           => __( 'Safari types'),
+        'parent_item_colon'   => __( 'Itineraries'),
+        'all_items'           => __( 'All Safari types'),
+        'view_item'           => __( 'View Safari types'),
+        'add_new_item'        => __( 'Add New Safari type'),
+        'add_new'             => __( 'Add Safari type' ),
+        'edit_item'           => __( 'Edit Safari type' ),
+        'update_item'         => __( 'Update Safari type' ),
+        'search_items'        => __( 'Search Safari types' ),
+        'not_found'           => __( 'Not Found'),
+        'not_found_in_trash'  => __( 'Not found in Trash')
+    );
+
+    $args = array(
+        'label'               => __( 'Safari types' ),
+        'description'         => __( 'Safari types'),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'taxonomies', 'thumbnail', 'page-attributes' ),
+        'menu_icon'           => 'dashicons-admin-site',
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'can_export'          => true,
+        'has_archive'         => false,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page'
+    );
+
+    register_post_type( 'safari_types', $args );
+}
 
 // ====== Lodges
 function custom_post_type_itineraries() {
@@ -101,7 +144,7 @@ function taxonomy_destinations() {
         'menu_name'         => __( 'Destinations'         )
     );
 
-    register_taxonomy( 'destinations', array( 'itineraries' ), array(
+    register_taxonomy( 'destinations', array( 'itineraries', 'safari_types', 'lodges' ), array(
         'hierarchical'      => true,
         'labels'            => $labels,
         'show_ui'           => true,

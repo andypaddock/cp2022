@@ -53,12 +53,9 @@
 
 .block__item {
   margin-bottom: 2.5rem;
-  border: 1px solid $color-primary;
   border-radius: 0.5rem;
   padding: 2rem 3rem;
-  .alt-color .heading .highlight-letter {
-    color: $color-primary;
-  }
+  background: $color-white;
 }
 .block__title {
   text-transform: uppercase;
@@ -81,7 +78,6 @@
       text-transform: uppercase;
       padding-right: 2rem;
       font-weight: 700;
-      color: $color-white;
     }
   }
 }
@@ -91,7 +87,7 @@
   content: "";
   width: 16px;
   height: 2px;
-  background-color: $color-white;
+  background-color: $color-black;
   position: absolute;
   transition: all 0.3s ease 0s;
   top: 50%;

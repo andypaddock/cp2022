@@ -1,8 +1,11 @@
-<section class="faq-block">
-    <div class="row w60">
+<?php $bgColor = get_sub_field('bg_colour');
+$noMobile = get_sub_field('hide_on_mobile');?>
+<section
+    class="faq-block <?php if($bgColor == true): echo 'alt-bg'; endif; ?> <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?>"
+    <?php if( get_sub_field('section_id') ): ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
+    <div class="row <?php the_sub_field('column_size'); ?>">
         <div class="col toggle-block block accordion">
-            <?php $altColor = get_sub_field('alternate_colour');
-            $oneOnly = get_sub_field('display_settings'); ?>
+
 
 
             <?php if( have_rows('faq_item') ): 
@@ -11,13 +14,12 @@
 
 
             <div class="block__item">
-                <div
-                    class="block__title <?php if($altColor == true): echo 'alt-color'; endif;?> <?php if($oneOnly == true): echo 'one'; endif;?>">
+                <div class="block__title">
                     <h3 class="heading"><span
                             class="highlight-letter"><?php the_sub_field('letter'); ?></span><?php the_sub_field('title'); ?>
                     </h3>
                 </div>
-                <div class="block__text <?php if($altColor == true): echo 'alt-color'; endif;?>">
+                <div class="block__text">
                     <?php the_sub_field('description'); ?>
                     <?php 
 $link = get_sub_field('faq_link');
