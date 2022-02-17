@@ -1,7 +1,7 @@
 //@prepros-prepend mixitup.min.js
 //@prepros-prepend mixitup-pagination.js
 //@prepros-prepend jquery.magnific-popup.js
-//@prepros-prepend owl.carousel.min.js
+//@prepros-prepend slick.min.js
 //@prepros-prepend readmore.js
 //@prepros-prepend scrollreveal.js
 
@@ -49,30 +49,30 @@ $(".tabbed-section__head--tab").click(function (e) {
 
 // ============ Carousels
  
-$(".testimonial-carousel").owlCarousel({
-  loop:true,
-  margin:48,
-  center:true,
-  nav:true,
-  dots:false,
-  items:1,
-  autoplay:true,
-    autoplayTimeout:6000,
-    autoplayHoverPause:true,
-});
+// $(".testimonial-carousel").owlCarousel({
+//   loop:true,
+//   margin:48,
+//   center:true,
+//   nav:true,
+//   dots:false,
+//   items:1,
+//   autoplay:true,
+//     autoplayTimeout:6000,
+//     autoplayHoverPause:true,
+// });
 
-$(".fadeOut").owlCarousel({
-  loop:true,
-  margin:48,
-  center:true,
-  nav:false,
-  dots:false,
-  items:1,
-  animateOut: 'fadeOut',
-  autoplay:true,
-    autoplayTimeout:4000,
-    autoplayHoverPause:true,
-});
+// $(".fadeOut").owlCarousel({
+//   loop:true,
+//   margin:48,
+//   center:true,
+//   nav:false,
+//   dots:false,
+//   items:1,
+//   animateOut: 'fadeOut',
+//   autoplay:true,
+//     autoplayTimeout:4000,
+//     autoplayHoverPause:true,
+// });
 
 // $(".large-advert").owlCarousel({
 //   loop:true,
@@ -283,6 +283,19 @@ $(document).ready(function() {
   }
 });
 
+// SLICK SLIDER
+
+$('.single-slider--blocks').slick();
+
+$('.experience-blocks').slick();
+
+$('.triple-blocks').slick({
+  centerMode: true,
+  centerPadding: '200px',
+  slidesToShow: 1,
+  arrows: false,
+  focusOnSelect: true,
+});
 
 
 

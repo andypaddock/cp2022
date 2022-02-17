@@ -1,0 +1,118 @@
+.single-slider {
+  &--image {
+    @include backgroundCover;
+    width: 100%;
+    min-height: 35rem;
+    position: relative;
+    flex-direction: column;
+    img {
+      width: 100%;
+    }
+  }
+  &--text {
+    color: $color-white;
+    position: absolute;
+    right: 50%;
+    bottom: 10rem;
+    transform: translate(50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &--link {
+    width: 20%;
+    margin: 0 auto;
+  }
+  .slick-prev,
+  .slick-next {
+    top: 100%;
+    transform: translate(0, -100%);
+  }
+  .slick-prev {
+    left: -8rem;
+  }
+  .slick-next {
+    right: -8rem;
+  }
+  .revealup {
+    transform: translate(50%, 5rem);
+    opacity: 0;
+    transition: all 1s ease 1s;
+  }
+  .slick-active .revealup {
+    transform: translate(50%, 0);
+    opacity: 1;
+  }
+}
+.experience-slider {
+  .image-advert {
+    @include backgroundCover;
+    min-height: 50rem;
+    display: flex;
+    align-items: flex-end;
+    padding: 3rem 6rem;
+    .tri-col {
+      align-items: flex-end;
+      .text {
+        padding: 0 4rem;
+        margin: 2rem 0;
+        border-left: 1px solid $color-white;
+      }
+      .title {
+        position: relative;
+        padding: 2rem;
+      }
+      .link {
+        align-self: center;
+        padding: 2rem;
+      }
+    }
+  }
+  .slick-prev,
+  .slick-next {
+    top: 100%;
+    transform: translate(0, -100%);
+  }
+  .slick-prev {
+    left: -8rem;
+  }
+  .slick-next {
+    right: -8rem;
+  }
+  .revealup {
+    transform: translateY(5rem);
+    opacity: 0;
+    transition: all 1s ease 1s;
+  }
+  .slick-active .revealup {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.triple-slider {
+  .flex-row {
+    overflow: hidden;
+  }
+  &--item {
+    flex-direction: column;
+    opacity: 0.5;
+    &.slick-active {
+      opacity: 1;
+    }
+  }
+  .triple-blocks {
+    .image-advert {
+      @include backgroundCover;
+      min-height: 30rem;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .slick-slide {
+    margin: 5rem;
+  }
+  .slick-list {
+    overflow: visible;
+  }
+}

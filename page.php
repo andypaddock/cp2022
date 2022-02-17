@@ -62,6 +62,10 @@ get_header(); ?>
 <?php get_template_part('template-parts/nav_bar');?>
 <?php elseif( get_row_layout() == 'single_slider' ):?>
 <?php get_template_part('template-parts/single_slider');?>
+<?php elseif( get_row_layout() == 'experience_slider' ):?>
+<?php get_template_part('template-parts/experience_slider');?>
+<?php elseif( get_row_layout() == 'itinerary_slider' ):?>
+<?php get_template_part('template-parts/itinerary_slider');?>
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>

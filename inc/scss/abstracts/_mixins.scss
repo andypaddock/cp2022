@@ -72,6 +72,13 @@ ORDER: Base + typography > general layout + grid > page layout > components
   background-attachment: fixed;
 }
 
+// FONT AWESOME STYLES
+
+@mixin fontawesomeLight {
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 300;
+}
+
 //=== Drawing effect
 
 @mixin btn-border-drawing(

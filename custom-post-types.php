@@ -28,7 +28,7 @@ function custom_post_type_safari_types() {
         'label'               => __( 'Safari types' ),
         'description'         => __( 'Safari types'),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'taxonomies', 'thumbnail', 'page-attributes' ),
+        'supports'            => array( 'title', 'taxonomies', 'thumbnail', 'excerpt', 'page-attributes' ),
         'menu_icon'           => 'dashicons-admin-site',
         'hierarchical'        => false,
         'public'              => true,

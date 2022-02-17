@@ -6,9 +6,9 @@ $advertImage = get_sub_field('background_image'); ?>
     <?php if( get_sub_field('section_id') ): ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
     <div class="row <?php the_sub_field('column_size'); ?>">
         <div class="image-advert" style="background-image: url(<?php echo $advertImage['url']; ?>)">
-            <div class="tri-col">
+            <div class="tri-col fmbottom">
 
-                <div class="title fmbottom">
+                <div class="title">
                     <h3 class="heading-tertiary <?php
 if(get_sub_field('switch_text'))
 {
@@ -22,7 +22,7 @@ if(get_sub_field('switch_text'))
 }
 ?>"><?php the_sub_field('title'); ?></h3>
                 </div>
-                <div class="text fmbottom <?php
+                <div class="text <?php
 if(get_sub_field('switch_text'))
 {
 	echo 'alt-color';
@@ -30,7 +30,7 @@ if(get_sub_field('switch_text'))
 ?>">
                     <p><?php the_sub_field('paragraph'); ?></p>
                 </div>
-                <div class="link fmbottom">
+                <div class="link ">
                     <?php 
 $link = get_sub_field('link');
 if( $link ): 
