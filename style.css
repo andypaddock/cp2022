@@ -16,6 +16,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
 1em = 16px
 */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,100&display=swap");
 @-webkit-keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -464,6 +465,10 @@ blockquote {
   color: #fff;
 }
 
+.alt-font-pop {
+  font-family: "Poppins", sans-serif;
+}
+
 .u-center-text {
   text-align: center !important;
 }
@@ -528,6 +533,46 @@ blockquote {
 
 .equal-pad {
   padding: 2rem 0;
+}
+
+.imageoff-10 {
+  background-position: 10% !important;
+}
+
+.imageoff-20 {
+  background-position: 20% !important;
+}
+
+.imageoff-30 {
+  background-position: 30% !important;
+}
+
+.imageoff-40 {
+  background-position: 40% !important;
+}
+
+.imageoff-50 {
+  background-position: 50% !important;
+}
+
+.imageoff-60 {
+  background-position: 60% !important;
+}
+
+.imageoff-70 {
+  background-position: 70% !important;
+}
+
+.imageoff-80 {
+  background-position: 80% !important;
+}
+
+.imageoff-90 {
+  background-position: 90% !important;
+}
+
+.imageoff-100 {
+  background-position: 100% !important;
 }
 
 .bg-video {
@@ -848,10 +893,9 @@ blockquote {
 
 .advert-image .image-advert {
   min-height: 50rem;
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -892,10 +936,9 @@ blockquote {
 
 .image-text .image-advert {
   min-height: 60rem;
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 .image-text .text-box {
   display: -webkit-box;
@@ -945,6 +988,42 @@ blockquote {
 .staff-block .text-box .heading-secondary {
   line-height: 0.7;
   padding-bottom: 1rem;
+}
+
+.cards-block .split-col {
+  grid-gap: 4rem;
+}
+.cards-block .card-item {
+  background: #fff;
+  display: inline-block;
+  margin-bottom: 4rem;
+}
+.cards-block .card-item .card-image img {
+  width: 100%;
+}
+.cards-block .card-item .text-box {
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.cards-block .card-item .text-box .card-details {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.cards-block .card-item .text-box .card-meta {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.cards-block .flex-split-col {
+  -webkit-columns: 2;
+     -moz-columns: 2;
+          columns: 2;
+  -webkit-column-gap: 4rem;
+     -moz-column-gap: 4rem;
+          column-gap: 4rem;
 }
 
 .composition {
@@ -1198,10 +1277,9 @@ blockquote {
           flex: 1;
 }
 .section-advertblock .advert-container .advert-box-container .advert-box .image-bg {
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   height: 35rem;
   border-radius: 1rem 1rem 0 0;
 }
@@ -1276,10 +1354,9 @@ blockquote {
   -ms-flex-preferred-size: 60%;
       flex-basis: 60%;
   border-radius: 0 1rem 1rem 0;
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 @media only screen and (max-width: 37.5em) {
   .section-advertblock .advert-container .large-advert .advert .advert-image,
@@ -1641,10 +1718,9 @@ span.wpcf7-not-valid-tip {
       -ms-flex-pack: center;
           justify-content: center;
   height: 25rem;
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   border-radius: 1rem 1rem 0 0;
   text-align: center;
 }
@@ -1839,10 +1915,9 @@ span.wpcf7-not-valid-tip {
 }
 
 .section-text {
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   border-radius: 1rem;
   margin: 5rem 2rem 0;
 }
@@ -1871,10 +1946,9 @@ span.wpcf7-not-valid-tip {
 }
 .section-text.center-text .row {
   border-radius: 1rem;
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 .section-text .para-image {
   background-size: cover;
@@ -2263,10 +2337,9 @@ article p {
       -ms-flex-pack: center;
           justify-content: center;
   height: 25rem;
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 .testimonial-block .testimonial-grid .mix svg {
   position: absolute;
@@ -2546,17 +2619,15 @@ article p {
 }
 
 .background-image {
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .single-slider--image {
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   width: 100%;
   min-height: 35rem;
   position: relative;
@@ -2616,10 +2687,9 @@ article p {
 }
 
 .experience-slider .image-advert {
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   min-height: 50rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2683,25 +2753,68 @@ article p {
       -ms-flex-direction: column;
           flex-direction: column;
   opacity: 0.5;
+  background: #fff;
 }
 .triple-slider--item.slick-active {
   opacity: 1;
 }
 .triple-slider .triple-blocks .image-advert {
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  min-height: 30rem;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 .triple-slider .triple-blocks .image-advert img {
   width: 100%;
 }
+.triple-slider .triple-blocks .item-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 1.2;
+}
+.triple-slider .triple-blocks .item-details .title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: right;
+  padding: 2rem;
+}
+.triple-slider .triple-blocks .item-details .text {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 2rem;
+}
+.triple-slider .triple-blocks .item-details .destinations ul {
+  list-style: none;
+  padding-bottom: 2rem;
+}
+.triple-slider .triple-blocks .item-details .destinations ul a {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}
+.triple-slider .triple-blocks .item-details .destinations ul.children {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.triple-slider .triple-blocks .item-details .destinations ul.children a {
+  font-weight: 100;
+  text-transform: unset;
+  padding-right: 0.5rem;
+  font-size: 1.4rem;
+  font-style: italic;
+}
+.triple-slider .triple-blocks .item-details .destinations ul.children a::after {
+  content: ",";
+}
 .triple-slider .slick-slide {
   margin: 5rem;
 }
-.triple-slider .slick-list {
-  overflow: visible;
+.triple-slider .slick-center {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .footer {
@@ -2778,10 +2891,9 @@ article p {
 .footer .footer-hero {
   height: 50rem;
   border-radius: 0.5rem 0.5rem 0 0;
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3339,10 +3451,9 @@ footer .w90 {
   height: 100%;
   position: relative;
   border-radius: 0.5rem 0.5rem 0 0;
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgba(4, 11, 46, 0.1)), to(rgba(4, 11, 46, 0.2)));
   background-image: linear-gradient(0deg, rgba(4, 11, 46, 0.1) 0, rgba(4, 11, 46, 0.2) 100%);
   display: -webkit-box;

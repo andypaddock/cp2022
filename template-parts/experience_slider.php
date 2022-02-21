@@ -11,7 +11,7 @@ $featured_posts = get_sub_field('select_experiences');
 if( $featured_posts ): ?>
         <div class="experience-blocks">
             <?php foreach( $featured_posts as $post ): 
-$experienceImage = get_the_post_thumbnail_url();
+$experienceImage = get_the_post_thumbnail_url( get_the_ID(), 'large' );
         // Setup this post for WP functions (variable must be named $post).
         setup_postdata($post); ?>
 

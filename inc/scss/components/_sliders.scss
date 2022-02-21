@@ -96,6 +96,7 @@
   &--item {
     flex-direction: column;
     opacity: 0.5;
+    background: $color-white;
     &.slick-active {
       opacity: 1;
     }
@@ -103,9 +104,47 @@
   .triple-blocks {
     .image-advert {
       @include backgroundCover;
-      min-height: 30rem;
+      //   min-height: 30rem;
       img {
         width: 100%;
+      }
+    }
+    .item-details {
+      display: flex;
+      line-height: 1.2;
+
+      .title {
+        flex: 1;
+        text-align: right;
+        padding: 2rem;
+      }
+      .text {
+        flex: 1;
+        padding: 2rem;
+      }
+      .destinations {
+        ul {
+          list-style: none;
+          padding-bottom: 2rem;
+          a {
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+          }
+        }
+        ul.children {
+          display: flex;
+          a {
+            font-weight: 100;
+            text-transform: unset;
+            padding-right: 0.5rem;
+            font-size: 1.4rem;
+            font-style: italic;
+            &::after {
+              content: ",";
+            }
+          }
+        }
       }
     }
   }
@@ -113,6 +152,8 @@
     margin: 5rem;
   }
   .slick-list {
-    overflow: visible;
+  }
+  .slick-center {
+    transform: scale(1.1);
   }
 }

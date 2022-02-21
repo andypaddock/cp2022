@@ -1,4 +1,4 @@
-<?php $heroImage = get_field('hero_image'); 
+<?php
 $heroVideo = get_field('background_video');
 $heroMobile = get_field('mobile_video');
 $heroPoster = get_field('video_poster');?>
@@ -34,7 +34,8 @@ if(get_field('switch_text'))
 </div>
 
 <?php elseif ($heroSwitch == 'image'):?>
-<div class="hero" style="background-image: url(<?php echo $heroImage['url']; ?>)">
+<div class="hero imageoff-<?php the_field('image_offset');?>"
+    style="background-image: url(<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>)">
 
     <div class="row header__text-box">
         <h1 class="heading-<?php the_field('header_size'); ?> fmtop  <?php

@@ -113,6 +113,20 @@ ul#adminmenu > li.current > a.current:after {
     }
   }
 }
+.acf-postbox {
+  .acf-input {
+    .acf-range-wrap {
+      display: flex;
+      flex-direction: column;
+      input[type="number"] {
+        display: none;
+      }
+    }
+    .description {
+      color: white;
+    }
+  }
+}
 
 #poststuff .acf-label label {
   background: hsla(284, 15%, 20%, 0.7);

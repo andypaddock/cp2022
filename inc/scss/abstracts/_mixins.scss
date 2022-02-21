@@ -59,10 +59,9 @@ ORDER: Base + typography > general layout + grid > page layout > components
 }
 
 @mixin backgroundCover {
-  background-size: cover !important;
-  /* !important added as result of rule not working inside display:grid */
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 @mixin backgroundPara {

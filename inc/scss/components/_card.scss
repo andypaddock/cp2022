@@ -305,3 +305,32 @@
     }
   }
 }
+.cards-block {
+  .split-col {
+    grid-gap: 4rem;
+  }
+  .card-item {
+    background: $color-white;
+    display: inline-block;
+    margin-bottom: 4rem;
+    .card-image {
+      img {
+        width: 100%;
+      }
+    }
+    .text-box {
+      padding: 2rem;
+      display: flex;
+      .card-details {
+        flex: 1;
+      }
+      .card-meta {
+        flex: 1;
+      }
+    }
+  }
+  .flex-split-col {
+    columns: 2;
+    column-gap: 4rem;
+  }
+}

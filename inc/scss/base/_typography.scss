@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,100&display=swap");
+
 body {
   font-family: $default-font-family;
   font-weight: 200;
@@ -115,4 +117,7 @@ blockquote {
 }
 .alt-color {
   color: $color-white;
+}
+.alt-font-pop {
+  font-family: $alt-font-family;
 }
