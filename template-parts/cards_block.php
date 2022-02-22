@@ -15,7 +15,7 @@ if( $featured_posts ): ?>
         $days_field = get_field( 'how_long', $post->ID );
         $safariType = get_the_terms( $post->ID, 'safaritype' );
         setup_postdata($post); ?>
-            <div class="card-item">
+            <div class="card-item tile">
                 <div class="card-image">
                     <img src="<?php echo get_the_post_thumbnail_url($post->ID, 'medium_large'); ?>">
                 </div>

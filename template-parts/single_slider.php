@@ -4,41 +4,43 @@ $noMobile = get_sub_field('hide_on_mobile');?>
     class="single-slider <?php if($bgColor == true): echo 'alt-bg'; endif; ?> <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?>"
     <?php if( get_sub_field('section_id') ): ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
     <div class="row <?php the_sub_field('column_size'); ?>">
+
+
+        <?php 
+$terms = get_sub_field('select_items');
+if( $terms ): ?>
         <div class="single-slider--blocks">
+            <?php foreach( $terms as $term ):
+                $image = get_field('background_image', $term);
+                $icon = get_field('map_icon', $term);?>
+
+
+
             <div class="single-slider--image">
-                <img src="<?php echo get_template_directory_uri(); ?>/inc/img/dark-place.webp)" />
+                <img src="<?php echo $image['url']; ?>" />
                 <div class="single-slider--text revealup">
-                    <?php get_template_part("inc/img/uganda"); ?>
-                    <h3 class="heading-secondary">Uganda</h3>
+                    <img src="<?php echo $icon['url']; ?>" />
+                    <h3 class="heading-secondary"><?php echo esc_html( $term->name ); ?></h3>
                 </div>
                 <div class="single-slider--link">
-                    <a class="button" href="<?php echo esc_url( $link_url ); ?>"
-                        target="<?php echo esc_attr( $link_target ); ?>">Explore Uganda</a>
+                    <a class="button" href="<?php echo esc_url( get_term_link( $term ) ); ?>">Explore
+                        <?php echo esc_html( $term->name ); ?></a>
                 </div>
             </div>
-            <div class="single-slider--image">
-                <img src="<?php echo get_template_directory_uri(); ?>/inc/img/dark-place.webp)" />
-                <div class="single-slider--text revealup">
-                    <?php get_template_part("inc/img/uganda"); ?>
-                    <h3 class="heading-secondary">Uganda</h3>
-                </div>
-                <div class="single-slider--link">
-                    <a class="button" href="<?php echo esc_url( $link_url ); ?>"
-                        target="<?php echo esc_attr( $link_target ); ?>">Explore Uganda</a>
-                </div>
-            </div>
-            <div class="single-slider--image">
-                <img src="<?php echo get_template_directory_uri(); ?>/inc/img/dark-place.webp)" />
-                <div class="single-slider--text revealup">
-                    <?php get_template_part("inc/img/uganda"); ?>
-                    <h3 class="heading-secondary">Uganda</h3>
-                </div>
-                <div class="single-slider--link">
-                    <a class="button" href="<?php echo esc_url( $link_url ); ?>"
-                        target="<?php echo esc_attr( $link_target ); ?>">Explore Uganda</a>
-                </div>
-            </div>
+
+
+
+            <?php endforeach; ?>
         </div>
+        <?php endif; ?>
+
+
+
+
+
+
+
+
 
     </div>
 </section>

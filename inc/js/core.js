@@ -287,7 +287,27 @@ $(document).ready(function() {
 
 $('.single-slider--blocks').slick();
 
-$('.experience-blocks').slick();
+$('.experience-blocks').slick({
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+      
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        dots: true,
+        arrows: false,
+      }
+    },
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
 
 $('.triple-blocks').slick({
   centerMode: true,
@@ -295,6 +315,29 @@ $('.triple-blocks').slick({
   slidesToShow: 1,
   arrows: false,
   focusOnSelect: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 3,
+        infinite: true,
+        
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        centerMode: false,
+        centerPadding: '0px',
+        dots: true
+      }
+    },
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
 });
 
 

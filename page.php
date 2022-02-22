@@ -70,6 +70,10 @@ get_header(); ?>
 <?php get_template_part('template-parts/itinerary_slider');?>
 <?php elseif( get_row_layout() == 'cards_block' ):?>
 <?php get_template_part('template-parts/cards_block');?>
+<?php elseif( get_row_layout() == 'portrait_block' ):?>
+<?php get_template_part('template-parts/portrait_block');?>
+<?php elseif( get_row_layout() == 'portrait_block_filter' ):?>
+<?php get_template_part('template-parts/portrait_block_filter');?>
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>

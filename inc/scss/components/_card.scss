@@ -309,6 +309,7 @@
   .split-col {
     grid-gap: 4rem;
   }
+
   .card-item {
     background: $color-white;
     display: inline-block;
@@ -332,5 +333,38 @@
   .flex-split-col {
     columns: 2;
     column-gap: 4rem;
+  }
+}
+.portrait-cards-block {
+  .quad-col {
+    grid-gap: $gutter-horizontal;
+  }
+  .card-item {
+    background: $color-white;
+    display: inline-block;
+    margin-bottom: 4rem;
+    .card-image {
+      height: 50rem;
+      @include backgroundCover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4rem 2rem;
+      img {
+        height: 100%;
+        max-width: 100%;
+      }
+    }
+    .text-box {
+      padding: 2rem;
+      display: flex;
+      .card-details {
+        flex: 1;
+      }
+      .card-meta {
+        flex: 1;
+      }
+    }
   }
 }
