@@ -1,4 +1,10 @@
 @charset "UTF-8";
+/*!
+Theme Name: Cheli Peacock 2022
+Author: Silverless
+Author URI: https://silverless.co.uk/
+Version: 2.0
+*/
 /*
 0 - 600px:      Phone
 600 - 900px:    Tablet portrait
@@ -5134,4 +5140,35 @@ img.mfp-img {
 .slick-dots li.slick-active button:before {
   opacity: 0.75;
   color: black;
+}
+
+.itin-map {
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  min-height: 50rem;
+}
+
+.overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.overlay button {
+  font: 600 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  background-color: #3386c0;
+  color: #fff;
+  display: inline-block;
+  margin: 0;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.overlay button:hover {
+  background-color: #4ea0da;
 }

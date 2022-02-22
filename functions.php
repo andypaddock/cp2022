@@ -165,13 +165,6 @@ add_filter('manage_edit-category_columns','manage_my_category_columns');
 
 show_admin_bar(false);
 
-
-function my_acf_google_map_api( $api ){
-    $api['key'] = 'AIzaSyAww1oT-GyrFh_DTnnBF6LwtUBkEVunVlU';
-    return $api;
-}
-add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
-
 function excerpt($limit) {
     $excerpt = explode(' ', get_the_excerpt(), $limit);
     if (count($excerpt)>=$limit) {
@@ -319,3 +312,10 @@ function smartwp_remove_wp_block_library_css(){
   wp_dequeue_style( 'wc-block-style' ); // Remove WooCommerce block CSS
 } 
 add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
+
+function my_acf_google_map_api( $api ){
+  $api['key'] = 'AIzaSyClrCRpYppmoqOu5RPPM-Aj71LsNq6lMHY';
+  return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
