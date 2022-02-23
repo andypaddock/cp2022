@@ -8,26 +8,7 @@ get_header(); ?>
 
 
 
-<section class="post-content">
-    <div class="row w60">
-        <div class="flex-container">
 
-            <?php
- 
-if ( have_posts() ) : 
-    while ( have_posts() ) : the_post();
-        // the_content();
-        get_template_part('template-parts/postcontent');
-        endwhile;
-        else :
-        _e( 'Sorry, no posts matched your criteria.', 'textdomain' );
-        endif;
-
-        ?>
-
-        </div>
-    </div>
-</section>
 <span id="content"></span>
 <?php if( have_rows('main_page_elements') ): ?>
 <?php while( have_rows('main_page_elements') ): the_row(); ?>
@@ -69,10 +50,39 @@ if ( have_posts() ) :
 <?php get_template_part('template-parts/imageboxes');?>
 <?php elseif( get_row_layout() == 'advertblock' ):?>
 <?php get_template_part('template-parts/advertblock');?>
-<?php elseif( get_row_layout() == 'gallery_block' ):?>
-<?php get_template_part('template-parts/gallery');?>
+<?php elseif( get_row_layout() == 'modal_window' ):?>
+<?php get_template_part('template-parts/modal');?>
+<?php elseif( get_row_layout() == 'logo_large_text' ):?>
+<?php get_template_part('template-parts/logo_large_text');?>
+<?php elseif( get_row_layout() == 'large_image_link' ):?>
+<?php get_template_part('template-parts/large_image_link');?>
+<?php elseif( get_row_layout() == 'large_image_text' ):?>
+<?php get_template_part('template-parts/large_image_text');?>
+<?php elseif( get_row_layout() == 'image_text_repeat' ):?>
+<?php get_template_part('template-parts/image_text_repeat');?>
+<?php elseif( get_row_layout() == 'staff_block' ):?>
+<?php get_template_part('template-parts/staff_block');?>
+<?php elseif( get_row_layout() == 'nav_bar' ):?>
+<?php get_template_part('template-parts/nav_bar');?>
+<?php elseif( get_row_layout() == 'single_slider' ):?>
+<?php get_template_part('template-parts/single_slider');?>
+<?php elseif( get_row_layout() == 'experience_slider' ):?>
+<?php get_template_part('template-parts/experience_slider');?>
+<?php elseif( get_row_layout() == 'itinerary_slider' ):?>
+<?php get_template_part('template-parts/itinerary_slider');?>
+<?php elseif( get_row_layout() == 'itinerary_slider' ):?>
+<?php get_template_part('template-parts/itinerary_slider');?>
+<?php elseif( get_row_layout() == 'cards_block' ):?>
+<?php get_template_part('template-parts/cards_block');?>
+<?php elseif( get_row_layout() == 'portrait_block' ):?>
+<?php get_template_part('template-parts/portrait_block');?>
+<?php elseif( get_row_layout() == 'portrait_block_filter' ):?>
+<?php get_template_part('template-parts/portrait_block_filter');?>
+<?php elseif( get_row_layout() == 'linked_itinerary_slider' ):?>
+<?php get_template_part('template-parts/linked_itinerary_slider');?>
+
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>
-<?php get_template_part('template-parts/blog_feed');?>
+
 <?php get_footer(); ?>

@@ -124,7 +124,7 @@
   .triple-blocks {
     .image-advert {
       @include backgroundCover;
-      //   min-height: 30rem;
+      height: 40rem;
       img {
         width: 100%;
       }

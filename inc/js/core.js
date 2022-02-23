@@ -176,7 +176,10 @@ var mixer;
 
 if (containerEl) {
     mixer = mixitup(containerEl, {
-         
+      controls: {
+        toggleLogic: 'or',
+        toggleDefault:'none'
+    }
     });
 }
 

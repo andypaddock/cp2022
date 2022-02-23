@@ -174,8 +174,7 @@
   }
 }
 
-.top-navbar,
-.footer-navbar {
+.top-navbar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -184,8 +183,7 @@
   justify-content: space-between;
 }
 
-.top-navbar,
-.footer-navbar {
+.top-navbar {
   display: inline-flex;
   position: relative;
   ul {

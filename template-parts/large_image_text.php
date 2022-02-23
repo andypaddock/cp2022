@@ -23,13 +23,14 @@ if(get_sub_field('switch_text'))
 
 
 
-
-                <p class="text <?php
+                <article>
+                    <p class="text <?php
 if(get_sub_field('switch_text'))
 {
 	echo 'alt-color';
 }
 ?>"><?php the_sub_field('paragraph'); ?></p>
+                </article>
 
                 <?php 
 $link = get_sub_field('link');

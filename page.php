@@ -74,6 +74,9 @@ get_header(); ?>
 <?php get_template_part('template-parts/portrait_block');?>
 <?php elseif( get_row_layout() == 'portrait_block_filter' ):?>
 <?php get_template_part('template-parts/portrait_block_filter');?>
+<?php elseif( get_row_layout() == 'linked_itinerary_slider' ):?>
+<?php get_template_part('template-parts/linked_itinerary_slider');?>
+
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>

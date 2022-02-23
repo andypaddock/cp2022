@@ -6,7 +6,7 @@ $noMobile = get_sub_field('hide_on_mobile');?>
     <div class="row <?php the_sub_field('column_size'); ?>">
         <?php if(get_sub_field('show_filters')):?>
         <div class="controls">
-            <ul>
+            <ul class="flex-col alt-font-pop">
                 <?php $all_categories = get_terms( array(
   'taxonomy' => 'destinations',
   'hide_empty' => true,
@@ -14,7 +14,7 @@ $noMobile = get_sub_field('hide_on_mobile');?>
 ) );?>
 
                 <?php foreach($all_categories as $category): ?>
-                <li type="button" data-filter=".<?php echo $category->slug; ?>">
+                <li class="flex-items" type="button" data-toggle=".<?php echo $category->slug; ?>">
                     <?php echo $category->name; ?></li>
                 <?php endforeach; ?>
             </ul>
@@ -23,9 +23,10 @@ $noMobile = get_sub_field('hide_on_mobile');?>
 
         <div class="filter-grid quad-col">
             <?php
+            $customType = get_sub_field('show_posts_from');
 $loop = new WP_Query(
     array(
-        'post_type' => 'itineraries', 
+        'post_type' => $customType, 
         'posts_per_page' => -1,
     )
 );

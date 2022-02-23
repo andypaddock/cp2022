@@ -2,18 +2,21 @@
 $noMobile = get_sub_field('hide_on_mobile');
  ?>
 <section
-    class="triple-slider <?php if($bgColor == true): echo 'alt-bg'; endif; ?> <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?>"
+    class="triple-slider linked-slider <?php if($bgColor == true): echo 'alt-bg'; endif; ?> <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?>"
     <?php if( get_sub_field('section_id') ): ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
     <div class="row <?php the_sub_field('column_size'); ?>">
 
+
         <?php
-$featured_posts = get_sub_field('select_itineraries');
+$featured_posts = get_field('relational_itineraries');
 if( $featured_posts ): ?>
+
+
         <div class="triple-blocks">
             <?php foreach( $featured_posts as $post ): 
 $experienceImage = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
-        // Setup this post for WP functions (variable must be named $post).
-        setup_postdata($post); ?>
+// Setup this post for WP functions (variable must be named $post).
+setup_postdata($post); ?>
 
             <div class="triple-slider--item">
                 <div class="image-advert" style="background-image: url(<?php echo $experienceImage; ?>)">
@@ -70,5 +73,13 @@ if( $terms ) {
     // Reset the global post object so that the rest of the page works correctly.
     wp_reset_postdata(); ?>
         <?php endif; ?>
+
+
+
+
+
+
+
+
     </div>
 </section>
