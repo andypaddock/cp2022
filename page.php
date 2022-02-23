@@ -76,6 +76,10 @@ get_header(); ?>
 <?php get_template_part('template-parts/portrait_block_filter');?>
 <?php elseif( get_row_layout() == 'linked_itinerary_slider' ):?>
 <?php get_template_part('template-parts/linked_itinerary_slider');?>
+<?php elseif( get_row_layout() == 'gallery_block' ):?>
+<?php get_template_part('template-parts/gallery_block');?>
+<?php elseif( get_row_layout() == 'gallery_text_repeat' ):?>
+<?php get_template_part('template-parts/gallery_text_repeat');?>
 
 <?php endif; ?>
 <?php endwhile; ?>

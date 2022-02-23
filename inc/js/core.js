@@ -21,12 +21,15 @@ jQuery(document).ready(function($) {
 
 // ========== Controller for lightbox elements
 
-$('.parent').magnificPopup({
-  delegate: 'a.lightbox-gallery',
+$('#parent').magnificPopup({
+  delegate: 'a',
   type: 'image',
+  mainClass: 'mfp-img-mobile',
   gallery: {
-    enabled: true
-  }
+    enabled: true,
+    navigateByImgClick: true,
+    preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+  },
 });
 
 
@@ -289,6 +292,15 @@ $(document).ready(function() {
 // SLICK SLIDER
 
 $('.single-slider--blocks').slick();
+
+$('.slider-images').slick({
+  dots: true,
+  arrows: false,
+  slidesToShow: 1,
+  speed: 500,
+  fade: true,
+  cssEase: 'linear'
+});
 
 $('.experience-blocks').slick({
   responsive: [
