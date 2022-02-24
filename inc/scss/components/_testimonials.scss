@@ -194,3 +194,23 @@
     }
   }
 }
+.testimonial {
+  text-align: center;
+  .quote {
+    padding: 2rem 0;
+    .quote-cite {
+      padding-top: 4rem;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        border-right: 1px solid $color-primary;
+        height: 1.75rem;
+        z-index: 1;
+        top: 1rem;
+        transform: rotate(90deg);
+      }
+    }
+  }
+}

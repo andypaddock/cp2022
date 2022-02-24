@@ -9,30 +9,31 @@ $largeImage = get_sub_field('background_image'); ?>
 
         <?php if( have_rows('slider_and_text_element') ): ?>
         <?php while( have_rows('slider_and_text_element') ): the_row();?>
-        <div class="slider-images">
-            <?php 
+        <?php $switchImage = get_sub_field('switch_text_to_left'); ?>
+        <div class="split-col <?php if($switchImage == true): echo 'switch-order'; endif; ?>">
+            <div class="slider-images">
+                <?php 
 $images = get_sub_field('gallery_images');
 if( $images ): ?>
-            <?php foreach( $images as $image ): ?>
-            <div class="image">
-                <img src="<?php echo esc_url($image['sizes']['large']); ?>"
-                    alt="<?php echo esc_attr($image['alt']); ?>" />
+                <?php foreach( $images as $image ): ?>
+                <div class="image" style="background-image: url(<?php echo esc_url($image['sizes']['large']); ?>)">
+
+                </div>
+
+                <?php endforeach; ?>
+                <?php endif; ?>
             </div>
-
-            <?php endforeach; ?>
-            <?php endif; ?>
-        </div>
-        <div class="text-box">
+            <div class="text-box">
 
 
-            <h3 class="heading-tertiary <?php
+                <h3 class="heading-tertiary <?php
 if(get_sub_field('switch_text'))
 {
 	echo 'alt-color';
 }
 ?>"><?php the_sub_field('title'); ?></h3>
 
-            <p class="text lead-para <?php
+                <p class="text lead-para <?php
 if(get_sub_field('switch_text'))
 {
 	echo 'alt-color';
@@ -40,7 +41,7 @@ if(get_sub_field('switch_text'))
 ?>"><?php the_sub_field('lead_paragraph'); ?></p>
 
 
-            <p class="text <?php
+                <p class="text <?php
 if(get_sub_field('switch_text'))
 {
 	echo 'alt-color';
@@ -48,22 +49,19 @@ if(get_sub_field('switch_text'))
 ?>"><?php the_sub_field('paragraph'); ?></p>
 
 
-            <?php 
+                <?php 
 $link = get_sub_field('link');
 if( $link ): 
     $link_url = $link['url'];
     $link_title = $link['title'];
     $link_target = $link['target'] ? $link['target'] : '_self';
     ?>
-            <a class="button" href="<?php echo esc_url( $link_url ); ?>"
-                target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-            <?php endif; ?>
+                <a class="button" href="<?php echo esc_url( $link_url ); ?>"
+                    target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                <?php endif; ?>
+            </div>
         </div>
         <?php endwhile; ?>
-
         <?php endif; ?>
-
-
-
     </div>
 </section>

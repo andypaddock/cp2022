@@ -297,7 +297,8 @@ $('.slider-images').slick({
   dots: true,
   arrows: false,
   slidesToShow: 1,
-  speed: 500,
+  autoplay: true,
+  autoplaySpeed: 4000,
   fade: true,
   cssEase: 'linear'
 });

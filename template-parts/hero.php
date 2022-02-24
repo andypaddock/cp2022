@@ -20,7 +20,8 @@ if(get_field('switch_text'))
 	echo 'alt-color';
 }
 ?>">
-            <span class="heading-<?php the_field('header_size'); ?>--main fmleft"><?php the_field('header'); ?></span>
+            <span
+                class="heading-<?php the_field('header_size'); ?>--main fmleft"><?php if (get_field('header')): ?><?php the_field('header'); ?><?php else: ?><?php the_title(); ?><?php endif ?></span>
             <span
                 class="heading-<?php the_field('header_size'); ?>--sub fmright"><?php the_field('sub_header'); ?></span>
         </h1>
@@ -44,7 +45,8 @@ if(get_field('switch_text'))
 	echo 'alt-color';
 }
 ?>">
-            <span class="heading-<?php the_field('header_size'); ?>--main fmleft"><?php the_field('header'); ?></span>
+            <span
+                class="heading-<?php the_field('header_size'); ?>--main fmleft"><?php if (get_field('header')): ?><?php the_field('header'); ?><?php else: ?><?php the_title(); ?><?php endif ?></span>
             <span
                 class="heading-<?php the_field('header_size'); ?>--main fmright"><?php the_field('sub_header'); ?></span>
         </h1>

@@ -333,6 +333,44 @@
   .flex-split-col {
     columns: 2;
     column-gap: 4rem;
+    .item-details {
+      display: flex;
+      line-height: 1.2;
+
+      .title {
+        flex: 1;
+        text-align: right;
+        padding: 2rem;
+      }
+      .text {
+        flex: 1;
+        padding: 2rem 2rem 0 2rem;
+      }
+      .destinations {
+        ul {
+          list-style: none;
+          padding-bottom: 2rem;
+          a {
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+          }
+        }
+        ul.children {
+          display: flex;
+          a {
+            font-weight: 100;
+            text-transform: unset;
+            padding-right: 0.5rem;
+            font-size: 1.4rem;
+            font-style: italic;
+            &::after {
+              content: ",";
+            }
+          }
+        }
+      }
+    }
   }
 }
 .portrait-cards-block {
@@ -368,26 +406,26 @@
       }
     }
   }
-  .controls {
-    padding: 2rem 0;
-    .flex-col {
-      grid-gap: $gutter-horizontal;
-    }
-    ul {
-      list-style: none;
-      li {
-        color: $color-white;
-        background: transparent;
-        border: 1px solid $color-white;
+}
+.controls {
+  padding: 2rem 0;
+  .flex-col {
+    grid-gap: $gutter-horizontal;
+  }
+  ul {
+    list-style: none;
+    li {
+      color: $color-white;
+      background: transparent;
+      border: 1px solid $color-white;
 
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-        text-transform: uppercase;
-        font-size: 1.3rem;
-        &.mixitup-control-active {
-          color: $color-black;
-          background: $color-white;
-        }
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 1.3rem;
+      &.mixitup-control-active {
+        color: $color-black;
+        background: $color-white;
       }
     }
   }

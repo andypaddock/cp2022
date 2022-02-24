@@ -1,16 +1,16 @@
 <?php $bgColor = get_sub_field('bg_colour');
 $noMobile = get_sub_field('hide_on_mobile');?>
-<section class="section-text" <?php if($bgColor == true): echo 'alt-bg'; endif; ?>
-    <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?>"c
+<section class="section-text <?php if($bgColor == true): echo 'alt-bg'; endif; ?>
+    <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?>"
     <?php if( get_sub_field('section_id') ): ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
     <div class="row <?php the_sub_field('column_size'); ?>">
-        <div class="row">
-            <?php if (get_sub_field('text_block_header')):?>
-            <h2 class="heading-<?php the_sub_field('header_size'); ?>">
-                <?php the_sub_field('text_block_header'); ?> </h2>
-            <?php endif; ?>
-        </div>
-        <div class="row text-para <?php the_sub_field('columns'); ?>">
+
+        <?php if (get_sub_field('text_block_header')):?>
+        <h2 class="heading-<?php the_sub_field('header_size'); ?>">
+            <?php the_sub_field('text_block_header'); ?> </h2>
+        <?php endif; ?>
+
+        <div class="text-para <?php the_sub_field('columns'); ?>">
             <?php the_sub_field('paragraphs'); ?>
             <?php 
 $link = get_sub_field('link');
