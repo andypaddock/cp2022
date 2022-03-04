@@ -1,11 +1,12 @@
 <?php $bgColor = get_sub_field('bg_colour');
-$noMobile = get_sub_field('hide_on_mobile');?>
+$noMobile = get_sub_field('hide_on_mobile');
+$stickNav = get_sub_field('stick_nav');?>
 <section
-    class="nav-block <?php if($bgColor == true): echo 'alt-bg'; endif; ?> <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?>"
+    class="nav-block <?php if($bgColor == true): echo 'alt-bg'; endif; ?> <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?> <?php if($stickNav == true): echo 'stick-top'; else: echo 'fmtop'; endif; ?>"
     <?php if( get_sub_field('section_id') ): ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
     <div class="row <?php the_sub_field('column_size'); ?>">
 
-        <div class="flex-col fmtop">
+        <div class="flex-col">
             <?php if( have_rows('nav_block') ): ?>
             <?php while( have_rows('nav_block') ): the_row(); ?>
 

@@ -207,7 +207,7 @@
   position: fixed;
   top: 0;
   z-index: 1;
-  right: 0;
+  left: 0;
   background-color: $color-primary;
 }
 
@@ -231,17 +231,13 @@
   transition: all 0.7s ease;
 }
 
-.nav-right {
+.nav-left {
   position: fixed;
-  right: 3rem;
+  left: 3rem;
   top: 2rem;
-  display: none;
-  @include respond(tab-port) {
-    display: block;
-  }
 }
 
-.nav-right.visible-xs {
+.nav-left.visible-xs {
   z-index: 3;
 }
 
@@ -257,7 +253,7 @@
   transition: all 0.7s ease;
 }
 
-.nav-right.visible-xs .active .bar {
+.nav-left.visible-xs .active .bar {
   background-color: #fff;
   transition: all 0.7s ease;
 }
@@ -275,7 +271,7 @@
 }
 
 .move-to-left {
-  transform: translateX(-400px);
+  transform: translateX(400px);
 }
 
 nav {

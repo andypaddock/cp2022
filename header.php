@@ -32,7 +32,7 @@
     <!-- Google Tag Manager (noscript) -->
 
     <!-- End Google Tag Manager (noscript) -->
-    <div class="nav-right visible-xs">
+    <div class="nav-left visible-xs">
         <div class="navbutton" id="btn">
             <div class="bar top"></div>
             <div class="bar middle"></div>
@@ -51,7 +51,7 @@
         <nav>
             <!-- nav-right -->
 
-            <div class="nav-right hidden-xs">
+            <div class="nav-left hidden-xs">
                 <div class="navbutton" id="btn">
                     <div class="bar top"></div>
                     <div class="bar middle"></div>
@@ -61,6 +61,9 @@
 
 
         </nav>
+
+
+
 
         <header class="header <?php the_field('hero_section_size'); ?>">
 

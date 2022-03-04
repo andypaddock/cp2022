@@ -342,3 +342,8 @@
   -ms-transition: transform 0.3s ease 0s;
   -o-transition: transform 0.3s ease 0s;
 }
+.stick-top {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
