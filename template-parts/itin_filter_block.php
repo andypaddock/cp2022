@@ -13,7 +13,8 @@ $noMobile = get_sub_field('hide_on_mobile');?>
 ) );?>
 
                 <?php foreach($all_categories as $category): ?>
-                <li class="flex-items" type="button" data-toggle=".<?php echo $category->slug; ?>">
+                <li class="flex-items mixitup-control-active" type="button"
+                    data-toggle=".<?php echo $category->slug; ?>">
                     <?php echo $category->name; ?></li>
                 <?php endforeach; ?>
             </ul>

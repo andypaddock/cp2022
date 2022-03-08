@@ -197,7 +197,7 @@
 .testimonial {
   text-align: center;
   .quote {
-    padding: 2rem 0;
+    padding: 4rem 0;
     .quote-cite {
       padding-top: 4rem;
       position: relative;
@@ -211,6 +211,12 @@
         top: 1rem;
         transform: rotate(90deg);
       }
+    }
+    .mark {
+      color: $color-white;
+      font-family: $default-font-heading;
+      font-size: 6rem;
+      line-height: 0.3;
     }
   }
 }

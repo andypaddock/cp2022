@@ -300,7 +300,25 @@ $('.slider-images').slick({
   autoplay: true,
   autoplaySpeed: 4000,
   fade: true,
-  cssEase: 'linear'
+  cssEase: 'linear',
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+      
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        dots: true,
+        arrows: false,
+      }
+    },
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
 });
 
 $('.experience-blocks').slick({

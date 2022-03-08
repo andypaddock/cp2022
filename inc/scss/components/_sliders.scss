@@ -28,6 +28,9 @@
   &--link {
     width: 20%;
     margin: 0 auto;
+    @include respond(tab-port) {
+      width: 50%;
+    }
   }
   .slick-prev,
   .slick-next {

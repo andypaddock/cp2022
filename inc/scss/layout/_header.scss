@@ -16,9 +16,6 @@
   @include respond(tab-port) {
     height: 100vh !important;
   }
-  @include respond(phone) {
-    margin-top: 0;
-  }
   // &__logo-box {
   //   position: absolute;
   //   top: 4rem;
@@ -434,5 +431,20 @@ nav {
     letter-spacing: 0.3rem;
     text-decoration: none;
     text-transform: uppercase;
+  }
+}
+.top-logo {
+  z-index: 1;
+  text-align: center;
+  padding-top: 3rem;
+  position: sticky;
+  top: 0;
+  svg {
+    path {
+      fill: $color-white;
+    }
+    @include respond(tab-port) {
+      height: 1.75rem;
+    }
   }
 }

@@ -63,7 +63,7 @@ $counter++;
                 $secondarys = wp_get_post_terms($post->ID,'propertystyle'); ?>
 
                 <div
-                    class="card-item mix tile <?php foreach( $terms as $term ) echo ' ' . $term->slug; ?> <?php foreach( $secondarys as $secondary ) echo ' ' . $secondary->slug; ?>">
+                    class="card-item mix <?php foreach( $terms as $term ) echo ' ' . $term->slug; ?> <?php foreach( $secondarys as $secondary ) echo ' ' . $secondary->slug; ?>">
                     <div class="card-image">
                         <a href="<?php the_permalink(); ?>"><img
                                 src="<?php echo get_the_post_thumbnail_url($post->ID, 'medium_large'); ?>"></a>
@@ -75,10 +75,10 @@ $counter++;
                                 <span class="heading-secondary--sub underscores"><?php the_title(); ?></span>
                             </a>
                         </h2>
-                        <p><?php echo wp_trim_words( get_the_excerpt(), 15, '...' ); ?></p>
+                        <p><?php echo wp_trim_words( get_the_excerpt(), 30, '...' ); ?></p>
                     </div>
                     <div class="post-link">
-                        <a class="button text" href="<?php echo get_permalink( $post->ID ); ?>">
+                        <a class="button textonly" href="<?php echo get_permalink( $post->ID ); ?>">
                             Read more
                         </a>
                     </div>

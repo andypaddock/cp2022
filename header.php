@@ -42,9 +42,8 @@
 
     <main>
 
-        <!-- <div class="logo-mobile"><a
-                href="<?php echo site_url(); ?>"><?php get_template_part("inc/img/cplogolrg"); ?></a>
-        </div> -->
+        <div class="top-logo"><a href="<?php echo site_url(); ?>"><?php get_template_part("inc/img/cplogotxt"); ?></a>
+        </div>
 
 
 

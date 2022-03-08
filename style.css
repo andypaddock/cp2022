@@ -483,11 +483,11 @@ blockquote {
   margin-bottom: 1.5rem !important;
 }
 
-.u-margin-bottom-medium {
+.u-margin-bottom {
   margin-bottom: 4rem !important;
 }
 @media only screen and (max-width: 56.25em) {
-  .u-margin-bottom-medium {
+  .u-margin-bottom {
     margin-bottom: 3rem !important;
   }
 }
@@ -639,15 +639,15 @@ blockquote {
 .button.page-navbar {
   padding: 1rem 1rem 1rem 4rem;
   text-align: left;
+  background: #fff;
+  color: #6a6f71;
 }
 .button.page-navbar i {
   left: 1rem;
   right: unset;
 }
 .button.page-navbar.active {
-  color: #fff;
-  background: transparent;
-  border: 1px solid #fff;
+  font-weight: 700;
 }
 
 .slash {
@@ -963,6 +963,10 @@ blockquote {
   padding: 4rem 25%;
   text-align: center;
 }
+.image-text .text-box img {
+  width: 5rem;
+  margin-bottom: 2rem;
+}
 
 .image-repeat .split-col {
   row-gap: 4rem;
@@ -979,6 +983,7 @@ blockquote {
 }
 .image-repeat .background-image {
   margin-right: 3rem;
+  min-height: 15rem;
 }
 
 .staff-block .split-col {
@@ -986,7 +991,7 @@ blockquote {
 }
 .staff-block .split-col .text-box {
   border-left: 1px solid #fff;
-  padding: 0 20% 0 3rem;
+  padding: 0 3rem;
   margin: 0;
 }
 .staff-block .split-col .text-box .heading-secondary {
@@ -1040,6 +1045,14 @@ blockquote {
   -webkit-column-gap: 4rem;
      -moz-column-gap: 4rem;
           column-gap: 4rem;
+}
+@media only screen and (max-width: 56.25em) {
+  .cards-block .flex-split-col,
+.post-block .flex-split-col {
+    -webkit-columns: 1;
+       -moz-columns: 1;
+            columns: 1;
+  }
 }
 .cards-block .flex-split-col .item-details,
 .post-block .flex-split-col .item-details {
@@ -1153,9 +1166,8 @@ blockquote {
   list-style: none;
 }
 .controls ul li {
-  color: #fff;
-  background: transparent;
-  border: 1px solid #fff;
+  color: #6a6f71;
+  background: #fff;
   padding: 0.5rem 1rem;
   cursor: pointer;
   text-transform: uppercase;
@@ -1164,6 +1176,7 @@ blockquote {
 .controls ul li.mixitup-control-active {
   color: #6a6f71;
   background: #fff;
+  font-weight: 400;
 }
 
 .composition {
@@ -2254,6 +2267,11 @@ article p {
   margin: 3rem 20% 3rem 3rem;
   padding: 8rem;
 }
+@media only screen and (max-width: 56.25em) {
+  .split-col .text-box {
+    margin: 0;
+  }
+}
 .split-col .text {
   font-size: 1.2rem;
   font-family: "Poppins", sans-serif;
@@ -2656,7 +2674,7 @@ article p {
   text-align: center;
 }
 .testimonial .quote {
-  padding: 2rem 0;
+  padding: 4rem 0;
 }
 .testimonial .quote .quote-cite {
   padding-top: 4rem;
@@ -2672,6 +2690,12 @@ article p {
   top: 1rem;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
+}
+.testimonial .quote .mark {
+  color: #fff;
+  font-family: "garamond-premier-pro", sans-serif;
+  font-size: 6rem;
+  line-height: 0.3;
 }
 
 #parent {
@@ -2770,6 +2794,11 @@ article p {
 .single-slider--link {
   width: 20%;
   margin: 0 auto;
+}
+@media only screen and (max-width: 56.25em) {
+  .single-slider--link {
+    width: 50%;
+  }
 }
 .single-slider .slick-prev,
 .single-slider .slick-next {
@@ -3389,7 +3418,7 @@ article p {
 }
 
 .row {
-  width: 120rem;
+  max-width: 120rem;
   margin: 0 auto;
 }
 @media only screen and (max-width: 56.25em) {
@@ -3425,6 +3454,7 @@ article p {
 @media only screen and (min-width: 93.75em) {
   .row.row-extended {
     width: calc(120rem + 30rem);
+    max-width: unset;
   }
 }
 .row .split-col {
@@ -3589,10 +3619,22 @@ footer .w90 {
   display: flex;
   grid-gap: 2rem;
 }
+@media only screen and (max-width: 56.25em) {
+  .flex-col {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
 .flex-col .flex-items {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+@media only screen and (max-width: 56.25em) {
+  .flex-col .flex-items {
+    -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+  }
 }
 
 .header {
@@ -3614,11 +3656,6 @@ footer .w90 {
 @media only screen and (max-width: 56.25em) {
   .header {
     height: 100vh !important;
-  }
-}
-@media only screen and (max-width: 37.5em) {
-  .header {
-    margin-top: 0;
   }
 }
 .header__text-box {
@@ -4067,6 +4104,22 @@ footer .w90 {
   letter-spacing: 0.3rem;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.top-logo {
+  z-index: 1;
+  text-align: center;
+  padding-top: 3rem;
+  position: sticky;
+  top: 0;
+}
+.top-logo svg path {
+  fill: #fff;
+}
+@media only screen and (max-width: 56.25em) {
+  .top-logo svg {
+    height: 1.75rem;
+  }
 }
 
 .navigation__checkbox {
@@ -4603,12 +4656,17 @@ footer .w90 {
 .post-block .post-text .meta {
   display: block;
 }
+.post-block .post-text .heading-secondary--sub {
+  font-size: 1.7rem;
+}
 .post-block .post-link {
   padding: 0 4rem 2rem;
 }
 .post-block .post-link .button {
   text-align: left;
   padding: 0;
+  color: #6a6f71;
+  text-transform: uppercase;
 }
 
 /* Magnific Popup CSS */

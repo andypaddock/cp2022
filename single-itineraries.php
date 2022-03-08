@@ -6,7 +6,7 @@
  */
 get_header(); ?>
 
-
+<span id="content"></span>
 <?php $bgColor = get_sub_field('bg_colour');
 $noMobile = get_sub_field('hide_on_mobile');?>
 <section class="section-text <?php if($bgColor == true): echo 'alt-bg'; endif; ?>
@@ -111,6 +111,10 @@ if( $images ): ?>
     </div>
 </section>
 
+<?php
+$featured_posts = get_field('lodges');
+if( $featured_posts ): ?>
+
 <section class="section-title">
     <div class="row centre-line w50 fmbottom">
         <div class="line"></div>
@@ -135,9 +139,7 @@ $noMobile = get_sub_field('hide_on_mobile');
     <div class="row <?php the_sub_field('column_size'); ?> row-extended">
 
 
-        <?php
-$featured_posts = get_field('lodges');
-if( $featured_posts ): ?>
+
 
 
         <div class="triple-blocks">

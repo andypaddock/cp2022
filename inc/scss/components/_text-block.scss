@@ -166,6 +166,9 @@ article {
   .text-box {
     margin: 3rem 20% 3rem 3rem;
     padding: 8rem;
+    @include respond(tab-port) {
+      margin: 0;
+    }
   }
   .text {
     font-size: 1.2rem;

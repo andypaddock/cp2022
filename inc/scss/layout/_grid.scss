@@ -1,5 +1,5 @@
 .row {
-  width: $grid-width;
+  max-width: $grid-width;
   margin: 0 auto;
 
   // &:not(:last-child) {
@@ -36,6 +36,7 @@
     width: 100%;
     @include respond(big-desktop) {
       width: calc(#{$grid-width} + 30rem);
+      max-width: unset;
     }
   }
   .split-col {
@@ -179,7 +180,13 @@ section {
 .flex-col {
   display: flex;
   grid-gap: 2rem;
+  @include respond(tab-port) {
+    flex-wrap: wrap;
+  }
   .flex-items {
     flex: 1;
+    @include respond(tab-port) {
+      flex-basis: 30%;
+    }
   }
 }

@@ -10,7 +10,7 @@ $noMobile = get_sub_field('hide_on_mobile');?>
             <?php while( have_rows('short_testimonial','options') ): the_row(); ?>
 
             <div class="quote">
-
+                <div class="mark">&ldquo;</div>
                 <div class="copy"><?php the_sub_field('testimonial');?></div>
                 <div class="centre-line">
                     <div class="line"></div>

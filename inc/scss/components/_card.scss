@@ -269,6 +269,10 @@
     justify-content: center;
     padding: 4rem 25%;
     text-align: center;
+    img {
+      width: 5rem;
+      margin-bottom: 2rem;
+    }
   }
 }
 .image-repeat {
@@ -287,6 +291,7 @@
   }
   .background-image {
     margin-right: 3rem;
+    min-height: 15rem;
   }
 }
 .staff-block {
@@ -294,7 +299,7 @@
     row-gap: 4rem;
     .text-box {
       border-left: 1px solid $color-white;
-      padding: 0 20% 0 3rem;
+      padding: 0 3rem;
       margin: 0;
       .heading-secondary {
         line-height: 0.7;
@@ -337,6 +342,9 @@
   .flex-split-col {
     columns: 2;
     column-gap: 4rem;
+    @include respond(tab-port) {
+      columns: 1;
+    }
     .item-details {
       display: flex;
       line-height: 1.2;
@@ -419,9 +427,8 @@
   ul {
     list-style: none;
     li {
-      color: $color-white;
-      background: transparent;
-      border: 1px solid $color-white;
+      color: $color-black;
+      background: $color-white;
 
       padding: 0.5rem 1rem;
       cursor: pointer;
@@ -430,6 +437,7 @@
       &.mixitup-control-active {
         color: $color-black;
         background: $color-white;
+        font-weight: 400;
       }
     }
   }

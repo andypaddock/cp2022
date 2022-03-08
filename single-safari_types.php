@@ -6,7 +6,7 @@
  */
 get_header(); ?>
 
-
+<span id="content"></span>
 <?php $bgColor = get_sub_field('bg_colour');
 $noMobile = get_sub_field('hide_on_mobile');?>
 <section class="section-text <?php if($bgColor == true): echo 'alt-bg'; endif; ?>
@@ -216,7 +216,7 @@ if( $terms ) {
 
 
 
-<span id="content"></span>
+
 <?php if( have_rows('main_page_elements') ): ?>
 <?php while( have_rows('main_page_elements') ): the_row(); ?>
 <?php if( get_row_layout() == 'faq_blocks' ): ?>

@@ -38,14 +38,14 @@
   &.page-navbar {
     padding: 1rem 1rem 1rem 4rem;
     text-align: left;
+    background: $color-white;
+    color: $color-black;
     i {
       left: 1rem;
       right: unset;
     }
     &.active {
-      color: $color-white;
-      background: transparent;
-      border: 1px solid $color-white;
+      font-weight: 700;
     }
   }
 }

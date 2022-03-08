@@ -50,7 +50,7 @@ if(get_sub_field('switch_text'))
 	echo 'alt-color';
 }
 ?>">
-                            <?php the_title(); ?>
+                            <a href="<?php echo get_permalink( $post->ID ); ?>"><?php the_title(); ?></a>
                         </h3>
                         <span class="alt-font-pop"><?php the_field('length_of_stay'); ?></span>
                     </div>

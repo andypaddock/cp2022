@@ -22,8 +22,8 @@ if(get_sub_field('switch_text'))
 	echo 'alt-color';
 }
 ?>">
-                    <span class="heading-secondary--sub"><?php the_sub_field('title'); ?></span>
-                    <span class="heading-secondary--meta"><?php the_sub_field('sub_title'); ?></span>
+                    <span class="heading-secondary--tertiary"><?php the_sub_field('title'); ?></span>
+                    <span class="heading-secondary--tertiary"><?php the_sub_field('sub_title'); ?></span>
                 </h3>
 
 
