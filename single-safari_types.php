@@ -19,8 +19,8 @@ $noMobile = get_sub_field('hide_on_mobile');?>
             <?php the_sub_field('text_block_header'); ?> </h2>
         <?php endif; ?>
 
-        <div class="text-para <?php the_sub_field('columns'); ?>">
-            <?php the_field('short_description'); ?>
+        <div class="text-para count2">
+            <?php the_content(); ?>
             <?php 
 $link = get_sub_field('link');
 if( $link ): 
@@ -34,6 +34,38 @@ if( $link ):
         </div>
     </div>
 </section>
+
+
+
+<?php $bgColor = get_sub_field('bg_colour');
+$noMobile = get_sub_field('hide_on_mobile');
+ ?>
+<section
+    class="gallery<?php if($bgColor == true): echo 'alt-bg'; endif; ?> <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?>"
+    <?php if( get_sub_field('section_id') ): ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
+    <div class="row <?php the_sub_field('column_size'); ?>">
+        <?php 
+$images = get_field('gallery');
+if( $images ): ?>
+        <div id="parent">
+            <?php foreach( $images as $image ): ?>
+            <div class="child tile">
+                <a class="lightbox-gallery" href="<?php echo esc_url($image['url']); ?>">
+                    <img src="<?php echo esc_url($image['sizes']['large']); ?>"
+                        alt="<?php echo esc_attr($image['alt']); ?>" />
+                </a>
+                <p><?php echo esc_html($image['caption']); ?></p>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+
+
+
+
+    </div>
+</section>
+
 
 <?php $bgColor = get_sub_field('bg_colour');
 $noMobile = get_sub_field('hide_on_mobile');?>
@@ -82,34 +114,12 @@ if( $link ):
 
 
 
-<?php $bgColor = get_sub_field('bg_colour');
-$noMobile = get_sub_field('hide_on_mobile');
- ?>
-<section
-    class="gallery<?php if($bgColor == true): echo 'alt-bg'; endif; ?> <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?>"
-    <?php if( get_sub_field('section_id') ): ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
-    <div class="row <?php the_sub_field('column_size'); ?>">
-        <?php 
-$images = get_field('gallery');
-if( $images ): ?>
-        <div id="parent">
-            <?php foreach( $images as $image ): ?>
-            <div class="child tile">
-                <a class="lightbox-gallery" href="<?php echo esc_url($image['url']); ?>">
-                    <img src="<?php echo esc_url($image['sizes']['large']); ?>"
-                        alt="<?php echo esc_attr($image['alt']); ?>" />
-                </a>
-                <p><?php echo esc_html($image['caption']); ?></p>
-            </div>
-            <?php endforeach; ?>
-        </div>
-        <?php endif; ?>
 
 
+<?php
+$featured_posts = get_field('relational_itineraries');
+if( $featured_posts ): ?>
 
-
-    </div>
-</section>
 
 <section class="section-title">
     <div class="row centre-line w50 fmbottom">
@@ -119,7 +129,7 @@ if( $images ): ?>
     <div class="row w60">
         <h3 class="heading-secondary fmbottom">
             <span class="heading-secondary--main"><?php the_sub_field('title'); ?></span>
-            <span class="heading-secondary--sub">Lodges Featuring <?php the_title(); ?></span>
+            <span class="heading-secondary--sub">Itineraries Featuring <?php the_title(); ?></span>
         </h3>
     </div>
 </section>
@@ -135,9 +145,7 @@ $noMobile = get_sub_field('hide_on_mobile');
     <div class="row <?php the_sub_field('column_size'); ?> row-extended">
 
 
-        <?php
-$featured_posts = get_field('lodges');
-if( $featured_posts ): ?>
+
 
 
         <div class="triple-blocks">
@@ -202,14 +210,6 @@ if( $terms ) {
     // Reset the global post object so that the rest of the page works correctly.
     wp_reset_postdata(); ?>
         <?php endif; ?>
-
-
-
-
-
-
-
-
     </div>
 </section>
 
@@ -281,8 +281,23 @@ if( $terms ) {
 <?php get_template_part('template-parts/itinerary_slider');?>
 <?php elseif( get_row_layout() == 'cards_block' ):?>
 <?php get_template_part('template-parts/cards_block');?>
-<?php elseif( get_row_layout() == 'itin_map' ):?>
-<?php get_template_part('template-parts/itin_map');?>
+<?php elseif( get_row_layout() == 'portrait_block' ):?>
+<?php get_template_part('template-parts/portrait_block');?>
+<?php elseif( get_row_layout() == 'portrait_block_filter' ):?>
+<?php get_template_part('template-parts/portrait_block_filter');?>
+<?php elseif( get_row_layout() == 'linked_itinerary_slider' ):?>
+<?php get_template_part('template-parts/linked_itinerary_slider');?>
+<?php elseif( get_row_layout() == 'gallery_block' ):?>
+<?php get_template_part('template-parts/gallery_block');?>
+<?php elseif( get_row_layout() == 'gallery_text_repeat' ):?>
+<?php get_template_part('template-parts/gallery_text_repeat');?>
+<?php elseif( get_row_layout() == 'itin_filter_block' ):?>
+<?php get_template_part('template-parts/itin_filter_block');?>
+<?php elseif( get_row_layout() == 'cards_block_filter' ):?>
+<?php get_template_part('template-parts/cards_block_filter');?>
+<?php elseif( get_row_layout() == 'testimonial' ):?>
+<?php get_template_part('template-parts/testimonial');?>
+
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>

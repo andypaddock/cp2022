@@ -1,381 +1,105 @@
 <?php
-/**
- *
- * @package radpropulsion
- */
-get_header();?>
+
+get_header();
+
+if ( have_posts() ) :
+    ?>
+
+<div class="row">
+    <div class="container research-archive">
+        <div class="research-archive__sidebar">
+            <ul>
+                <?php wp_list_categories( array(
+        'orderby'    => 'name',
+        'show_count' => true,
+        'exclude'    => array( 10 ),
+        'title_li' => '<h3 class="archive">' . __('Filter', 'textdomain') . '</h3>'
+     ) ); ?>
+            </ul>
+            <h3 class="archive">Archive</h3>
 
 
-<main>
-    <section class="section-about">
-        <div class="u-center-text u-margin-bottom-big">
-            <h2 class="heading-secondary">
-                Exciting tours for adventurous people
-            </h2>
-        </div>
+            <ul>
+                <?php
+/**/
+$years = $wpdb->get_col("SELECT DISTINCT YEAR(post_date)
+FROM $wpdb->posts WHERE post_status = 'publish'
+AND post_type = 'post' ORDER BY post_date DESC");
+foreach($years as $year) :
+?>
+                <li class="archive-year"><?php echo $year; ?>
 
-        <div class="row">
-            <div class="col-1-of-2">
-                <h3 class="heading-tertiary u-margin-bottom-small">You're going to fall in love with nature</h3>
-                <p class="paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur libero
-                    repellat quis consequatur
-                    ducimus quam nisi exercitationem omnis earum qui.
-                </p>
+                    <ul class="archive-sub-menu">
+                        <?    $months = $wpdb->get_col("SELECT DISTINCT MONTH(post_date)
+        FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post'
+        AND YEAR(post_date) = '".$year."' ORDER BY post_date ASC");
+        foreach($months as $month) :
+        ?>
+                        <li><a href="<?php echo get_month_link($year, $month); ?>">
 
-                <h3 class="heading-tertiary u-margin-bottom-small">Live adventures like you never have before</h3>
-                <p class="paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores nulla deserunt voluptatum nam.
-                </p>
+                                <?php echo date( 'F', mktime(0, 0, 0, $month) );?></a>
 
-                <a href="#" class="btn-text">Learn more &rarr;</a>
-            </div>
-            <div class="col-1-of-2">
-                <div class="composition">
+                        </li>
 
-                    <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
-                        sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 1"
-                        class="composition__photo composition__photo--p1" src="img/nat-1-large.jpg">
+                        <?php endforeach;?>
 
-                    <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
-                        sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 2"
-                        class="composition__photo composition__photo--p2" src="img/nat-2-large.jpg">
+                    </ul>
 
-                    <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
-                        sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 3"
-                        class="composition__photo composition__photo--p3" src="img/nat-3-large.jpg">
+                </li>
 
-                    <!--
-                            <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
-                            <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
-                            <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
-                            -->
-                </div>
-            </div>
-        </div>
-    </section>
+                <?php endforeach; ?>
 
-    <section class="section-features">
-
-        <div class="row">
-            <div class="col-1-of-4">
-                <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-world"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Explore the world</h3>
-                    <p class="feature-box__text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-1-of-4">
-                <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-compass"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Meet nature</h3>
-                    <p class="feature-box__text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-1-of-4">
-                <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-map"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Find your way</h3>
-                    <p class="feature-box__text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-1-of-4">
-                <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-heart"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Live a healthier life</h3>
-                    <p class="feature-box__text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-boxed-links">
-
-        <div class="row">
-            <div class="col">
-                <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-world"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Explore the world</h3>
-                    <p class="feature-box__text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
-                    </p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-compass"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Meet nature</h3>
-                    <p class="feature-box__text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
-                    </p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-map"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Find your way</h3>
-                    <p class="feature-box__text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="faq-block">
-        <div class="col">
-
-
-            <?php if( have_rows('faq_block') ): $count = 0; while ( have_rows('faq_block') ) : the_row(); ?>
-
-            <div class="item">
-
-                <label <?php if($count == 0) echo " class='collapsed'"; ?>>
-                    <i class="fas fa-angle-right"></i>
-                    <h3 class="heading"><span
-                            class="highlight-letter"><?php the_sub_field('letter'); ?></span><?php the_sub_field('title'); ?>
-                    </h3>
-                </label>
-                <div class="content mb2">
-                    <?php the_sub_field('description'); ?>
-                </div>
-
-            </div>
-
-            <?php $count++; endwhile; endif; ?>
+            </ul>
 
 
         </div>
-    </section>
+        <div class="research-archive__main">
 
+            <ul>
+                <?php
+	while ( have_posts() ) : the_post(); ?>
 
-
-    <section class="section-tours" id="section-tours">
-        <div class="u-center-text u-margin-bottom-big">
-            <h2 class="heading-secondary">
-                Most popular tours
-            </h2>
-        </div>
-
-        <div class="row">
-            <div class="col-1-of-3">
-                <div class="card">
-                    <div class="card__side card__side--front">
-                        <div class="card__picture card__picture--1">
-                            &nbsp;
-                        </div>
-                        <h4 class="card__heading">
-                            <span class="card__heading-span card__heading-span--1">The Sea Explorer</span>
-                        </h4>
-                        <div class="card__details">
-                            <ul>
-                                <li>3 day tours</li>
-                                <li>Up to 30 people</li>
-                                <li>2 tour guides</li>
-                                <li>Sleep in cozy hotels</li>
-                                <li>Difficulty: easy</li>
-                            </ul>
-                        </div>
+                <li><?php 
+$image = get_field('thumbnail_image');
+$fallbackImage = get_field ('fallback_image', 'options'); ?>
+                    <img
+                        src="<?php if (empty($image)){echo esc_url($fallbackImage['url']);} else {echo esc_url($image['url']);}   ?>">
+                    <div class="research-meta">
+                        <span class="pub-date"><?php the_date(); ?></span>
+                        <h3 class="heading-tertiary"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h3>
+                        <!-- <p class="post-meta"><?php the_time( 'F jS, Y' ); ?> | <a
+                                href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?></a>
+                            | <?php
+				$categories = get_the_category();
+				$comma      = ', ';
+				$output     = '';
+				
+				if ( $categories ) {
+					foreach ( $categories as $category ) {
+						$output .= '<a href="' . get_category_link( $category->term_id ) . '">' . $category->cat_name . '</a>' . $comma;
+					}
+					echo trim( $output, $comma );
+				} ?>
+                        </p> -->
+                        <?php if ( is_user_logged_in() ) { ?>
+                        <p><?php echo wp_trim_words( get_the_excerpt(), 20, '...' ); ?></p>
+                        <a class="research-link alt-font" href="<?php the_permalink(); ?>">Read More <i
+                                class="fas fa-arrow-right"></i></a>
+                        <?php } else { ?>
+                        <a class="research-link alt-font" href="<?php the_permalink(); ?>">Read More <i
+                                class="fas fa-arrow-right"></i></a>
+                        <span class="pub-date">(Requires Log In)</span>
+                        <?php } ?>
                     </div>
-                    <div class="card__side card__side--back card__side--back-1">
-                        <div class="card__cta">
-                            <div class="card__price-box">
-                                <p class="card__price-only">Only</p>
-                                <p class="card__price-value">$297</p>
-                            </div>
-                            <a href="#popup" class="btn btn--white">Book now!</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </li>
+
+                <?php endwhile;
 
 
-            <div class="col-1-of-3">
-                <div class="card">
-                    <div class="card__side card__side--front">
-                        <div class="card__picture card__picture--2">
-                            &nbsp;
-                        </div>
-                        <h4 class="card__heading">
-                            <span class="card__heading-span card__heading-span--2">The Forest Hiker</span>
-                        </h4>
-                        <div class="card__details">
-                            <ul>
-                                <li>7 day tours</li>
-                                <li>Up to 40 people</li>
-                                <li>6 tour guides</li>
-                                <li>Sleep in provided tents</li>
-                                <li>Difficulty: medium</li>
-                            </ul>
-                        </div>
 
-                    </div>
-                    <div class="card__side card__side--back card__side--back-2">
-                        <div class="card__cta">
-                            <div class="card__price-box">
-                                <p class="card__price-only">Only</p>
-                                <p class="card__price-value">$497</p>
-                            </div>
-                            <a href="#popup" class="btn btn--white">Book now!</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-1-of-3">
-                <div class="card">
-                    <div class="card__side card__side--front">
-                        <div class="card__picture card__picture--3">
-                            &nbsp;
-                        </div>
-                        <h4 class="card__heading">
-                            <span class="card__heading-span card__heading-span--3">The Snow Adventurer</span>
-                        </h4>
-                        <div class="card__details">
-                            <ul>
-                                <li>5 day tours</li>
-                                <li>Up to 15 people</li>
-                                <li>3 tour guides</li>
-                                <li>Sleep in provided tents</li>
-                                <li>Difficulty: hard</li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="card__side card__side--back card__side--back-3">
-                        <div class="card__cta">
-                            <div class="card__price-box">
-                                <p class="card__price-only">Only</p>
-                                <p class="card__price-value">$897</p>
-                            </div>
-                            <a href="#popup" class="btn btn--white">Book now!</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+endif;?>
+            </ul>
         </div>
-
-        <div class="u-center-text u-margin-top-huge">
-            <a href="#" class="btn btn--green">Discover all tours</a>
-        </div>
-    </section>
-
-    <section class="section-stories">
-        <div class="bg-video">
-            <video class="bg-video__content" autoplay muted loop>
-                <source src="img/video.mp4" type="video/mp4">
-                <source src="img/video.webm" type="video/webm">
-                Your browser is not supported!
-            </video>
-        </div>
-
-        <div class="u-center-text u-margin-bottom-big">
-            <h2 class="heading-secondary">
-                We make people genuinely happy
-            </h2>
-        </div>
-
-        <div class="row">
-            <div class="story">
-                <figure class="story__shape">
-                    <img src="img/nat-8.jpg" alt="Person on a tour" class="story__img">
-                    <figcaption class="story__caption">Mary Smith</figcaption>
-                </figure>
-                <div class="story__text">
-                    <h3 class="heading-tertiary u-margin-bottom-small">I had the best week ever with my family</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur
-                        libero repellat quis consequatur
-                        ducimus quam nisi exercitationem omnis earum qui. Aperiam, ipsum sapiente aspernatur libero
-                        repellat quis consequatur ducimus quam nisi exercitationem omnis earum qui.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="story">
-                <figure class="story__shape">
-                    <img src="img/nat-9.jpg" alt="Person on a tour" class="story__img">
-                    <figcaption class="story__caption">Jack Wilson</figcaption>
-                </figure>
-                <div class="story__text">
-                    <h3 class="heading-tertiary u-margin-bottom-small">WOW! My life is completely different now</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur
-                        libero repellat quis consequatur
-                        ducimus quam nisi exercitationem omnis earum qui. Aperiam, ipsum sapiente aspernatur libero
-                        repellat quis consequatur ducimus quam nisi exercitationem omnis earum qui.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="u-center-text u-margin-top-huge">
-            <a href="#" class="btn-text">Read all stories &rarr;</a>
-        </div>
-    </section>
-
-    <section class="section-book">
-        <div class="row">
-            <div class="book">
-                <div class="book__form">
-                    <form action="#" class="form">
-                        <div class="u-margin-bottom-medium">
-                            <h2 class="heading-secondary">
-                                Start booking now
-                            </h2>
-                        </div>
-
-                        <div class="form__group">
-                            <input type="text" class="form__input" placeholder="Full name" id="name" required>
-                            <label for="name" class="form__label">Full name</label>
-                        </div>
-
-                        <div class="form__group">
-                            <input type="email" class="form__input" placeholder="Email address" id="email" required>
-                            <label for="email" class="form__label">Email address</label>
-                        </div>
-
-                        <div class="form__group u-margin-bottom-medium">
-                            <div class="form__radio-group">
-                                <input type="radio" class="form__radio-input" id="small" name="size">
-                                <label for="small" class="form__radio-label">
-                                    <span class="form__radio-button"></span>
-                                    Small tour group
-                                </label>
-                            </div>
-
-                            <div class="form__radio-group">
-                                <input type="radio" class="form__radio-input" id="large" name="size">
-                                <label for="large" class="form__radio-label">
-                                    <span class="form__radio-button"></span>
-                                    Large tour group
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form__group">
-                            <button class="btn btn--green">Next step &rarr;</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
+    </div>
+</div>
 <?php get_footer();?>

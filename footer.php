@@ -42,7 +42,7 @@ if( $link ):
         </div>
     </div>
 
-    <?php elseif ($footerSwitch == 'main'):?>
+    <?php else:?>
     <?php $footerImage = get_field('footer_image','options'); ?>
 
     <div class="footer-hero" style="background-image: url(<?php echo $footerImage['url']; ?>)">

@@ -9,24 +9,24 @@ add_action( 'init', 'custom_post_type_lodges', 0 );
 function custom_post_type_safari_types() {
 
     $labels = array(
-        'name'                => _x( 'Safari types', 'Post Type General Name'),
-        'singular_name'       => _x( 'Safari type',  'Post Type Singular Name'),
-        'menu_name'           => __( 'Safari types'),
-        'parent_item_colon'   => __( 'Itineraries'),
-        'all_items'           => __( 'All Safari types'),
-        'view_item'           => __( 'View Safari types'),
-        'add_new_item'        => __( 'Add New Safari type'),
-        'add_new'             => __( 'Add Safari type' ),
-        'edit_item'           => __( 'Edit Safari type' ),
-        'update_item'         => __( 'Update Safari type' ),
-        'search_items'        => __( 'Search Safari types' ),
+        'name'                => _x( 'Experiences', 'Post Type General Name'),
+        'singular_name'       => _x( 'Experience',  'Post Type Singular Name'),
+        'menu_name'           => __( 'Experiences'),
+        'parent_item_colon'   => __( 'Experiences'),
+        'all_items'           => __( 'All Experiences'),
+        'view_item'           => __( 'View Experiences'),
+        'add_new_item'        => __( 'Add New Experience'),
+        'add_new'             => __( 'Add Experience' ),
+        'edit_item'           => __( 'Edit Experience' ),
+        'update_item'         => __( 'Update Experience' ),
+        'search_items'        => __( 'Search Experience' ),
         'not_found'           => __( 'Not Found'),
         'not_found_in_trash'  => __( 'Not found in Trash')
     );
 
     $args = array(
-        'label'               => __( 'Safari types' ),
-        'description'         => __( 'Safari types'),
+        'label'               => __( 'Experiences' ),
+        'description'         => __( 'Experiences'),
         'labels'              => $labels,
         'supports'            => array( 'title', 'taxonomies', 'thumbnail', 'excerpt', 'page-attributes' ),
         'menu_icon'           => 'dashicons-admin-site',

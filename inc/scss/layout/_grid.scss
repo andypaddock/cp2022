@@ -32,6 +32,12 @@
       width: 100% !important;
     }
   }
+  &.row-extended {
+    width: 100%;
+    @include respond(big-desktop) {
+      width: calc(#{$grid-width} + 30rem);
+    }
+  }
   .split-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -113,6 +119,10 @@ section {
   // &:first-of-type {
   //   padding-top: 0;
   // }
+  &.alt-bg {
+    background: #f5f4f4;
+    padding: 10rem 0;
+  }
 }
 #content {
   display: block;

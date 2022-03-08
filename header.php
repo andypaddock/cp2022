@@ -63,12 +63,12 @@
         </nav>
 
 
-
+        <?php if (!is_archive()):?>
 
         <header class="header <?php the_field('hero_section_size'); ?>">
 
             <?php get_template_part('template-parts/hero');?>
 
         </header>
-
+        <?php endif; ?>
         <!--closes in footer.php-->

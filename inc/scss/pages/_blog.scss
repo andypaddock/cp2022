@@ -1,4 +1,5 @@
-.single {
+.single,
+.blog {
   .header {
     height: 50vh;
   }
@@ -12,6 +13,25 @@
     }
     .heading-tertiary {
       padding: 2rem 0;
+    }
+  }
+}
+.post-block {
+  .multi-grid {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+  .post-text {
+    padding: 2rem 4rem;
+    .meta {
+      display: block;
+    }
+  }
+  .post-link {
+    padding: 0 4rem 2rem;
+    .button {
+      text-align: left;
+      padding: 0;
     }
   }
 }

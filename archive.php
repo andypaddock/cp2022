@@ -5,8 +5,9 @@ get_header();
 if ( have_posts() ) :
     ?>
 <!-- ******************* Hero Content ******************* -->
-
-<!-- <?php get_template_part("template-parts/archivehero"); ?> -->
+<header class="header v50">
+    <?php get_template_part("template-parts/archivehero"); ?>
+</header>
 
 <!-- ******************* Hero Content END ******************* -->
 <div class="row">

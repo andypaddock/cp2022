@@ -17,7 +17,8 @@ if( $featured_posts ): ?>
         setup_postdata($post); ?>
             <div class="card-item tile">
                 <div class="card-image">
-                    <img src="<?php echo get_the_post_thumbnail_url($post->ID, 'medium_large'); ?>">
+                    <a href="<?php the_permalink(); ?>"><img
+                            src="<?php echo get_the_post_thumbnail_url($post->ID, 'medium_large'); ?>"></a>
                 </div>
                 <div class="item-details">
 
@@ -37,7 +38,7 @@ if(get_sub_field('switch_text'))
 {
 	echo 'alt-color';
 }
-?>"><?php the_title(); ?></h3>
+?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                         <span class="alt-font-pop"><?php the_field('length_of_stay'); ?></span>
                     </div>
                     <div class="text <?php

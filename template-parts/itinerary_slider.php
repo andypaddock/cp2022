@@ -4,7 +4,7 @@ $noMobile = get_sub_field('hide_on_mobile');
 <section
     class="triple-slider <?php if($bgColor == true): echo 'alt-bg'; endif; ?> <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?>"
     <?php if( get_sub_field('section_id') ): ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
-    <div class="row <?php the_sub_field('column_size'); ?>">
+    <div class="row <?php the_sub_field('column_size'); ?> row-extended">
 
         <?php
 $featured_posts = get_sub_field('select_itineraries');
@@ -36,7 +36,8 @@ if(get_sub_field('switch_text'))
 {
 	echo 'alt-color';
 }
-?>"><?php the_title(); ?></h3>
+?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                        <span class="alt-font-pop"><?php the_field('length_of_stay'); ?></span>
                     </div>
                     <div class="text <?php
 if(get_sub_field('switch_text'))

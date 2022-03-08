@@ -57,6 +57,6 @@
   $base: 10;
   $offset: $base * $i;
   .imageoff-#{$offset} {
-    background-position: $offset + 0% !important;
+    background-position: $offset + 0% top !important;
   }
 }
