@@ -15,7 +15,6 @@ if( $images ): ?>
                     <img src="<?php echo esc_url($image['sizes']['large']); ?>"
                         alt="<?php echo esc_attr($image['alt']); ?>" />
                 </a>
-                <p><?php echo esc_html($image['caption']); ?></p>
             </div>
             <?php endforeach; ?>
         </div>

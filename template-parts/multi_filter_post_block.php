@@ -11,9 +11,9 @@ $noMobile = get_sub_field('hide_on_mobile');?>
         'hide_empty' => true
     ));?>
                 <li>Filter</li>
-                <li type="button" data-toggle="all">All</li>
+                <li type="button" data-filter="all">All</li>
                 <?php foreach($all_categories as $category): ?>
-                <li type="button" data-toggle=".<?php echo $category->slug; ?>">
+                <li type="button" data-filter=".<?php echo $category->slug; ?>">
                     <?php echo $category->name; ?></li>
                 <?php endforeach; ?>
             </ul>
@@ -30,7 +30,7 @@ $noMobile = get_sub_field('hide_on_mobile');?>
         'hide_empty' => false,
     )
 );?>
-                        <li type="button" data-toggle="all">All Lodge Types</li>
+                        <li type="button" data-toggle="all">Archive</li>
                         <?php if ( ! empty( $terms ) && is_array( $terms ) ) {
     foreach ( $terms as $term ) { ?>
                         <li type="button" data-toggle=".<?php echo $term->slug; ?>">
