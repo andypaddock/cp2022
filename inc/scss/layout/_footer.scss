@@ -1,6 +1,7 @@
 .footer {
   font-size: 1.4rem;
   color: $color-grey-light-1;
+  margin-top: 3rem;
 
   @include respond(tab-port) {
     padding: 8rem 0 0;
@@ -233,6 +234,22 @@
       }
     }
   }
+  .footer-contact {
+    padding: 2rem 0;
+    ul {
+      list-style: none;
+      padding: 2rem 0;
+      margin-bottom: 0;
+      li {
+        border-left: 1px solid $color-primary;
+        padding: 0 2rem;
+      }
+    }
+    .copyright {
+      color: $color-black;
+      padding-left: 2rem;
+    }
+  }
   .footer-social {
     flex-basis: 30%;
     padding: 0 3rem;
@@ -249,8 +266,9 @@
     }
   }
   .nav-area {
+    margin-left: auto;
     .menu-footer-container {
-      padding: 2rem 0;
+      padding: 2rem 0 0;
     }
     .menu {
       list-style: none;
@@ -258,14 +276,13 @@
       padding: 2rem 0;
 
       li {
-        padding: 0 3rem;
+        padding: 0 2rem;
         border-left: 1px solid $color-black;
         @include respond(phone) {
           padding: 0 1rem;
         }
         a {
           font-weight: 200;
-          text-transform: uppercase;
           font-size: 1.4rem;
         }
       }
@@ -306,17 +323,23 @@
   }
 }
 .footer-privacy {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-
+  display: flex;
   .copyright {
     display: flex;
     align-items: center;
   }
+  .important-links {
+    display: flex;
+    list-style: none;
+    li {
+      padding: 0 2rem;
+    }
+  }
   .silverless {
+    margin-left: auto;
     text-align: center;
     svg {
-      fill: $color-white;
+      fill: $color-black;
     }
 
     #logo {

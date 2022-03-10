@@ -48,7 +48,7 @@
       display: flex;
       cursor: pointer;
       color: $color-primary;
-      font-weight: 700;
+      font-weight: 400;
       letter-spacing: 0.1rem;
       text-transform: uppercase;
       font-size: 1.4rem;
@@ -61,6 +61,12 @@
           cursor: none;
         }
       }
+    }
+  }
+  .type-controls {
+    ul {
+      list-style: none;
+      cursor: pointer;
     }
   }
   .post-grid {

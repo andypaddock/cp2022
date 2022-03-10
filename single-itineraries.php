@@ -35,6 +35,34 @@ if( $link ):
     </div>
 </section>
 
+
+<section
+    class="day-planner <?php if($bgColor == true): echo 'alt-bg'; endif; ?> <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?>"
+    <?php if( get_sub_field('section_id') ): ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
+    <div class="row w60">
+
+        <div class="single-col">
+            <div class="days-block">
+                <?php if( have_rows('days_plan') ): ?>
+                <?php while( have_rows('days_plan') ): the_row(); 
+        $daysImage = get_sub_field('day_image');
+        ?>
+                <div class="days-item"><img src="<?php echo esc_url($daysImage['sizes']['large']); ?>">
+                    <p class="days alt-font-pop"><?php the_sub_field('days'); ?></p>
+                    <h3 class="heading-tertiary alt-font-pop"><?php the_sub_field('title'); ?></h3>
+                    <div class="days-text alt-font-pop"><?php the_sub_field('description'); ?></div>
+                </div>
+                <?php endwhile; ?>
+
+                <?php endif; ?>
+            </div>
+            <div class="map"></div>
+        </div>
+    </div>
+</section>
+
+
+
 <?php $bgColor = get_sub_field('bg_colour');
 $noMobile = get_sub_field('hide_on_mobile');?>
 <section
@@ -285,6 +313,8 @@ if( $terms ) {
 <?php get_template_part('template-parts/cards_block');?>
 <?php elseif( get_row_layout() == 'itin_map' ):?>
 <?php get_template_part('template-parts/itin_map');?>
+<?php elseif( get_row_layout() == 'day_planner_block' ):?>
+<?php get_template_part('template-parts/day_planner_block');?>
 <?php endif; ?>
 <?php endwhile; ?>
 <?php endif; ?>

@@ -88,6 +88,10 @@ get_header(); ?>
 <?php get_template_part('template-parts/testimonial');?>
 <?php elseif( get_row_layout() == 'multi_filter_blog_posts' ):?>
 <?php get_template_part('template-parts/multi_filter_post_block');?>
+<?php elseif( get_row_layout() == 'day_planner_block' ):?>
+<?php get_template_part('template-parts/day_planner_block');?>
+
+
 
 <?php endif; ?>
 <?php endwhile; ?>

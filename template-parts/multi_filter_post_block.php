@@ -6,14 +6,14 @@ $noMobile = get_sub_field('hide_on_mobile');?>
 
     <div class="row <?php the_sub_field('column_size'); ?>">
         <div class="controls">
-            <ul data-filter-group>
+            <ul data-toggle-group>
                 <?php $all_categories = get_categories(array(
         'hide_empty' => true
     ));?>
                 <li>Filter</li>
-                <li type="button" data-filter="all">All</li>
+                <li type="button" data-toggle="all">All</li>
                 <?php foreach($all_categories as $category): ?>
-                <li type="button" data-filter=".<?php echo $category->slug; ?>">
+                <li type="button" data-toggle=".<?php echo $category->slug; ?>">
                     <?php echo $category->name; ?></li>
                 <?php endforeach; ?>
             </ul>
@@ -23,21 +23,9 @@ $noMobile = get_sub_field('hide_on_mobile');?>
             <div class="second-filter">
 
                 <div class="type-controls">
-                    <ul data-filter-group>
-                        <?php $terms = get_terms(
-    array(
-        'taxonomy'   => 'propertystyle',
-        'hide_empty' => false,
-    )
-);?>
-                        <li type="button" data-toggle="all">Archive</li>
-                        <?php if ( ! empty( $terms ) && is_array( $terms ) ) {
-    foreach ( $terms as $term ) { ?>
-                        <li type="button" data-toggle=".<?php echo $term->slug; ?>">
-                            <?php echo $term->name; ?></li>
-                        <?php
-    }
-} ?>
+                    <ul data-filter-group id="timeSelector">
+                        <li type="button" data-filter="all">Archive</li>
+
                     </ul>
                 </div>
 
@@ -45,7 +33,7 @@ $noMobile = get_sub_field('hide_on_mobile');?>
 
             </div>
 
-            <div class="flex-split-col filter-grid">
+            <div class="flex-split-col multi-filter-grid">
                 <?php
             $numberPosts = get_sub_field('posts_to_show');
 $loop = new WP_Query(
@@ -60,10 +48,10 @@ $counter++;
 
 ?>
                 <?php $terms = get_the_category( $post->ID );
-                $secondarys = wp_get_post_terms($post->ID,'propertystyle'); ?>
+                $post_date = get_the_date( 'Y' ); ?>
 
                 <div
-                    class="card-item mix <?php foreach( $terms as $term ) echo ' ' . $term->slug; ?> <?php foreach( $secondarys as $secondary ) echo ' ' . $secondary->slug; ?>">
+                    class="card-item mix <?php foreach( $terms as $term ) echo ' ' . $term->slug; ?> <?php echo ' ' . $post_date; ?>">
                     <div class="card-image">
                         <a href="<?php the_permalink(); ?>"><img
                                 src="<?php echo get_the_post_thumbnail_url($post->ID, 'medium_large'); ?>"></a>

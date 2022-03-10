@@ -319,3 +319,19 @@ function my_acf_google_map_api( $api ){
 }
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
+function get_posts_years_array() {
+  global $wpdb;
+  $result = array();
+  $years = $wpdb->get_results(
+      $wpdb->prepare(
+          "SELECT YEAR(post_date) FROM {$wpdb->posts} WHERE post_status = 'publish' GROUP BY YEAR(post_date) DESC"
+      ),
+      ARRAY_N
+  );
+  if ( is_array( $years ) && count( $years ) > 0 ) {
+      foreach ( $years as $year ) {
+          $result[] = $year[0];
+      }
+  }
+  return $result;
+}

@@ -690,13 +690,6 @@ img.mfp-img {
   opacity: 0.75;
   color: black;
 }
-.itin-map {
-  position: relative;
-}
-#map {
-  width: 100%;
-  min-height: 50rem;
-}
 
 .overlay {
   position: absolute;
@@ -718,4 +711,7 @@ img.mfp-img {
 
 .overlay button:hover {
   background-color: #4ea0da;
+}
+.mapboxgl-canvas-container {
+  height: 100vh;
 }

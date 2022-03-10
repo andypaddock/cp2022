@@ -1,6 +1,6 @@
 .header {
   min-height: 700px;
-  margin-top: -6rem;
+  margin: -6rem 0 3rem;
   &.v25 {
     height: 25vh;
   }
@@ -115,6 +115,9 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+  }
+  .down_arrow {
+    padding-bottom: 3rem;
   }
 }
 .text-fade {

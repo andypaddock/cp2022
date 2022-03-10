@@ -1,4 +1,5 @@
 //@prepros-prepend mixitup.min.js
+//@prepros-prepend mixitup-multifilter.min.js
 //@prepros-prepend mixitup-pagination.js
 //@prepros-prepend jquery.magnific-popup.js
 //@prepros-prepend slick.min.js
@@ -179,12 +180,21 @@ var mixer;
 
 if (containerEl) {
     mixer = mixitup(containerEl, {
-      controls: {
-        toggleLogic: 'or',
-        toggleDefault:'none'
-    }
+    //   controls: {
+    //     toggleLogic: 'or',
+    //     toggleDefault:'none'
+    // }
     });
 }
+
+// var containerEl = document.querySelector('.multi-filter-grid');
+// var mixer;
+
+// var mixer = mixitup(containerEl, {
+//   multifilter: {
+//       enable: true // enable the multifilter extension for the mixer
+//   }
+// });
 
 
 $(".pop-link").click(function(){
@@ -293,6 +303,11 @@ $(document).ready(function() {
 
 $('.single-slider--blocks').slick();
 
+$('.days-block').slick( {
+  arrows:false,
+  dots:true,
+});
+
 $('.slider-images').slick({
   dots: true,
   arrows: false,
@@ -374,6 +389,18 @@ $('.triple-blocks').slick({
   ]
 });
 
+var currentYear = new Date().getFullYear();  
+
+    for (var i = 1; i <= 5; i++ ) {
+        $("#timeSelector").append(
+
+            $("<li></li>")
+                .attr("data-filter", ('.' + currentYear))
+                .text(currentYear)
+
+        );
+        currentYear--;
+    }
 
 
 

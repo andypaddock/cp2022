@@ -136,6 +136,7 @@ article {
     }
     h3 {
       padding: 3rem 3rem 0 0;
+      font-size: 3.7rem;
     }
   }
   .text {
@@ -165,13 +166,21 @@ article {
   }
   .text-box {
     margin: 3rem 20% 3rem 3rem;
-    padding: 8rem;
+    padding: 4rem 8rem;
     @include respond(tab-port) {
       margin: 0;
     }
+    .heading-secondary {
+      padding-bottom: 2rem;
+    }
+    .button {
+      margin-top: 2rem;
+    }
   }
+
   .text {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    line-height: 2;
     font-family: $alt-font-family;
   }
   .lead-para {

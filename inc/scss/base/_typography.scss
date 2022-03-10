@@ -12,12 +12,13 @@ body {
   text-transform: uppercase;
   backface-visibility: hidden;
   margin-bottom: 6rem;
+  line-height: 1.2;
   &.alt-color {
     color: $color-white;
   }
   &--main {
     display: block;
-    font-size: 5rem;
+    font-size: 7rem;
     font-weight: 300;
     letter-spacing: 0.2rem;
     @include respond(phone) {
@@ -63,6 +64,9 @@ body {
       letter-spacing: 0.5rem;
       padding: 0 1rem;
     }
+  }
+  &--main {
+    font-size: 5rem;
   }
   &--tertiary {
     font-size: 1.5rem;

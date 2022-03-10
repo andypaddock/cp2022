@@ -14,7 +14,10 @@ $noMobile = get_sub_field('hide_on_mobile');?>
 ) );?>
 
                 <?php foreach($all_categories as $category): ?>
-                <li class="flex-items" type="button" data-toggle=".<?php echo $category->slug; ?>">
+                <?php
+$image = get_field('map_icon', $category);?>
+                <li class="flex-items mixitup-control-active" type="button"
+                    data-toggle=".<?php echo $category->slug; ?>"><img src="<?php echo esc_url($image['url']); ?>">
                     <?php echo $category->name; ?></li>
                 <?php endforeach; ?>
             </ul>

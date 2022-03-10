@@ -99,30 +99,72 @@ if( $link ):
                     </ul>
                     <?php endif; ?>
                 </div>
+                <div class="footer-contact">
+
+                    <?php if( have_rows('reservation_links','options') ): ?>
+                    <ul class="contacts">
+                        <?php while( have_rows('reservation_links','options') ): the_row();?>
+                        <li>
+                            <?php 
+$link = get_sub_field('links','options');
+if( $link ): 
+    $link_url = $link['url'];
+    $link_title = $link['title'];
+    $link_target = $link['target'] ? $link['target'] : '_self';
+    ?>
+                            <a href="<?php echo esc_url( $link_url ); ?>"
+                                target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                            <?php endif; ?>
+                        </li>
+                        <?php endwhile; ?>
+                    </ul>
+                    <?php endif; ?>
+                    <div class="copyright"><?php the_field('copy_text','options'); ?></div>
+                </div>
                 <div class="nav-area">
                     <menu>
                         <?wp_nav_menu( array( 
                         'theme_location' => 'footer-menu',
                     ) ); ?>
                     </menu>
+                    <div class="footer-privacy">
+
+                        <?php if( have_rows('important_menu_items','options') ): ?>
+                        <ul class="important-links">
+                            <?php while( have_rows('important_menu_items','options') ): the_row();?>
+                            <li>
+                                <?php 
+$link = get_sub_field('important-links','options');
+if( $link ): 
+    $link_url = $link['url'];
+    $link_title = $link['title'];
+    $link_target = $link['target'] ? $link['target'] : '_self';
+    ?>
+                                <a href="<?php echo esc_url( $link_url ); ?>"
+                                    target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+                                <?php endif; ?>
+                            </li>
+                            <?php endwhile; ?>
+                        </ul>
+                        <?php endif; ?>
+
+                        <div class="silverless">
+
+                            <a href="https://silverless.co.uk">
+
+                                <?php get_template_part('inc/img/silverless', 'logo');?>
+
+                            </a>
+
+                        </div>
+                        <div class="filler"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
 
-        <div class="row footer-privacy">
-            <div class="copyright"><?php the_field('copy_text','options'); ?></div>
-            <div class="silverless">
 
-                <a href="https://silverless.co.uk">
-
-                    <?php get_template_part('inc/img/silverless', 'logo');?>
-
-                </a>
-
-            </div>
-            <div class="filler"></div>
-        </div>
     </div>
     <?php endif; ?>
 
