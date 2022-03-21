@@ -187,22 +187,24 @@ if (containerEl) {
     });
 }
 
-// var containerEl = document.querySelector('.multi-filter-grid');
-// var mixer;
-
-// var mixer = mixitup(containerEl, {
-//   multifilter: {
-//       enable: true // enable the multifilter extension for the mixer
-//   }
-// });
-
+var containerEl = document.querySelector('.multi-filter-grid');
+var mixer;
+if (containerEl) {
+mixer = mixitup(containerEl, {
+  multifilter: {
+      enable: true // enable the multifilter extension for the mixer
+  }
+});
+}
 
 $(".pop-link").click(function(){
   var id = $(this).attr('id');
   $('.' + id)[0].play();
 });
 
-
+$("#enlarge").click(function(){
+  $(".half-col").toggleClass("map-enlarge");
+});
 
 $(".popup__close").click(function(){
   var id = $(this).attr('id');
@@ -392,18 +394,29 @@ $('.triple-blocks').slick({
 var currentYear = new Date().getFullYear();  
 
     for (var i = 1; i <= 5; i++ ) {
-        $("#timeSelector").append(
+        $("#timeselector").append(
 
             $("<li></li>")
-                .attr("data-filter", ('.' + currentYear))
+                .attr("data-filter", ('.m' + currentYear))
+                .attr("class", ('control'))
                 .text(currentYear)
 
         );
         currentYear--;
     }
 
-
-
+    $(document).ready(function(){
+      $("#accordian h3").click(function(){
+        //slide up all the link lists
+        $("#accordian ul ul").slideUp();
+        //slide down the link list below the h3 clicked - only if its closed
+        if(!$(this).next().is(":visible"))
+        {
+          $(this).next().slideDown();
+        }
+      })
+    })
+   
 
 }); //Don't remove ---- end of jQuery wrapper
 

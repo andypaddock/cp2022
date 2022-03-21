@@ -3,7 +3,7 @@ $noMobile = get_sub_field('hide_on_mobile');?>
 <section
     class="day-planner <?php if($bgColor == true): echo 'alt-bg'; endif; ?> <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?>"
     <?php if( get_sub_field('section_id') ): ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
-    <div class="row <?php the_sub_field('column_size'); ?>">
+    <div class="row <?php the_sub_field('column_size'); ?> map-outer">
 
         <div class="half-col">
             <div class="days-block">

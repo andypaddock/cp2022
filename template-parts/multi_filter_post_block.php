@@ -6,14 +6,14 @@ $noMobile = get_sub_field('hide_on_mobile');?>
 
     <div class="row <?php the_sub_field('column_size'); ?>">
         <div class="controls">
-            <ul data-toggle-group>
+            <ul data-filter-group>
                 <?php $all_categories = get_categories(array(
         'hide_empty' => true
     ));?>
-                <li>Filter</li>
-                <li type="button" data-toggle="all">All</li>
+                <li>Filters</li>
+                <li type="button" data-filter="all">All</li>
                 <?php foreach($all_categories as $category): ?>
-                <li type="button" data-toggle=".<?php echo $category->slug; ?>">
+                <li type="button" class="control" data-toggle=".<?php echo $category->slug; ?>">
                     <?php echo $category->name; ?></li>
                 <?php endforeach; ?>
             </ul>
@@ -22,12 +22,19 @@ $noMobile = get_sub_field('hide_on_mobile');?>
         <div class="multi-grid">
             <div class="second-filter">
 
-                <div class="type-controls">
-                    <ul data-filter-group id="timeSelector">
-                        <li type="button" data-filter="all">Archive</li>
+                <div class="type-controls" id="accordian">
+                    <ul>
+                        <li>
+                            <h3><i class="fa-light fa-clock-rotate-left"></i><span class="icon-dashboard"></span>Archive
+                            </h3>
 
+                            <ul data-filter-group id="timeselector">
+                            </ul>
+                        </li>
                     </ul>
                 </div>
+
+
 
 
 
@@ -51,7 +58,7 @@ $counter++;
                 $post_date = get_the_date( 'Y' ); ?>
 
                 <div
-                    class="card-item mix <?php foreach( $terms as $term ) echo ' ' . $term->slug; ?> <?php echo ' ' . $post_date; ?>">
+                    class="card-item mix <?php foreach( $terms as $term ) echo ' ' . $term->slug; ?> <?php echo 'm' . $post_date; ?>">
                     <div class="card-image">
                         <a href="<?php the_permalink(); ?>"><img
                                 src="<?php echo get_the_post_thumbnail_url($post->ID, 'medium_large'); ?>"></a>

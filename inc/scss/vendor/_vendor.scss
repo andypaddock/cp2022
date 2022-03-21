@@ -712,6 +712,14 @@ img.mfp-img {
 .overlay button:hover {
   background-color: #4ea0da;
 }
-.mapboxgl-canvas-container {
-  height: 100vh;
+// .mapboxgl-canvas-container {
+//   height: 100vh;
+// }
+.marker {
+  background-image: url("inc/img/big-marker.svg");
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
 }

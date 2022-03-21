@@ -1,4 +1,5 @@
 .days-block {
+  background: $color-white;
   .days-item {
     display: flex;
     flex-direction: column;
@@ -53,6 +54,6 @@
 
   #map {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 3rem);
   }
 }

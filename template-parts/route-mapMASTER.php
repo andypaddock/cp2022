@@ -1,7 +1,7 @@
 <div class="itin-map">
     <div id="map"></div>
     <div class="overlay">
-        <button id="replay">Replay</button><button id="enlarge">View Full Screen</button>
+        <button id="replay">Replay</button>
     </div>
 </div>
 <script>
@@ -58,7 +58,7 @@ var pulsingDot = {
             0,
             Math.PI * 2
         );
-        context.fillStyle = 'rgba(147, 17, 22,' + (1 - t) + ')';
+        context.fillStyle = 'rgba(1, 55, 32,' + (1 - t) + ')';
         context.fill();
 
         // draw inner circle
@@ -70,7 +70,7 @@ var pulsingDot = {
             0,
             Math.PI * 2
         );
-        context.fillStyle = 'rgba(147, 17, 22, 1)';
+        context.fillStyle = 'rgba(1, 50, 32, 1)';
         context.strokeStyle = 'white';
         context.lineWidth = 2 + 4 * (1 - t);
         context.fill();
@@ -249,7 +249,7 @@ if( $location ): ?> {
         'type': 'line',
         'paint': {
             'line-width': 2,
-            'line-color': '#931116',
+            'line-color': '#6a6f71',
             'line-dasharray': [2, 1],
         }
     });

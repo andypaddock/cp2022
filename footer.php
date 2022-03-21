@@ -48,7 +48,7 @@ if( $link ):
     <div class="footer-hero" style="background-image: url(<?php echo $footerImage['url']; ?>)">
         <div class="row">
 
-            <div class="footer-text-container split-col">
+            <div class="footer-text-container push-right">
                 <div class="offset-70"></div>
                 <div class="footer-text-block fmright">
                     <h2 class="heading-primary">

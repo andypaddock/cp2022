@@ -47,13 +47,21 @@
       flex-direction: column;
     }
   }
+  .push-right {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
   .half-col {
     display: grid;
     grid-template-columns: 50% 50%;
+    transition: all 2s;
     @include respond(tab-port) {
       display: flex;
       flex-direction: column;
     }
+  }
+  .map-enlarge {
+    grid-template-columns: 0% 100%;
   }
   .tri-col {
     display: grid;

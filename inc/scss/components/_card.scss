@@ -322,7 +322,7 @@
   .card-item {
     background: $color-white;
     display: inline-block;
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
     .card-image {
       img {
         width: 100%;
@@ -341,7 +341,7 @@
   }
   .flex-split-col {
     columns: 2;
-    column-gap: 4rem;
+    column-gap: 2rem;
     @include respond(tab-port) {
       columns: 1;
     }
