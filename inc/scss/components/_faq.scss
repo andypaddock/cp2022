@@ -37,7 +37,7 @@
     }
   }
   ul {
-    list-style-position: inside;
+    list-style-position: outside;
     li {
       &::marker {
         color: $color-primary-dark;
@@ -118,6 +118,7 @@
 .block__text {
   display: none;
   padding: 1rem 3.5rem;
+  font-size: 1.6rem;
   &.alt-color {
     padding-left: 9.5rem;
     @include respond(phone) {

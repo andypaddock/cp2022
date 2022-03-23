@@ -693,33 +693,46 @@ img.mfp-img {
 
 .overlay {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  bottom: 5rem;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .overlay button {
   font: 600 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
-  background-color: #3386c0;
-  color: #fff;
+  background-color: rgba($color-white, 0.8);
+  border: 1px solid $color-black;
+  color: $color-black;
   display: inline-block;
   margin: 0;
-  padding: 10px 20px;
-  border: none;
+  padding: 1rem 3rem;
   cursor: pointer;
-  border-radius: 3px;
+  transition: $slowEffect;
 }
 
 .overlay button:hover {
-  background-color: #4ea0da;
+  background-color: rgba($color-white, 1);
 }
 // .mapboxgl-canvas-container {
 //   height: 100vh;
 // }
 .marker {
-  background-image: url("inc/img/big-marker.svg");
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  top: 1rem;
+  left: 0;
   cursor: pointer;
+  &:before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    content: "\f3c5";
+    font-size: 1.5rem;
+    color: $color-primary;
+  }
+}
+#marker-0 {
+  &:before {
+    font-size: 2rem;
+    color: $color-primary-light;
+  }
 }

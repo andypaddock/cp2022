@@ -1,7 +1,7 @@
 <div class="itin-map">
     <div id="map"></div>
     <div class="overlay">
-        <button id="replay">Replay</button><button id="enlarge">View Full Screen</button>
+        <button class="grey-out" id="enlarge">[click to expand map]</button>
     </div>
 </div>
 <script>
@@ -13,87 +13,13 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [<?php 
-$centreLocation = get_field('centre_map_point');
-if( $centreLocation ): ?>
+$centreLocation = get_field('centre_map_point');?>
         <?php echo esc_attr($centreLocation['lng']); ?>, <?php echo esc_attr($centreLocation['lat']); ?>
-        <?php endif; ?>
     ],
-    zoom: 6
+    zoom: <?php the_field('map_zoom');?>
 });
 
-//HERE
-var size = 100;
 
-// implementation of CustomLayerInterface to draw a pulsing dot icon on the map
-// see https://docs.mapbox.com/mapbox-gl-js/api/#customlayerinterface for more info
-var pulsingDot = {
-    width: size,
-    height: size,
-    data: new Uint8Array(size * size * 4),
-
-    // get rendering context for the map canvas when layer is added to the map
-    onAdd: function() {
-        var canvas = document.createElement('canvas');
-        canvas.width = this.width;
-        canvas.height = this.height;
-        this.context = canvas.getContext('2d');
-    },
-
-    // called once before every frame where the icon will be used
-    render: function() {
-        var duration = 1000;
-        var t = (performance.now() % duration) / duration;
-
-        var radius = (size / 2) * 0.3;
-        var outerRadius = (size / 2) * 0.7 * t + radius;
-        var context = this.context;
-
-        // draw outer circle
-        context.clearRect(0, 0, this.width, this.height);
-        context.beginPath();
-        context.arc(
-            this.width / 2,
-            this.height / 2,
-            outerRadius,
-            0,
-            Math.PI * 2
-        );
-        context.fillStyle = 'rgba(147, 17, 22,' + (1 - t) + ')';
-        context.fill();
-
-        // draw inner circle
-        context.beginPath();
-        context.arc(
-            this.width / 2,
-            this.height / 2,
-            radius,
-            0,
-            Math.PI * 2
-        );
-        context.fillStyle = 'rgba(147, 17, 22, 1)';
-        context.strokeStyle = 'white';
-        context.lineWidth = 2 + 4 * (1 - t);
-        context.fill();
-        context.stroke();
-
-        // update this image's data with data from the canvas
-        this.data = context.getImageData(
-            0,
-            0,
-            this.width,
-            this.height
-        ).data;
-
-        // continuously repaint the map, resulting in the smooth animation of the dot
-        map.triggerRepaint();
-
-        // return `true` to let the map know that the image was updated
-        return true;
-    }
-};
-
-
-//HERE
 
 
 
@@ -185,62 +111,192 @@ route.features[0].geometry.coordinates = arc;
 // Used to increment the value of the point measurement against the route.
 var counter = 0;
 
-map.on('load', function() {
 
-    //HERE
-    map.addImage('pulsing-dot', pulsingDot, {
-        pixelRatio: 2
-    });
 
-    map.addSource('points', {
-        'type': 'geojson',
-        'data': {
-            'type': 'FeatureCollection',
-            'features': [
-
-                <?php if( have_rows('days_plan') ): ?>
-                <?php while( have_rows('days_plan') ): the_row();
+const camps = {
+    "type": "FeatureCollection",
+    "features": [
+        <?php if( have_rows('days_plan') ): ?>
+        <?php while( have_rows('days_plan') ): the_row();
 $location = get_sub_field('location');
 if( $location ): ?> {
-                    'type': 'Feature',
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [<?php echo esc_attr($location['lng']); ?>,
-                            <?php echo esc_attr($location['lat']); ?>
-                        ]
-                    },
-                    'properties': {
-                        'title': '<?php the_sub_field('days');?>'
-                    }
-                },
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [<?php echo esc_attr($location['lng']); ?>,
+                    <?php echo esc_attr($location['lat']); ?>
+                ]
+            },
+            'properties': {
+                'title': '<?php the_sub_field('title');?>',
+                'days': '<?php the_sub_field('days');?>',
+            }
+        },
 
-                <?php endif; ?>
-                <?php endwhile; ?>
-                <?php endif; ?>
+        <?php endif; ?>
+        <?php endwhile; ?>
+        <?php endif; ?>
 
-            ]
-        }
+
+
+
+    ]
+};
+
+
+/**
+ * Assign a unique id to each store. You'll use this `id`
+ * later to associate each point on the map with a listing
+ * in the sidebar.
+ */
+camps.features.forEach((camp, i) => {
+    camp.properties.id = i;
+});
+
+/**
+ * Wait until the map loads to make changes to the map.
+ */
+
+
+
+
+
+
+map.on('load', function() {
+
+
+    map.addSource('places', {
+        type: 'geojson',
+        data: camps
     });
+    addMarkers();
 
+    /**
+     * Add a marker to the map for every store listing.
+     **/
+    function addMarkers() {
+        /* For each feature in the GeoJSON object above: */
+        for (const marker of camps.features) {
+            /* Create a div element for the marker. */
+            const el = document.createElement('div');
+            /* Assign a unique `id` to the marker. */
+            el.id = `marker-${marker.properties.id}`;
+            /* Assign the `marker` class to each marker for styling. */
+            el.className = 'marker';
 
+            /**
+             * Create a marker using the div element
+             * defined above and add it to the map.
+             **/
+            new mapboxgl.Marker(el, {
+                    offset: [0, -23]
+                })
+                .setLngLat(marker.geometry.coordinates)
+                .addTo(map);
 
+            /**
+             * Listen to the element and when it is clicked, do three things:
+             * 1. Fly to the point
+             * 2. Close all other popups and display popup for clicked store
+             * 3. Highlight listing in sidebar (and remove highlight for all other listings)
+             **/
+            el.addEventListener('click', (e) => {
+                /* Fly to the point */
+                flyToStore(marker);
+                /* Close all other popups and display popup for clicked store */
+                createPopUp(marker);
+                /* Highlight listing in sidebar */
+                const activeItem = document.getElementsByClassName('active');
+                e.stopPropagation();
+                if (activeItem[0]) {
+                    activeItem[0].classList.remove('active');
+                }
+                const listing = document.getElementById(
+                    `listing-${marker.properties.id}`
+                );
+                listing.classList.add('active');
+            });
+        }
+    }
 
-    //HERE
+    function buildLocationList(camps) {
+        for (const camp of camps.features) {
+            /* Add a new listing section to the sidebar. */
+            const listings = document.getElementById('listings');
+            const listing = listings.appendChild(document.createElement('div'));
+            /* Assign a unique `id` to the listing. */
+            listing.id = `listing-${camp.properties.id}`;
+            /* Assign the `item` class to each listing for styling. */
+            listing.className = 'item';
 
+            /* Add the link to the individual listing created above. */
+            const link = listing.appendChild(document.createElement('a'));
+            link.href = '#';
+            link.className = 'title';
+            link.id = `link-${camp.properties.id}`;
+            link.innerHTML = `${camp.properties.address}`;
 
+            /* Add details to the individual listing. */
+            const details = listing.appendChild(document.createElement('div'));
+            details.innerHTML = `${camp.properties.city}`;
+            if (store.properties.phone) {
+                details.innerHTML += ` &middot; ${camp.properties.phoneFormatted}`;
+            }
 
+            /**
+             * Listen to the element and when it is clicked, do four things:
+             * 1. Update the `currentFeature` to the store associated with the clicked link
+             * 2. Fly to the point
+             * 3. Close all other popups and display popup for clicked store
+             * 4. Highlight listing in sidebar (and remove highlight for all other listings)
+             **/
+            link.addEventListener('click', function() {
+                for (const feature of camps.features) {
+                    if (this.id === `link-${feature.properties.id}`) {
+                        flyToStore(feature);
+                        createPopUp(feature);
+                    }
+                }
+                const activeItem = document.getElementsByClassName('active');
+                if (activeItem[0]) {
+                    activeItem[0].classList.remove('active');
+                }
+                this.parentNode.classList.add('active');
+            });
+        }
+    }
+
+    /**
+     * Use Mapbox GL JS's `flyTo` to move the camera smoothly
+     * a given center point.
+     **/
+    function flyToStore(currentFeature) {
+        map.flyTo({
+            center: currentFeature.geometry.coordinates,
+            zoom: 10
+        });
+    }
+    /**
+     * Create a Mapbox GL JS `Popup`.
+     **/
+    function createPopUp(currentFeature) {
+        const popUps = document.getElementsByClassName('mapboxgl-popup');
+        if (popUps[0]) popUps[0].remove();
+        const popup = new mapboxgl.Popup({
+                closeOnClick: false
+            })
+            .setLngLat(currentFeature.geometry.coordinates)
+            .setHTML(
+                `<h3>${currentFeature.properties.title}</h3><h4>${currentFeature.properties.days}</h4>`
+            )
+            .addTo(map);
+    }
 
 
     // Add a source and layer displaying a point which will be animated in a circle.
     map.addSource('route', {
         'type': 'geojson',
         'data': route
-    });
-
-
-    map.addSource('point', {
-        'type': 'geojson',
-        'data': point
     });
 
     map.addLayer({
@@ -253,109 +309,30 @@ if( $location ): ?> {
             'line-dasharray': [2, 1],
         }
     });
-    map.addLayer({
-        'id': 'points',
-        'type': 'symbol',
-        'source': 'points',
-        'layout': {
-            'icon-image': 'pulsing-dot',
-            'text-field': ['get', 'title'],
-            'text-font': [
-                'Open Sans Regular',
-                'Arial Unicode MS Regular'
-            ],
-            'text-offset': [1, 0],
-            'text-anchor': 'left'
-        }
+    map.on('load', () => {
+        /**
+         * This is where your '.addLayer()' used to be, instead
+         * add only the source without styling a layer
+         */
+        map.addSource('places', {
+            'type': 'geojson',
+            'data': camps
+        });
+
+        /**
+         * Add all the things to the page:
+         * - The location listings on the side of the page
+         * - The markers onto the map
+         */
+        addMarkers();
     });
-
-    map.addLayer({
-        'id': 'point',
-        'source': 'point',
-        'type': 'symbol',
-        'layout': {
-            'icon-image': 'pulsing-dot',
-            'icon-rotate': ['get', 'bearing'],
-            'icon-rotation-alignment': 'map',
-            'icon-allow-overlap': true,
-            'icon-ignore-placement': true
-
-        }
-    });
-
-    function animate() {
-        // Update point geometry to a new position based on counter denoting
-        // the index to access the arc.
-        point.features[0].geometry.coordinates =
-            route.features[0].geometry.coordinates[counter];
-
-        // Calculate the bearing to ensure the icon is rotated to match the route arc
-        // The bearing is calculate between the current point and the next point, except
-        // at the end of the arc use the previous point and the current point
-        point.features[0].properties.bearing = turf.bearing(
-            turf.point(
-                route.features[0].geometry.coordinates[
-                    counter >= steps ? counter - 1 : counter
-                ]
-            ),
-            turf.point(
-                route.features[0].geometry.coordinates[
-                    counter >= steps ? counter : counter + 1
-                ]
-            )
-        );
-
-        // Update the source with this new data.
-        map.getSource('point').setData(point);
-
-        // Request the next frame of animation so long the end has not been reached.
-        if (counter < steps) {
-            requestAnimationFrame(animate);
-        } else {
-            map.removeLayer('point');
-        }
-
-
-        counter = counter + 1;
-
-    }
-
 
 
     map.on('idle', function() {
-        map.resize()
+        map.resize();
     })
 
-    document
-        .getElementById('replay')
-        .addEventListener('click', function() {
 
-            map.addLayer({
-                'id': 'point',
-                'source': 'point',
-                'type': 'symbol',
-                'layout': {
-                    'icon-image': 'airport-15',
-                    'icon-rotate': ['get', 'bearing'],
-                    'icon-rotation-alignment': 'map',
-                    'icon-allow-overlap': true,
-                    'icon-ignore-placement': true
-                }
-            });
-            // Set the coordinates of the original point back to origin
-            point.features[0].geometry.coordinates = origin;
 
-            // Update the source layer
-            map.getSource('point').setData(point);
-
-            // Reset the counter
-            counter = 0;
-
-            // Restart the animation.
-            animate(counter);
-        });
-
-    // Start the animation.
-    animate(counter);
 });
 </script>

@@ -108,9 +108,6 @@ ul#adminmenu > li.current > a.current:after {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.acf-postbox .acf-input .acf-range-wrap input[type=number] {
-  display: none;
-}
 .acf-postbox .acf-input .description {
   color: white;
 }

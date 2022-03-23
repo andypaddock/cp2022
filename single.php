@@ -6,7 +6,7 @@
  */
 get_header(); ?>
 
-
+<?php if( !get_field('hide_previous') ): ?>
 <?php $bgColor = get_sub_field('bg_colour');
 $noMobile = get_sub_field('hide_on_mobile');?>
 <section class="section-text <?php if($bgColor == true): echo 'alt-bg'; endif; ?>
@@ -34,7 +34,7 @@ if( $link ):
         </div>
     </div>
 </section>
-
+<?php endif; ?>
 
 
 

@@ -199,7 +199,7 @@ if(get_sub_field('switch_text'))
 	echo 'alt-color';
 }
 ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                        <span class="alt-font-pop"><?php the_field('length_of_stay'); ?></span>
+                        <!-- <span class="alt-font-pop"><?php the_field('length_of_stay'); ?></span> -->
                     </div>
                     <div class="text <?php
 if(get_sub_field('switch_text'))
@@ -207,7 +207,7 @@ if(get_sub_field('switch_text'))
 	echo 'alt-color';
 }
 ?>">
-                        <div class="destinations alt-font-pop">
+                        <!-- <div class="destinations alt-font-pop">
                             <?php
 $taxonomy = 'destinations'; // change this to your taxonomy
 $terms = wp_get_post_terms( $post->ID, $taxonomy, array( "fields" => "ids" ) );
@@ -223,7 +223,7 @@ if( $terms ) {
                         </div>
                         <div class="sub">
 
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

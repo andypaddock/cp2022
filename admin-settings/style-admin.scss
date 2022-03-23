@@ -118,9 +118,9 @@ ul#adminmenu > li.current > a.current:after {
     .acf-range-wrap {
       display: flex;
       flex-direction: column;
-      input[type="number"] {
-        display: none;
-      }
+      // input[type="number"] {
+      //   display: none;
+      // }
     }
     .description {
       color: white;
