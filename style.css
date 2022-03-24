@@ -4831,6 +4831,10 @@ footer .w90 {
       -ms-flex-direction: column;
           flex-direction: column;
   background: #fff;
+  opacity: 0;
+  max-height: 0;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 .days-block .days-item img {
   width: 100%;
@@ -4849,6 +4853,11 @@ footer .w90 {
 }
 .days-block .days-item .days-text {
   padding: 0 4rem 4rem;
+}
+.days-block .days-item.active {
+  opacity: 1;
+  max-height: unset;
+  min-height: 60rem;
 }
 .days-block .slick-track {
   display: -webkit-box !important;
@@ -4883,7 +4892,7 @@ footer .w90 {
 }
 .itin-map #map {
   width: 100%;
-  height: calc(100% - 3rem);
+  height: 100%;
 }
 
 /* Magnific Popup CSS */
@@ -5656,4 +5665,8 @@ img.mfp-img {
 #marker-0:before {
   font-size: 2rem;
   color: #931116;
+}
+
+.mapboxgl-popup {
+  top: -2rem;
 }

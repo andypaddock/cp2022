@@ -335,3 +335,4 @@ function get_posts_years_array() {
   }
   return $result;
 }
+add_filter('acf/settings/row_index_offset', '__return_zero');

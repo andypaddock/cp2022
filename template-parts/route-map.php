@@ -183,6 +183,7 @@ map.on('load', function() {
             el.id = `marker-${marker.properties.id}`;
             /* Assign the `marker` class to each marker for styling. */
             el.className = 'marker';
+            el.setAttribute('data-slide', `${marker.properties.id}`);
 
             /**
              * Create a marker using the div element
@@ -273,7 +274,7 @@ map.on('load', function() {
     function flyToStore(currentFeature) {
         map.flyTo({
             center: currentFeature.geometry.coordinates,
-            zoom: 10
+            zoom: 6
         });
     }
     /**

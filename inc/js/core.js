@@ -305,10 +305,7 @@ $(document).ready(function() {
 
 $('.single-slider--blocks').slick();
 
-$('.days-block').slick( {
-  arrows:false,
-  dots:true,
-});
+
 
 $('.slider-images').slick({
   dots: true,
@@ -390,6 +387,30 @@ $('.triple-blocks').slick({
     // instead of a settings object
   ]
 });
+
+// $('.days-block').slick( {
+//   slidesToShow: 1,
+//    slidesToScroll: 1,
+//   arrows:false,
+//   dots:true,
+//   fade: true,
+//   asNavFor: '.days-block-nav',
+// });
+
+// $('.days-block-nav').slick({
+//   slidesToShow: 3,
+//   slidesToScroll: 1,
+//   asNavFor: '.days-block',
+//   dots: true,
+//   focusOnSelect: true
+// });
+
+// $('div[data-slide]').click(function(e) {
+//   e.preventDefault();
+//   var slideno = $(this).data('slide');
+//   alert(slideno);
+//   $('.days-block-nav').slick('slickGoTo', slideno);
+// });
 
 var currentYear = new Date().getFullYear();  
 
