@@ -11,7 +11,7 @@ $noMobile = get_sub_field('hide_on_mobile');?>
         'hide_empty' => true
     ));?>
                 <li>Filters</li>
-                <li type="button" data-filter="all">All</li>
+                <li type="button" data-toggle="all">All</li>
                 <?php foreach($all_categories as $category): ?>
                 <li type="button" class="control" data-toggle=".<?php echo $category->slug; ?>">
                     <?php echo $category->name; ?></li>
@@ -28,7 +28,7 @@ $noMobile = get_sub_field('hide_on_mobile');?>
                             <h3><i class="fa-light fa-clock-rotate-left"></i><span class="icon-dashboard"></span>Archive
                             </h3>
 
-                            <ul data-filter-group id="timeselector">
+                            <ul data-toggle-group id="timeselector">
                             </ul>
                         </li>
                     </ul>

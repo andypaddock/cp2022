@@ -418,7 +418,7 @@ var currentYear = new Date().getFullYear();
         $("#timeselector").append(
 
             $("<li></li>")
-                .attr("data-filter", ('.m' + currentYear))
+                .attr("data-toggle", ('.m' + currentYear))
                 .attr("class", ('control'))
                 .text(currentYear)
 

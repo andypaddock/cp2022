@@ -606,7 +606,7 @@ blockquote {
   background: #fff;
   color: #6a6f71;
   text-align: center;
-  padding: 1rem 4rem;
+  padding: 1.5rem 4rem;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 1.5rem;
@@ -2153,8 +2153,13 @@ article p {
 }
 
 .logo-text .logo svg {
-  margin-left: -2.5rem;
+  margin-left: -7.5rem;
   height: 10rem;
+}
+@media only screen and (min-width: 90rem) {
+  .logo-text .logo svg {
+    margin-left: -2.5rem;
+  }
 }
 .logo-text .logo h3 {
   padding: 3rem 3rem 0 0;
