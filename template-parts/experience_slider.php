@@ -20,7 +20,7 @@ $experienceImage = get_the_post_thumbnail_url( get_the_ID(), 'large' );
                 <div class="tri-col revealup">
 
                     <div class="title">
-                        <h3 class="heading-tertiary <?php
+                        <h3 class="heading-tertiary alt-font-pop <?php
 if(get_sub_field('switch_text'))
 {
 	echo 'alt-color';

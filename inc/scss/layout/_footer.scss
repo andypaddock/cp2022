@@ -218,7 +218,7 @@
           text-transform: uppercase;
           text-decoration: none;
           padding: 2rem;
-          font-size: 1.4rem;
+          font-size: 1.2rem;
         }
       }
     }
@@ -236,6 +236,8 @@
   }
   .footer-contact {
     padding: 2rem 0;
+    font-family:  $alt-font-family;
+    font-size: 1.2rem;
     ul {
       list-style: none;
       padding: 2rem 0;
@@ -243,6 +245,9 @@
       li {
         border-left: 1px solid $color-primary;
         padding: 0 2rem;
+        a {
+          font-size: 1.2rem;
+        }
       }
     }
     .copyright {
@@ -269,6 +274,8 @@
     margin-left: auto;
     .menu-footer-container {
       padding: 2rem 0 0;
+      font-family: $alt-font-family;
+      font-size: 1.2rem;
     }
     .menu {
       list-style: none;
@@ -283,7 +290,7 @@
         }
         a {
           font-weight: 200;
-          font-size: 1.4rem;
+          font-size: 1.2rem;
         }
       }
     }
@@ -324,6 +331,9 @@
 }
 .footer-privacy {
   display: flex;
+  a {
+    font-size: 1.2rem;
+  }
   .copyright {
     display: flex;
     align-items: center;

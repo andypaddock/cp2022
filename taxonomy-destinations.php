@@ -97,7 +97,7 @@ $noMobile = get_sub_field('hide_on_mobile');
                 <div class="tri-col revealup">
 
                     <div class="title">
-                        <h3 class="heading-tertiary alt-color"><?php $postType = get_post_type_object(get_post_type());
+                        <h3 class="heading-tertiary alt-font-pop alt-color"><?php $postType = get_post_type_object(get_post_type());
 if ($postType) {
     echo esc_html($postType->labels->singular_name);
 } ?></h3>

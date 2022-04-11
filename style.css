@@ -432,7 +432,7 @@ body {
 }
 
 .heading-tertiary {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 200;
   text-transform: uppercase;
 }
@@ -1197,7 +1197,7 @@ blockquote {
 .controls ul li {
   color: #6a6f71;
   background: #fff;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   cursor: pointer;
   text-transform: uppercase;
   font-size: 1.3rem;
@@ -2124,6 +2124,7 @@ span.wpcf7-not-valid-tip {
 
 article p {
   text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 
 .read-more,
@@ -2153,7 +2154,7 @@ article p {
 }
 
 .logo-text .logo svg {
-  margin-left: -7.5rem;
+  margin-left: -5.5rem;
   height: 10rem;
 }
 @media only screen and (min-width: 90rem) {
@@ -2164,6 +2165,13 @@ article p {
 .logo-text .logo h3 {
   padding: 3rem 3rem 0 0;
   font-size: 3.7rem;
+}
+.logo-text .text {
+  font-family: "garamond-premier-pro", sans-serif;
+}
+.logo-text .text p {
+  font-size: 2.5rem;
+  line-height: 3.7rem;
 }
 .logo-text .text .lead {
   font-weight: 700;
@@ -2208,11 +2216,6 @@ article p {
 }
 .split-col .text-box .button {
   margin-top: 2rem;
-}
-.split-col .text {
-  font-size: 1.5rem;
-  line-height: 2;
-  font-family: "Poppins", sans-serif;
 }
 .split-col .lead-para {
   font-size: 1.6rem;
@@ -2743,7 +2746,7 @@ article p {
 }
 .single-slider .slick-prev,
 .single-slider .slick-next {
-  top: 100%;
+  top: 97%;
   -webkit-transform: translate(0, -100%);
           transform: translate(0, -100%);
   z-index: 1;
@@ -3156,7 +3159,7 @@ article p {
   text-transform: uppercase;
   text-decoration: none;
   padding: 2rem;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 .footer-navbar .logo {
   display: -webkit-box;
@@ -3175,6 +3178,8 @@ article p {
 }
 .footer-navbar .footer-contact {
   padding: 2rem 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
 }
 .footer-navbar .footer-contact ul {
   list-style: none;
@@ -3184,6 +3189,9 @@ article p {
 .footer-navbar .footer-contact ul li {
   border-left: 1px solid #6a6f71;
   padding: 0 2rem;
+}
+.footer-navbar .footer-contact ul li a {
+  font-size: 1.2rem;
 }
 .footer-navbar .footer-contact .copyright {
   color: #6a6f71;
@@ -3214,6 +3222,8 @@ article p {
 }
 .footer-navbar .nav-area .menu-footer-container {
   padding: 2rem 0 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
 }
 .footer-navbar .nav-area .menu {
   list-style: none;
@@ -3233,7 +3243,7 @@ article p {
 }
 .footer-navbar .nav-area .menu li a {
   font-weight: 200;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 .footer-navbar ul li {
   padding-right: 2rem;
@@ -3285,6 +3295,9 @@ article p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+.footer-privacy a {
+  font-size: 1.2rem;
 }
 .footer-privacy .copyright {
   display: -webkit-box;
