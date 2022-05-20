@@ -1,89 +1,133 @@
-.single,
+
 .blog {
   .header {
     height: 50vh;
   }
+
   .news-header {
     text-align: center;
     padding-bottom: 2rem;
   }
+
   .section-text {
     .button {
       margin: 1rem 0;
     }
+
     .heading-tertiary {
       padding: 2rem 0;
     }
   }
 }
+
 .post-block {
   .multi-grid {
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-gap: 2rem;
   }
+
   .post-text {
-    padding: 2rem 4rem;
+    background-color: #F8F8F8;
+    padding: 1.5rem 8rem 1rem 6rem;
+    .meta,
+    p {
+      font-size: 14px;
+      font-family: poppins;
+    }
+
     .meta {
-      display: block;
+      letter-spacing: 1px;
     }
+
+    p {
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
     .heading-secondary--sub {
-      font-size: 1.7rem;
+      font-size: 27px;
+      padding-bottom: 0.5em;
     }
+
   }
+
   .post-link {
-    padding: 0 4rem 2rem;
-    .button {
+    a {
       text-align: left;
       padding: 0;
-      color: $color-black;
+      color: #6a6f71;
       text-transform: uppercase;
+      font-family: poppins;
+      font-size: 14px;
+      letter-spacing: 2px;
+      font-weight: 200;
+      margin-bottom: 2.5rem;
+      display: block;
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
 }
+
 .post-block {
   padding-top: 0;
+
   .controls {
-    padding: 0 0 5rem 0;
+    padding: 3.5rem 0 9rem 0;
+
     ul {
       list-style: none;
       display: flex;
       cursor: pointer;
       color: $color-primary;
-      font-weight: 400;
       letter-spacing: 0.1rem;
       text-transform: uppercase;
       font-size: 1.4rem;
-      grid-gap: 4rem;
+      grid-gap: 2.5rem;
+
       li {
+        max-width: 27rem;
+        font-family: poppins;
         flex: 1;
         flex-basis: 20rem;
         padding: 1rem;
         text-align: center;
+
         &:first-of-type {
           font-weight: 200;
           cursor: unset;
           background: transparent;
+          text-align: right;
+          max-width: fit-content;
+          padding-left: 6em;
+          padding-right: 3em;
         }
       }
     }
   }
+
   .type-controls {
     ul {
       list-style: none;
       cursor: pointer;
     }
   }
+
   .post-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 2rem;
+
     @include respond(tab-port) {
       grid-template-columns: 1fr;
     }
+
     .mix {
       display: flex;
       flex-direction: column;
+
       .test-image {
         display: flex;
         align-items: center;
@@ -93,79 +137,122 @@
         border-radius: 1rem 1rem 0 0;
         text-align: center;
       }
+
       svg {
         position: absolute;
       }
+
       .heading-tertiary {
         padding: 0 3rem;
         font-weight: 200;
         text-align: center;
       }
+
       .post-excerpt {
         flex: 1;
         padding: 0 3rem 2rem 3rem;
         text-align: center;
       }
+
       .date {
         color: $color-primary;
         text-align: center;
         font-weight: 400;
         padding-top: 2rem;
       }
+
       .button {
         margin: 1rem 3rem;
       }
     }
   }
+
   video {
     width: 100%;
   }
+
   .popup__content {
     text-align: center;
+
     .quote-cite {
       color: $color-primary;
     }
   }
+
   blockquote {
     p {
       font-size: 2.5rem;
       font-weight: 400;
     }
+
     padding: 3rem;
   }
+
   .popup__left {
     blockquote p {
       font-size: 2rem;
     }
   }
 }
+
 .second-filter {
   .type-controls {
-    background: $color-white;
+    background: #F8F8F8;
     padding: 1rem 2rem;
+
     ul li.mixitup-control-active {
-      font-weight: 700;
+      font-weight: 300;
     }
+
+    ul li.mixitup-control-active {
+      font-weight: 400;
+    }
+
     #accordian ul ul {
       display: none;
     }
+
     #accordian li.active ul {
       display: block;
     }
+
     #timeselector {
       padding-left: 3rem;
       font-family: $alt-font-family;
+
       li {
         padding: 0.5rem 0;
+        font-size: 16px;
+        letter-spacing: 1px;
       }
     }
+
     h3 {
+      font-size: 18px;
       text-transform: uppercase;
       font-family: $alt-font-family;
       font-weight: 300;
+      letter-spacing: 1px;
+
       i {
         padding-right: 1rem;
       }
+
+      &:after {
+        content: "";
+        display: block;
+        border-bottom: 1px solid #707070;
+        width: 1em;
+        margin-top: 0.5em;
+        margin-left: 2em;
+        margin-bottom: 0.5em;
+      }
     }
+  }
+}
+
+.page-id-6625 {
+  header.header {
+    height: 87vh;
   }
 }

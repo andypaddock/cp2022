@@ -7,7 +7,7 @@ $term_id = $term->term_id;
 
     ?>
 <!-- ******************* Hero Content ******************* -->
-<header class="header v50">
+<header class="header v100">
     <?php get_template_part("template-parts/archivehero"); ?>
 </header>
 

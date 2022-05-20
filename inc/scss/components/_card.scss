@@ -258,8 +258,9 @@
   }
 }
 .image-text {
+  padding-top: 8em;
   .image-advert {
-    min-height: 60rem;
+    min-height: 100vh;
     @include backgroundCover;
   }
   .text-box {
@@ -313,6 +314,7 @@
     margin-left: 50%;
   }
 }
+
 .cards-block,
 .post-block {
   .split-col {
@@ -320,9 +322,10 @@
   }
 
   .card-item {
-    background: $color-white;
+    background: #F8F8F8;
     display: inline-block;
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
     .card-image {
       img {
         width: 100%;
@@ -341,7 +344,7 @@
   }
   .flex-split-col {
     columns: 2;
-    column-gap: 2rem;
+    column-gap: 2.5rem;
     @include respond(tab-port) {
       columns: 1;
     }
@@ -352,15 +355,28 @@
       .title {
         flex: 1;
         text-align: right;
-        padding: 4rem;
+        margin: 4rem 0 4rem 4rem;
+        padding-right: 4rem;
+        border-right: 1px solid #E6E6E6;
+        h3 {
+          a {
+            font-size: 27px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            line-height: 1.25em;
+          }
+        }
         span {
-          margin-top: 0.5rem;
+          margin-top: 1em;
           display: block;
+          font-size: 16px;
+          font-weight: 300;
+          text-transform: uppercase;
         }
       }
       .text {
         flex: 1;
-        padding: 4rem 2rem 0 2rem;
+        padding: 4rem 7rem 3rem 2.5rem;
       }
       .destinations {
         ul {
@@ -369,7 +385,7 @@
           a {
             font-weight: 400;
             text-transform: uppercase;
-            font-size: 1.4rem;
+            font-size: 14px;
           }
         }
         ul.children {
@@ -378,10 +394,10 @@
           li {
           }
           a {
-            font-weight: 100;
+            font-weight: 200;
             text-transform: unset;
             padding-right: 0.5rem;
-            font-size: 1.4rem;
+            font-size: 14px;
             font-style: italic;
             &::after {
               content: ",";
@@ -393,29 +409,39 @@
   }
 }
 .portrait-cards-block {
+  padding-top: 0;
   .quad-col {
     grid-gap: 2rem;
   }
   .card-item {
-    background: $color-white;
+    background: #F5F4F4;
     display: inline-block;
     margin-bottom: 2rem;
+    a {
+      // font-size: 16px;
+      // letter-spacing: 2px;
+      // padding: 0.9em 4em;
+    }
     .card-image {
-      height: 50rem;
+      height: 45rem;
       @include backgroundCover;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: 4rem 2rem;
+      padding: 5.5rem 1rem 2rem 1rem;
       text-align: center;
+      a {
+        display: flex;
+        width: 80%;
+      }
       img {
         height: 100%;
         max-width: 100%;
       }
     }
     .heading-tertiary {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
     .text-box {
       padding: 2rem;
@@ -431,10 +457,9 @@
   .flex-items {
     display: flex;
     img {
-      width: 2rem;
+      width: 1.5rem;
       margin-right: 1rem;
-      filter: brightness(0) saturate(100%) invert(89%) sepia(59%) saturate(20%)
-        hue-rotate(240deg) brightness(105%) contrast(80%);
+      filter: brightness(0) saturate(100%) invert(89%) sepia(59%) saturate(20%) hue-rotate(240deg) brightness(106%) contrast(80%)
     }
 
     &.mixitup-control-active {
@@ -446,7 +471,7 @@
   }
 }
 .controls {
-  padding: 2rem 0;
+  padding: 0 0 3.5rem 0;
   .flex-col {
     grid-gap: 2rem;
   }
@@ -454,16 +479,16 @@
     list-style: none;
     li {
       color: $color-black;
-      background: $color-white;
+      background: #F5F4F4;
 
       padding: 1rem 1rem;
       cursor: pointer;
       text-transform: uppercase;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       &.mixitup-control-active {
         color: $color-black;
-        background: $color-white;
-        font-weight: 700;
+        background: #fff;
+        font-weight: 300;
       }
     }
   }

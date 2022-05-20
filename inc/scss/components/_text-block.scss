@@ -53,6 +53,10 @@
 .section-title {
   text-align: center;
   padding-bottom: 0;
+  margin-top: 8em;
+  .heading-secondary--main {
+    font-weight: 400;
+}
   .alt-text {
     color: $color-white;
     font-size: 2.5rem;
@@ -110,26 +114,41 @@ article {
 .read-more,
 .read-less {
   text-align: center;
-  padding-top: 5rem;
+  padding-top: 6rem;
+  padding-bottom: 5.5em;
+  p {
+    font-size: 25px;
+    font-weight: 400;
+    font-family: $default-font-family;
+    line-height: 47px;
+  }
   a {
     text-decoration: none;
-    font-weight: 400;
     text-transform: uppercase;
     font-family: $alt-font-family;
     position: relative;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: 200;
     &::before {
       content: "";
       position: absolute;
       left: 50%;
-      border-right: 1px solid $color-primary;
-      height: 1.75rem;
-      z-index: 1;
-      top: -3rem;
+      border-right: 1px solid #707070;
+      height: 2.5rem;
+      z-index: 0;
+      top: -4.5rem;
       transform: rotate(90deg);
     }
   }
 }
-.logo-text {
+
+section.logo-text {
+  padding: 10em 0 5em 0;
+  .bottom-self {
+    display: flex;
+    align-self: flex-end;
+  }
   .logo {
     svg {
       margin-left: -5.5rem;
@@ -139,20 +158,22 @@ article {
       }
     }
     h3 {
-      padding: 3rem 3rem 0 0;
-      font-size: 3.7rem;
+      padding: 0 10rem 0 0;
+      font-size: 48px;
+      letter-spacing: 4px;
+      line-height: 1.25em;
     }
   }
   .text {
     font-family: $default-font-family;
     
     p {
-      font-size: 2.5rem;
-      line-height: 3.7rem;
+      font-size: 25px;
+      line-height: 1.5em;
+      letter-spacing: 1px;
     }
     .lead {
-      font-weight: 700;
-      
+      font-weight: 900;
     }
   }
 }
@@ -176,16 +197,31 @@ article {
     }
   }
   .text-box {
-    margin: 3rem 20% 3rem 3rem;
+    margin: 3rem 15% 3rem 15%;
+    & .read-more {
+      display: none;
+    }
     padding: 4rem 8rem;
     @include respond(tab-port) {
       margin: 0;
     }
     .heading-secondary {
-      padding-bottom: 2rem;
+      padding-bottom: 3rem;
+      line-height: 1.5em;
+      font-weight: 400;
+      font-size: 48px;
+      letter-spacing: 4px;
     }
     .button {
-      margin-top: 2rem;
+      font-size: 16px;
+      letter-spacing: 3px;
+      background: #F5F4F4;
+      width: 21em;
+      margin-top: 3em;
+    }
+    p.text  {
+      font-family: $default-font-family;
+      font-size: 28px;
     }
   }
 

@@ -19,7 +19,15 @@
     <meta name="keywords" content=" ">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo the_title(); ?></title>
-    <link rel="stylesheet" href="https://use.typekit.net/vpg4cyy.css">
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/vpg4cyy.css"> -->
+    <link rel="stylesheet" href="https://use.typekit.net/xlx7xrg.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap"
+        rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/b7821303ab.js" crossorigin="anonymous"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
@@ -41,9 +49,10 @@
     </div>
 
     <main>
-
+        <?php if(!is_front_page()):?>
         <div class="top-logo"><a href="<?php echo site_url(); ?>"><?php get_template_part("inc/img/cplogotxt"); ?></a>
         </div>
+        <?php endif;?>
 
 
 

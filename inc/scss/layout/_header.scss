@@ -1,6 +1,13 @@
+// .page-id-131 {
+//   .header {
+//     .down_arrow {
+//       padding-bottom: 8rem;
+//     }
+//   }
+// }
+
 .header {
   min-height: 700px;
-  margin: -6rem 0 3rem;
   &.v25 {
     height: 25vh;
   }
@@ -28,15 +35,38 @@
 
   &__text-box {
     text-align: center;
+    .logo {
+      padding-bottom: 3rem;
+      svg {
+        path {
+          fill: $color-white;
+        }
+      }
+    }
   }
   &__quote-box {
     text-align: center;
     padding: 0 6rem;
   }
+  .country-links {
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-evenly;
+      li {
+        a {
+          color: $color-white;
+          text-transform: uppercase;
+          font-family: $alt-font-family;
+          font-size: 2.5rem;
+        }
+      }
+    }
+
+  }
   .hero {
     height: 100%;
     position: relative;
-    border-radius: 0.5rem 0.5rem 0 0;
     @include backgroundCover;
     background-image: linear-gradient(
       0deg,
@@ -45,7 +75,7 @@
     );
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     overflow: hidden;
     row-gap: 5vh;
     @include respond(phone) {
@@ -103,7 +133,6 @@
   }
   video#bgvideo {
     position: absolute;
-    border-radius: 0.5rem 0.5rem 0 0;
     z-index: -1;
     background-size: cover;
     min-width: 100%;
@@ -118,6 +147,11 @@
   }
   .down_arrow {
     padding-bottom: 3rem;
+    position: absolute;
+    font-size: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 }
 .text-fade {
@@ -206,17 +240,19 @@
   width: 400px;
   position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   left: 0;
   background-color: $color-primary;
+  transform: translateX(-400px);
+  transition: transform .6s ease-in-out;
 }
 
 .bar {
   display: block;
-  height: 3px;
-  width: 30px;
-  background-color: $color-white;
-  margin: 5px auto;
+  height: 2px;
+  width: 24px;
+  background-color: #ffffffc9;
+  margin: 6px auto;
 }
 
 .navbutton {
@@ -271,7 +307,7 @@
 }
 
 .move-to-left {
-  transform: translateX(400px);
+  transform: translateX(0);
 }
 
 nav {
@@ -283,8 +319,15 @@ nav {
   margin: 0;
   list-style: none;
   position: relative;
-  margin-top: 150px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  background-color: #a9a9a9;
+  li {
+    letter-spacing: 2px;
+  }
 }
 
 .sidebar-item {
@@ -437,11 +480,17 @@ nav {
   }
 }
 .top-logo {
-  z-index: 1;
-  text-align: center;
-  padding-top: 3rem;
-  position: sticky;
-  top: 0;
+    z-index: 1;
+    position: absolute;
+    text-align: center;
+    padding-top: 2.5rem;
+    top: 0;
+    transform: scale(1.15);
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    left: 0;
   svg {
     path {
       fill: $color-white;

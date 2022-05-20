@@ -40,6 +40,14 @@
 }
 .itin-filter-block {
   padding-top: 0;
+  background: #e6e6e6;
+  position: sticky;
+  bottom: 0;
+  padding-bottom: 0;
+  padding-top: 2em;
+  .controls {
+    padding-bottom: 2em;
+  }
   .flex-items {
     display: flex;
     img {

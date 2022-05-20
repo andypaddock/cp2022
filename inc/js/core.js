@@ -105,7 +105,7 @@ $(document).ready(function() {
 
   function toggleSidebar() {
     $(".navbutton").toggleClass("active");
-    $("main").toggleClass("move-to-left");
+    $(".sidebar").toggleClass("move-to-left");
     $(".sidebar-item").toggleClass("active");
   }
 

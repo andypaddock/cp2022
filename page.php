@@ -80,8 +80,6 @@ get_header(); ?>
 <?php get_template_part('template-parts/gallery_block');?>
 <?php elseif( get_row_layout() == 'gallery_text_repeat' ):?>
 <?php get_template_part('template-parts/gallery_text_repeat');?>
-<?php elseif( get_row_layout() == 'itin_filter_block' ):?>
-<?php get_template_part('template-parts/itin_filter_block');?>
 <?php elseif( get_row_layout() == 'cards_block_filter' ):?>
 <?php get_template_part('template-parts/cards_block_filter');?>
 <?php elseif( get_row_layout() == 'testimonial' ):?>
@@ -90,7 +88,8 @@ get_header(); ?>
 <?php get_template_part('template-parts/multi_filter_post_block');?>
 <?php elseif( get_row_layout() == 'day_planner_block' ):?>
 <?php get_template_part('template-parts/day_planner_block');?>
-
+<?php elseif( get_row_layout() == 'itin_filter_block' ):?>
+<?php get_template_part('template-parts/itin_filter_block');?>
 
 
 <?php endif; ?>
