@@ -127,8 +127,6 @@ article {
     text-transform: uppercase;
     font-family: $alt-font-family;
     position: relative;
-    font-size: 16px;
-    letter-spacing: 2px;
     font-weight: 200;
     &::before {
       content: "";
@@ -144,7 +142,7 @@ article {
 }
 
 section.logo-text {
-  padding: 10em 0 5em 0;
+  
   .bottom-self {
     display: flex;
     align-self: flex-end;
@@ -158,19 +156,14 @@ section.logo-text {
       }
     }
     h3 {
-      padding: 0 10rem 0 0;
-      font-size: 48px;
-      letter-spacing: 4px;
-      line-height: 1.25em;
+      
     }
   }
   .text {
     font-family: $default-font-family;
     
     p {
-      font-size: 25px;
-      line-height: 1.5em;
-      letter-spacing: 1px;
+      
     }
     .lead {
       font-weight: 900;
@@ -197,31 +190,16 @@ section.logo-text {
     }
   }
   .text-box {
-    margin: 3rem 15% 3rem 15%;
-    & .read-more {
-      display: none;
-    }
+    // margin: 3rem 15% 3rem 15%;
+    // & .read-more {
+    //   display: none;
+    // }
     padding: 4rem 8rem;
     @include respond(tab-port) {
       margin: 0;
     }
-    .heading-secondary {
-      padding-bottom: 3rem;
-      line-height: 1.5em;
-      font-weight: 400;
-      font-size: 48px;
-      letter-spacing: 4px;
-    }
-    .button {
-      font-size: 16px;
-      letter-spacing: 3px;
-      background: #F5F4F4;
-      width: 21em;
-      margin-top: 3em;
-    }
     p.text  {
       font-family: $default-font-family;
-      font-size: 28px;
     }
   }
 

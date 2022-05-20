@@ -150,7 +150,7 @@ $noMobile = get_sub_field('hide_on_mobile');
 
         <div class="triple-blocks">
             <?php foreach( $featured_posts as $post ): 
-$experienceImage = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
+$experienceImage = get_the_post_thumbnail_url( get_the_ID(), 'hero-image' );
 // Setup this post for WP functions (variable must be named $post).
 setup_postdata($post); ?>
 

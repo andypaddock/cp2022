@@ -13,14 +13,15 @@ $term_id = $term->term_id;
 
 <!-- ******************* Hero Content END ******************* -->
 <?php $largeImage = get_field('background_image', $term);
-$mapImage = get_field('map_icon', $term); ?>
+$mapImage = get_field('map_icon', $term);
+$descImage = get_field('description_image', $term); ?>
 <section class="image-text">
     <div class="row">
 
         <div class="split-col">
 
             <div class="image-advert fmleft background-image"
-                style="background-image: url(<?php echo $largeImage['url']; ?>)">
+                style="background-image: url(<?php echo $descImage['url']; ?>)">
             </div>
             <div class="text-box fmright">
 
@@ -32,6 +33,7 @@ $mapImage = get_field('map_icon', $term); ?>
                 <article>
                     <?php echo term_description(); ?>
                 </article>
+
 
                 <?php 
 $link = get_sub_field('link', $term);
@@ -104,7 +106,7 @@ if ($postType) {
                         <h3 class="heading-secondary alt-color"><?php the_title(); ?></h3>
                     </div>
                     <div class="text alt-color">
-                        <p><?php echo wp_trim_words( get_the_excerpt(), 20, '...' ); ?></p>
+                        <p><?php echo wp_trim_words( get_the_excerpt(), 15, '...' ); ?></p>
                     </div>
                     <div class="link">
                         <a class="button" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
@@ -215,6 +217,8 @@ if( $terms ) {
 </section>
 
 
+
+
 <section class="section-title">
     <div class="row centre-line w50 fmbottom">
         <div class="line"></div>
@@ -229,43 +233,29 @@ if( $terms ) {
 </section>
 
 
-
 <section class="single-slider">
     <div class="row full">
         <div class="single-slider--blocks">
-
-
-
-
+            <?php $queried_object = get_queried_object();
+$term_id = $queried_object->term_id; ?>
             <?php
-$terms = get_terms( array('destinations') );
+$terms = get_terms( array(
+        'taxonomy'   => 'destinations', // Swap in your custom taxonomy name
+        'hide_empty' => true,
+        'parent'       => 0,
+        'exclude'     => array($term_id),
+));
+?>
 
-foreach ($terms as $term) :
 
-    $term_slug = $term->slug;
-    $_posts = new WP_Query( array(
-                // 'post_type'         => 'itineraries',
-                // 'posts_per_page'    => -1,
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'destinations',
-                        'field'    => 'slug',
-                        'terms'    => $term_slug,
-                        'operator' => 'NOT IN'
-                    ),
-                ),
-            ));
-
-    if( $_posts->have_posts() ) :
-
-        $campImage = get_sub_field('hero_image',$term);
-        $experienceImage = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
-        // Setup this post for WP functions (variable must be named $post).
-        $image = get_field('background_image',$term);
-        $icon = get_field('map_icon',$term);
-        ?>
+            <?php foreach( $terms as $term ):
+    $campImage = get_sub_field('hero_image',$term);
+    $experienceImage = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
+    // Setup this post for WP functions (variable must be named $post).
+    $image = get_field('background_image',$term);
+    $icon = get_field('map_icon',$term);?>
             <div class="single-slider--image">
-                <img src="<?php echo $image['url']; ?>" />
+                <img class="main-slider-image" src="<?php echo $image['url']; ?>" />
                 <div class="single-slider--text revealup">
                     <img src="<?php echo $icon['url']; ?>" />
                     <h3 class="heading-secondary"><?php echo esc_html( $term->name ); ?></h3>
@@ -275,17 +265,8 @@ foreach ($terms as $term) :
                         <?php echo esc_html( $term->name ); ?></a>
                 </div>
             </div>
-            <?php endif;
-    wp_reset_postdata();
-            endforeach; ?>
-
+            <?php endforeach;?>
         </div>
-
-
-
-
-
-
     </div>
 </section>
 

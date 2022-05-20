@@ -49,7 +49,7 @@ echo '</ul>';
 
 <?php elseif ($heroSwitch == 'image') : ?>
 <div class="hero imageoff-<?php the_field('image_offset'); ?>"
-    style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>)">
+    style="background-image: url(<?php echo get_the_post_thumbnail_url( get_the_ID(), 'hero-image' ); ?>)">
 
     <div class="row header__text-box">
         <?php if(is_front_page()):?>
@@ -85,7 +85,7 @@ echo '</ul>';
 </div>
 <?php else : ?>
 <div class="hero imageoff-50"
-    style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>)">
+    style="background-image: url(<?php echo get_the_post_thumbnail_url( get_the_ID(), 'hero-image' ); ?>)">
 
     <div class="row header__text-box">
         <?php if(is_front_page()):?>

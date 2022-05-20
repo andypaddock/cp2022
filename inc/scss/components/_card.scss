@@ -260,8 +260,10 @@
 .image-text {
   padding-top: 8em;
   .image-advert {
-    min-height: 100vh;
+    height: 60rem;
     @include backgroundCover;
+    position: sticky;
+    top: 0;
   }
   .text-box {
     display: flex;

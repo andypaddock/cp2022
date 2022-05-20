@@ -557,7 +557,7 @@ img.mfp-img {
 .slick-next:focus {
   color: transparent;
   outline: none;
-  background: transparent;
+  opacity: 0.5;
 }
 .slick-prev:hover:before,
 .slick-prev:focus:before,
@@ -573,7 +573,7 @@ img.mfp-img {
 .slick-prev:before,
 .slick-next:before {
   font-family: "slick";
-  font-size: 30px;
+  font-size: 2.5rem;
   line-height: 1;
   opacity: 0.75;
   color: $color-black;

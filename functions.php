@@ -336,3 +336,8 @@ function get_posts_years_array() {
   return $result;
 }
 add_filter('acf/settings/row_index_offset', '__return_zero');
+
+add_action( 'after_setup_theme', 'silver_hero_image' );
+function silver_hero_image() {
+    add_image_size( 'hero-image', 1920 ); // 1920 pixels wide (and unlimited height)
+}

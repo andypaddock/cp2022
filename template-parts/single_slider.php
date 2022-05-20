@@ -17,7 +17,7 @@ if( $terms ): ?>
 
 
             <div class="single-slider--image">
-                <img src="<?php echo $image['url']; ?>" />
+                <img class="main-slider-image" src="<?php echo $image['url']; ?>" />
                 <div class="single-slider--text revealup">
                     <img class="map-icon" src="<?php echo $icon['url']; ?>" />
                     <h3 class="heading-secondary"><?php echo esc_html( $term->name ); ?></h3>

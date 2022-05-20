@@ -55,6 +55,9 @@ a.button {
     }
     &.active {
       font-weight: 700;
+      background: transparent;
+      border: 1px solid $color-white;
+      color: $color-white;
     }
   }
 }

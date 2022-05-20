@@ -13,16 +13,15 @@ body {
   text-transform: uppercase;
   backface-visibility: hidden;
   margin-bottom: 3rem;
-  line-height: 3.5em;
-  font-style: normal;
+  line-height: 1.2;
   &.alt-color {
     color: $color-white;
   }
   &--main {
     display: block;
-    font-size: 85px;
-    letter-spacing: 6px;
-    font-weight: 500;
+    font-size: 7rem;
+    font-weight: 300;
+    letter-spacing: 0.2rem;
     @include respond(phone) {
       letter-spacing: 1rem;
       font-size: 2.5rem;
@@ -47,7 +46,7 @@ body {
 }
 
 .heading-secondary {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   text-transform: uppercase;
   font-weight: 200;
   display: inline-block;
@@ -58,13 +57,15 @@ body {
   }
   &--sub {
     display: block;
-    font-size: 27px;
+    font-size: 2.5rem;
     font-weight: 400;
-    margin-top: 0.25em;
     @include respond(phone) {
       letter-spacing: 0.5rem;
       padding: 0 1rem;
     }
+  }
+  &--slider {
+    font-size: 3.5rem;
   }
   &--main {
     font-size: 5rem;
