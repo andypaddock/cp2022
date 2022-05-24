@@ -4,6 +4,10 @@
             <div class="daybanner">
                 <div class="heading">
                     <h1>Itinerary Map</h1>
+                    <h2><?php
+$ip = $_SERVER['REMOTE_ADDR'];
+echo $ip;
+?></h2>
                 </div>
                 <div id="listings" class="listings">
                 </div><button id="zoomto" class="btn-control">Zoom to bounds</button>
