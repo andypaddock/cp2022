@@ -19,10 +19,8 @@ $noMobile = get_sub_field('hide_on_mobile');
 
 
             <div class="image-advert" style="background-image: url(<?php echo $experienceImage; ?>)">
-                <div class="tri-col revealup">
-
-                    <div class="title">
-                        <h3 class="heading-tertiary alt-font-pop <?php
+                <div class="experience-detail revealup">
+                    <h3 class="heading-tertiary alt-font-pop <?php
                                                                             if (get_sub_field('switch_text')) {
                                                                                 echo 'alt-color';
                                                                             }
@@ -30,21 +28,26 @@ $noMobile = get_sub_field('hide_on_mobile');
                     if ($postType) {
                         echo esc_html($postType->labels->singular_name);
                     } ?></h3>
-                        <h3 class="heading-secondary heading-secondary--slider <?php
+                    <div class="tri-col">
+
+                        <div class="title">
+
+                            <h3 class="heading-secondary heading-secondary--slider <?php
                                                                 if (get_sub_field('switch_text')) {
                                                                     echo 'alt-color';
                                                                 }
                                                                 ?>"><?php the_title(); ?></h3>
-                    </div>
-                    <div class="text <?php
+                        </div>
+                        <div class="text <?php
                                                 if (get_sub_field('switch_text')) {
                                                     echo 'alt-color';
                                                 }
                                                 ?>">
-                        <p><?php echo wp_trim_words(get_the_excerpt(), 15, '...'); ?></p>
-                    </div>
-                    <div class="link">
-                        <a class="button" href="<?php the_permalink(); ?>">Find out more</a>
+                            <p><?php echo wp_trim_words(get_the_excerpt(), 16, '...'); ?></p>
+                        </div>
+                        <div class="link">
+                            <a class="button" href="<?php the_permalink(); ?>">Find out more</a>
+                        </div>
                     </div>
                 </div>
             </div>

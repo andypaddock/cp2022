@@ -73,24 +73,31 @@
     display: flex;
     align-items: flex-end;
     padding: 3rem 10rem;
+    .heading-tertiary {
+      margin-bottom: -2rem;
+    }
     .tri-col {
-      align-items: flex-end;
+      align-items: center;
       grid-template-columns: 2fr 3fr 2fr;
       div.text {
         padding: 0rem 6rem;
         line-height: 3em;
         p {
-          font-size: 2rem;
+          font-size: 1.8rem;
+          line-height: 2.5rem;
         }
       }
       .title {
-        position: relative;d
+        position: relative;
+        border-right: 1px solid $color-white;
         .heading-tertiary {
+          margin-bottom: -2rem;
         }
         .heading-secondary {
           font-weight: 400;
-          border-right: 1px solid $color-white;
-          padding-right: 2rem;
+          
+         margin-right: 2rem;
+         padding-right: 2rem;
         }
       }
       .link {

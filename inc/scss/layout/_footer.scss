@@ -96,13 +96,12 @@
 
   }
   .footer-hero {
-    height: 45.5vh;
+    height: 40vh;
     @include backgroundCover;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    justify-content: center;
-    padding-bottom: 3em;
+    justify-content: flex-end;
+    padding-bottom: 8rem;
     .row .push-right {
       grid-template-columns: 2fr 2fr;
     }
@@ -382,6 +381,7 @@
   li.menu-item {
     padding-top: 0 !important;
     border-left: none !important;
+    padding-left: 2.2rem;
     a {
       font-family: poppins;
     }
@@ -475,6 +475,8 @@
     .button {
       border: 1px solid rgba(255, 255, 255, 0.18);
       margin-top: 3rem;
+      font-size: 1.3rem;
+      padding: 0.75rem 3rem;
     }
   }
 }

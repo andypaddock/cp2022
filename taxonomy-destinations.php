@@ -96,20 +96,23 @@ $noMobile = get_sub_field('hide_on_mobile');
 
             <div class="image-advert"
                 style="background-image: url(<?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>)">
-                <div class="tri-col revealup">
-
-                    <div class="title">
-                        <h3 class="heading-tertiary alt-font-pop alt-color"><?php $postType = get_post_type_object(get_post_type());
+                <div class="experience-detail revealup">
+                    <h3 class="heading-tertiary alt-font-pop alt-color"><?php $postType = get_post_type_object(get_post_type());
 if ($postType) {
     echo esc_html($postType->labels->singular_name);
 } ?></h3>
-                        <h3 class="heading-secondary alt-color"><?php the_title(); ?></h3>
-                    </div>
-                    <div class="text alt-color">
-                        <p><?php echo wp_trim_words( get_the_excerpt(), 15, '...' ); ?></p>
-                    </div>
-                    <div class="link">
-                        <a class="button" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    <div class="tri-col">
+
+                        <div class="title">
+
+                            <h3 class="heading-secondary alt-color"><?php the_title(); ?></h3>
+                        </div>
+                        <div class="text alt-color">
+                            <p><?php echo wp_trim_words( get_the_excerpt(), 15, '...' ); ?></p>
+                        </div>
+                        <div class="link">
+                            <a class="button" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        </div>
                     </div>
                 </div>
             </div>

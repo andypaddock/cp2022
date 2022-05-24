@@ -1,138 +1,77 @@
-<?php $bgColor = get_sub_field('bg_colour');
-$noMobile = get_sub_field('hide_on_mobile');
-$advertImage = get_sub_field('background_image'); ?>
-<section
-    class="itin-route-map <?php if($bgColor == true): echo 'alt-bg'; endif; ?> <?php the_sub_field('margin_size'); ?> <?php if($noMobile == true): echo 'no-mob'; endif; ?>"
-    <?php if( get_sub_field('section_id') ): ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
-    <div class="row <?php the_sub_field('column_size'); ?>">
-        <div class="itin-map">
-            <div id="map"></div>
-            <div class="overlay">
-                <button id="replay">Replay</button>
+<section class="map">
+    <div class="row">
+        <div class="map-wrapper">
+            <div class="daybanner">
+                <div class="heading">
+                    <h1>Itinerary Map</h1>
+                </div>
+                <div id="listings" class="listings">
+                </div><button id="zoomto" class="btn-control">Zoom to bounds</button>
             </div>
+            <div id="map" class="map"></div>
         </div>
     </div>
 </section>
 <script>
-// TO MAKE THE MAP APPEAR YOU MUST
-// ADD YOUR ACCESS TOKEN FROM
-// https://account.mapbox.com
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW5keXBhZGRvY2siLCJhIjoiY2tjb3JnYXo3MGg3aTJ1bGQ3Z3hsY3RkaCJ9.Nuw5WXsnHTCDJhtjXzryUw';
-var map = new mapboxgl.Map({
+
+/**
+ * Add the map to the page
+ */
+const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [<?php 
-$centreLocation = get_field('centre_map_point');
-if( $centreLocation ): ?>
-        <?php echo esc_attr($centreLocation['lng']); ?>, <?php echo esc_attr($centreLocation['lat']); ?>
-        <?php endif; ?>
-    ],
-    zoom: 7
+    style: 'mapbox://styles/mapbox/light-v10',
+    center: [-77.334084142948, 38.909671288923],
+    zoom: 13,
+    scrollZoom: false
 });
 
-//HERE
-var size = 100;
+const stores = {
+    'type': 'FeatureCollection',
+    'features': [{
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-77.034084142948, 38.909671288923]
+            },
+            'properties': {
+                'stepname': 'Day 1 - 3',
+                'description': 'Stay at luxurious properties, while embracing the simplicity and serenity of beach life, as well as visiting the famous plains of the Masai Mara.'
+            }
+        },
+        {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-77.049766, 38.900772]
+            },
+            'properties': {
+                'stepname': 'Day 4 - 5',
+                'description': 'Stay at luxurious properties, while embracing the simplicity and serenity of beach life, as well as visiting the famous plains of the Masai Mara.'
+            }
+        },
+        {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [-77.043929, 38.910525]
+            },
+            'properties': {
+                'stepname': 'Day 6 - 8',
+                'description': 'Stay at luxurious properties, while embracing the simplicity and serenity of beach life, as well as visiting the famous plains of the Masai Mara.'
+            }
+        },
 
-// implementation of CustomLayerInterface to draw a pulsing dot icon on the map
-// see https://docs.mapbox.com/mapbox-gl-js/api/#customlayerinterface for more info
-var pulsingDot = {
-    width: size,
-    height: size,
-    data: new Uint8Array(size * size * 4),
-
-    // get rendering context for the map canvas when layer is added to the map
-    onAdd: function() {
-        var canvas = document.createElement('canvas');
-        canvas.width = this.width;
-        canvas.height = this.height;
-        this.context = canvas.getContext('2d');
-    },
-
-    // called once before every frame where the icon will be used
-    render: function() {
-        var duration = 1000;
-        var t = (performance.now() % duration) / duration;
-
-        var radius = (size / 2) * 0.3;
-        var outerRadius = (size / 2) * 0.7 * t + radius;
-        var context = this.context;
-
-        // draw outer circle
-        context.clearRect(0, 0, this.width, this.height);
-        context.beginPath();
-        context.arc(
-            this.width / 2,
-            this.height / 2,
-            outerRadius,
-            0,
-            Math.PI * 2
-        );
-        context.fillStyle = 'rgba(1, 55, 32,' + (1 - t) + ')';
-        context.fill();
-
-        // draw inner circle
-        context.beginPath();
-        context.arc(
-            this.width / 2,
-            this.height / 2,
-            radius,
-            0,
-            Math.PI * 2
-        );
-        context.fillStyle = 'rgba(1, 50, 32, 1)';
-        context.strokeStyle = 'white';
-        context.lineWidth = 2 + 4 * (1 - t);
-        context.fill();
-        context.stroke();
-
-        // update this image's data with data from the canvas
-        this.data = context.getImageData(
-            0,
-            0,
-            this.width,
-            this.height
-        ).data;
-
-        // continuously repaint the map, resulting in the smooth animation of the dot
-        map.triggerRepaint();
-
-        // return `true` to let the map know that the image was updated
-        return true;
-    }
+    ]
 };
 
+// San Francisco
+var origin = [-77.034084142948, 38.909671288923];
+// San Francisco
+var origin2 = [-77.049766, 38.900772];
 
-//HERE
-
-
-
-<?php if( have_rows('days_plan') ): ?>
-<?php while( have_rows('days_plan') ): the_row();
-$location = get_sub_field('location');
-if( $location ): ?>
-var origin<?php echo get_row_index(); ?> = [<?php echo esc_attr($location['lng']); ?>,
-    <?php echo esc_attr($location['lat']); ?>
-];
-
-<?php endif; ?>
-<?php endwhile; ?>
-<?php endif; ?>
-
-
-// // San Francisco
-// var origin = [-122.414, 37.176];
-// // San Francisco
-// var origin2 = [-99.414, 37.776];
-// // San Francisco
-// var origin3 = [-89.414, 37.776];
-// // San Francisco
-// var origin4 = [-82.414, 32.776];
-// // San Francisco
-// var origin5 = [-80.414, 42.776];
-
-
-// // Washington DC
-// var destination = [-77.032, 38.913];
+// Washington DC
+var destination = [-77.043929, 38.910525];
 
 // A simple line from origin to destination.
 var route = {
@@ -141,114 +80,36 @@ var route = {
         'type': 'Feature',
         'geometry': {
             'type': 'LineString',
-            'coordinates': [<?php if( have_rows('days_plan') ): ?>
-                <?php while( have_rows('days_plan') ): the_row();
-$location = get_sub_field('location');
-if( $location ): ?>origin<?php echo get_row_index(); ?>,
-
-
-                <?php endif; ?>
-                <?php endwhile; ?>
-                <?php endif; ?>
-            ]
+            'coordinates': [origin, origin2, destination, ]
         }
     }]
 };
 
 
+/**
+ * Assign a unique id to each store. You'll use this `id`
+ * later to associate each point on the map with a listing
+ * in the sidebar.
+ */
+stores.features.forEach((store, i) => {
+    store.properties.id = i;
+});
 
-
-// A single point that animates along the route.
-// Coordinates are initially set to origin.
-var point = {
-    'type': 'FeatureCollection',
-    'features': [{
-        'type': 'Feature',
-        'properties': {},
-        'geometry': {
-            'type': 'Point',
-            'coordinates': origin
-        }
-    }]
-};
-
-// Calculate the distance in kilometers between route start/end point.
-var lineDistance = turf.lineDistance(route.features[0], 'kilometers');
-
-var arc = [];
-
-// Number of steps to use in the arc and animation, more steps means
-// a smoother arc and animation, but too many steps will result in a
-// low frame rate
-var steps = 500;
-
-// Draw an arc between the `origin` & `destination` of the two points
-for (var i = 0; i < lineDistance; i += lineDistance / steps) {
-    var segment = turf.along(route.features[0], i, 'kilometers');
-    arc.push(segment.geometry.coordinates);
-}
-
-// Update the route with calculated arc coordinates
-route.features[0].geometry.coordinates = arc;
-
-// Used to increment the value of the point measurement against the route.
-var counter = 0;
-
-map.on('load', function() {
-
-    //HERE
-    map.addImage('pulsing-dot', pulsingDot, {
-        pixelRatio: 2
-    });
-
-    map.addSource('points', {
+/**
+ * Wait until the map loads to make changes to the map.
+ */
+map.on('load', () => {
+    /**
+     * This is where your '.addLayer()' used to be, instead
+     * add only the source without styling a layer
+     */
+    map.addSource('places', {
         'type': 'geojson',
-        'data': {
-            'type': 'FeatureCollection',
-            'features': [
-
-                <?php if( have_rows('days_plan') ): ?>
-                <?php while( have_rows('days_plan') ): the_row();
-$location = get_sub_field('location');
-if( $location ): ?> {
-                    'type': 'Feature',
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [<?php echo esc_attr($location['lng']); ?>,
-                            <?php echo esc_attr($location['lat']); ?>
-                        ]
-                    },
-                    'properties': {
-                        'title': '<?php the_sub_field('days');?>'
-                    }
-                },
-
-                <?php endif; ?>
-                <?php endwhile; ?>
-                <?php endif; ?>
-
-            ]
-        }
+        'data': stores
     });
-
-
-
-    //HERE
-
-
-
-
-
-    // Add a source and layer displaying a point which will be animated in a circle.
     map.addSource('route', {
         'type': 'geojson',
         'data': route
-    });
-
-
-    map.addSource('point', {
-        'type': 'geojson',
-        'data': point
     });
 
     map.addLayer({
@@ -257,109 +118,153 @@ if( $location ): ?> {
         'type': 'line',
         'paint': {
             'line-width': 2,
-            'line-color': '#007cbf'
-        }
-    });
-    map.addLayer({
-        'id': 'points',
-        'type': 'symbol',
-        'source': 'points',
-        'layout': {
-            'icon-image': 'pulsing-dot',
-            'text-field': ['get', 'title'],
-            'text-font': [
-                'Open Sans Regular',
-                'Arial Unicode MS Regular'
-            ],
-            'text-offset': [1, 0],
-            'text-anchor': 'left'
+            'line-color': '#707070',
+            'line-dasharray': [2, 1],
         }
     });
 
-    map.addLayer({
-        'id': 'point',
-        'source': 'point',
-        'type': 'symbol',
-        'layout': {
-            'icon-image': 'pulsing-dot',
-            'icon-rotate': ['get', 'bearing'],
-            'icon-rotation-alignment': 'map',
-            'icon-allow-overlap': true,
-            'icon-ignore-placement': true
 
-        }
-    });
-
-    function animate() {
-        // Update point geometry to a new position based on counter denoting
-        // the index to access the arc.
-        point.features[0].geometry.coordinates =
-            route.features[0].geometry.coordinates[counter];
-
-        // Calculate the bearing to ensure the icon is rotated to match the route arc
-        // The bearing is calculate between the current point and the next point, except
-        // at the end of the arc use the previous point and the current point
-        point.features[0].properties.bearing = turf.bearing(
-            turf.point(
-                route.features[0].geometry.coordinates[
-                    counter >= steps ? counter - 1 : counter
-                ]
-            ),
-            turf.point(
-                route.features[0].geometry.coordinates[
-                    counter >= steps ? counter : counter + 1
-                ]
-            )
-        );
-
-        // Update the source with this new data.
-        map.getSource('point').setData(point);
-
-        // Request the next frame of animation so long the end has not been reached.
-        if (counter < steps) {
-            requestAnimationFrame(animate);
-        } else {
-            map.removeLayer('point');
-        }
+    buildLocationList(stores);
+    addMarkers();
 
 
-        counter = counter + 1;
+});
 
+var coordinates = [origin, origin2, destination, ];
+
+var bounds = coordinates.reduce(function(bounds, coord) {
+    return bounds.extend(coord);
+}, new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]));
+
+map.fitBounds(bounds, {
+    padding: 100
+});
+
+/**
+ * Add a marker to the map for every store listing.
+ **/
+function addMarkers() {
+    /* For each feature in the GeoJSON object above: */
+    for (const marker of stores.features) {
+        /* Create a div element for the marker. */
+        const el = document.createElement('div');
+        /* Assign a unique `id` to the marker. */
+        el.id = `marker-${marker.properties.id}`;
+        /* Assign the `marker` class to each marker for styling. */
+        el.className = 'marker';
+
+        /**
+         * Create a marker using the div element
+         * defined above and add it to the map.
+         **/
+        new mapboxgl.Marker(el, {
+                offset: [0, -23]
+            })
+            .setLngLat(marker.geometry.coordinates)
+            .addTo(map);
+
+        /**
+         * Listen to the element and when it is clicked, do three things:
+         * 1. Fly to the point
+         * 2. Close all other popups and display popup for clicked store
+         * 3. Highlight listing in sidebar (and remove highlight for all other listings)
+         **/
+        el.addEventListener('click', (e) => {
+            /* Fly to the point */
+            flyToStore(marker);
+            /* Close all other popups and display popup for clicked store */
+            createPopUp(marker);
+
+
+            /* Highlight listing in sidebar */
+            const activeItem = document.getElementsByClassName('active');
+            e.stopPropagation();
+            if (activeItem[0]) {
+                activeItem[0].classList.remove('active');
+            }
+            const listing = document.getElementById(
+                `listing-${marker.properties.id}`
+            );
+        });
     }
+}
 
+/**
+ * Add a listing for each store to the sidebar.
+ **/
+function buildLocationList(stores) {
+    for (const store of stores.features) {
+        /* Add a new listing section to the sidebar. */
+        const listings = document.getElementById('listings');
+        const listing = listings.appendChild(document.createElement('div'));
+        /* Assign a unique `id` to the listing. */
+        listing.id = `listing-${store.properties.id}`;
+        /* Assign the `item` class to each listing for styling. */
+        listing.className = 'item';
 
+        /* Add the link to the individual listing created above. */
+        const link = listing.appendChild(document.createElement('h2'));
+        link.href = '';
+        link.className = 'title';
+        link.id = `link-${store.properties.id}`;
+        link.innerHTML = `${store.properties.stepname}`;
 
+        /* Add details to the individual listing. */
+        const details = listing.appendChild(document.createElement('p'));
+        details.innerHTML = `${store.properties.description}`;
+        if (store.properties.phone) {
+            details.innerHTML += ` &middot; ${store.properties.phoneFormatted}`;
+        }
 
-    document
-        .getElementById('replay')
-        .addEventListener('click', function() {
-
-            map.addLayer({
-                'id': 'point',
-                'source': 'point',
-                'type': 'symbol',
-                'layout': {
-                    'icon-image': 'airport-15',
-                    'icon-rotate': ['get', 'bearing'],
-                    'icon-rotation-alignment': 'map',
-                    'icon-allow-overlap': true,
-                    'icon-ignore-placement': true
+        /**
+         * Listen to the element and when it is clicked, do four things:
+         * 1. Update the `currentFeature` to the store associated with the clicked link
+         * 2. Fly to the point
+         * 3. Close all other popups and display popup for clicked store
+         * 4. Highlight listing in sidebar (and remove highlight for all other listings)
+         **/
+        link.addEventListener('click', function() {
+            for (const feature of stores.features) {
+                if (this.id === `link-${feature.properties.id}`) {
+                    flyToStore(feature);
+                    createPopUp(feature);
                 }
-            });
-            // Set the coordinates of the original point back to origin
-            point.features[0].geometry.coordinates = origin;
-
-            // Update the source layer
-            map.getSource('point').setData(point);
-
-            // Reset the counter
-            counter = 0;
-
-            // Restart the animation.
-            animate(counter);
+            }
+            const activeItem = document.getElementsByClassName('active');
+            if (activeItem[0]) {
+                activeItem[0].classList.remove('active');
+            }
+            this.parentNode.classList.add('active');
         });
 
-    // Start the animation.
-    animate(counter);
-});
+
+    }
+}
+
+/**
+ * Use Mapbox GL JS's `flyTo` to move the camera smoothly
+ * a given center point.
+ **/
+function flyToStore(currentFeature) {
+    map.flyTo({
+        center: currentFeature.geometry.coordinates,
+        zoom: 15
+    });
+}
+
+/**
+ * Create a Mapbox GL JS `Popup`.
+ **/
+function createPopUp(currentFeature) {
+    const popUps = document.getElementsByClassName('mapboxgl-popup');
+    if (popUps[0]) popUps[0].remove();
+    const popup = new mapboxgl.Popup({
+            closeOnClick: false
+        })
+        .setLngLat(currentFeature.geometry.coordinates)
+        .setHTML(
+            `<h3>Sweetgreen</h3><h4>${currentFeature.properties.address}</h4>`
+        )
+        .addTo(map);
+}
 </script>

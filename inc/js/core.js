@@ -437,8 +437,11 @@ var currentYear = new Date().getFullYear();
         }
       })
     })
-   
 
+
+
+    $(".item").last().addClass(["selected", "highlight"]);
+    
 }); //Don't remove ---- end of jQuery wrapper
 
 
