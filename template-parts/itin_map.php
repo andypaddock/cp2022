@@ -27,51 +27,54 @@ const map = new mapboxgl.Map({
 });
 
 const stores = {
-    'type': 'FeatureCollection',
-    'features': [{
+    "type": "FeatureCollection",
+    "features": [
+        <?php if( have_rows('days_plan') ): ?>
+        <?php while( have_rows('days_plan') ): the_row();
+$location = get_sub_field('location');
+if( $location ): ?> {
             'type': 'Feature',
             'geometry': {
                 'type': 'Point',
-                'coordinates': [-77.034084142948, 38.909671288923]
+                'coordinates': [<?php echo esc_attr($location['lng']); ?>,
+                    <?php echo esc_attr($location['lat']); ?>
+                ]
             },
             'properties': {
-                'stepname': 'Day 1 - 3',
-                'description': 'Stay at luxurious properties, while embracing the simplicity and serenity of beach life, as well as visiting the famous plains of the Masai Mara.'
+                'stepname': '<?php the_sub_field('title');?>',
+                'description': '<?php the_sub_field('days');?>',
             }
         },
-        {
-            'type': 'Feature',
-            'geometry': {
-                'type': 'Point',
-                'coordinates': [-77.049766, 38.900772]
-            },
-            'properties': {
-                'stepname': 'Day 4 - 5',
-                'description': 'Stay at luxurious properties, while embracing the simplicity and serenity of beach life, as well as visiting the famous plains of the Masai Mara.'
-            }
-        },
-        {
-            'type': 'Feature',
-            'geometry': {
-                'type': 'Point',
-                'coordinates': [-77.043929, 38.910525]
-            },
-            'properties': {
-                'stepname': 'Day 6 - 8',
-                'description': 'Stay at luxurious properties, while embracing the simplicity and serenity of beach life, as well as visiting the famous plains of the Masai Mara.'
-            }
-        },
+
+        <?php endif; ?>
+        <?php endwhile; ?>
+        <?php endif; ?>
+
+
+
 
     ]
 };
 
-// San Francisco
-var origin = [-77.034084142948, 38.909671288923];
-// San Francisco
-var origin2 = [-77.049766, 38.900772];
+<?php if( have_rows('days_plan') ): ?>
+<?php while( have_rows('days_plan') ): the_row();
+$location = get_sub_field('location');
+if( $location ): ?>
+var origin<?php echo get_row_index(); ?> = [<?php echo esc_attr($location['lng']); ?>,
+    <?php echo esc_attr($location['lat']); ?>
+];
 
-// Washington DC
-var destination = [-77.043929, 38.910525];
+<?php endif; ?>
+<?php endwhile; ?>
+<?php endif; ?>
+
+// // San Francisco
+// var origin = [-77.034084142948, 38.909671288923];
+// // San Francisco
+// var origin2 = [-77.049766, 38.900772];
+
+// // Washington DC
+// var destination = [-77.043929, 38.910525];
 
 // A simple line from origin to destination.
 var route = {
@@ -80,7 +83,16 @@ var route = {
         'type': 'Feature',
         'geometry': {
             'type': 'LineString',
-            'coordinates': [origin, origin2, destination, ]
+            'coordinates': [<?php if( have_rows('days_plan') ): ?>
+                <?php while( have_rows('days_plan') ): the_row();
+$location = get_sub_field('location');
+if( $location ): ?>origin<?php echo get_row_index(); ?>,
+
+
+                <?php endif; ?>
+                <?php endwhile; ?>
+                <?php endif; ?>
+            ]
         }
     }]
 };
@@ -130,7 +142,15 @@ map.on('load', () => {
 
 });
 
-var coordinates = [origin, origin2, destination, ];
+var coordinates = [<?php if( have_rows('days_plan') ): ?>
+                <?php while( have_rows('days_plan') ): the_row();
+$location = get_sub_field('location');
+if( $location ): ?>origin<?php echo get_row_index(); ?>,
+
+
+                <?php endif; ?>
+                <?php endwhile; ?>
+                <?php endif; ?>];
 
 var bounds = coordinates.reduce(function(bounds, coord) {
     return bounds.extend(coord);
@@ -263,7 +283,7 @@ function createPopUp(currentFeature) {
         })
         .setLngLat(currentFeature.geometry.coordinates)
         .setHTML(
-            `<h3>Sweetgreen</h3><h4>${currentFeature.properties.address}</h4>`
+            `<h3>${currentFeature.properties.stepname}</h3><h4>${currentFeature.properties.description}</h4>`
         )
         .addTo(map);
 }

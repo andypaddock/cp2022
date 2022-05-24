@@ -1,8 +1,6 @@
 <div class="itin-map">
     <div id="map"></div>
-    <div class="overlay">
-        <button class="grey-out" id="enlarge">[click to expand map]</button>
-    </div>
+    
 </div>
 <script>
 // TO MAKE THE MAP APPEAR YOU MUST
