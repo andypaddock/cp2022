@@ -147,14 +147,15 @@ map.on('load', () => {
 });
 
 var coordinates = [<?php if( have_rows('days_plan') ): ?>
-                <?php while( have_rows('days_plan') ): the_row();
+    <?php while( have_rows('days_plan') ): the_row();
 $location = get_sub_field('location');
 if( $location ): ?>origin<?php echo get_row_index(); ?>,
 
 
-                <?php endif; ?>
-                <?php endwhile; ?>
-                <?php endif; ?>];
+    <?php endif; ?>
+    <?php endwhile; ?>
+    <?php endif; ?>
+];
 
 var bounds = coordinates.reduce(function(bounds, coord) {
     return bounds.extend(coord);
