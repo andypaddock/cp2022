@@ -2180,10 +2180,8 @@ article p {
 }
 .read-more p,
 .read-less p {
-  font-size: 25px;
   font-weight: 400;
   font-family: "Cormorant Garamond", serif;
-  line-height: 47px;
 }
 .read-more a,
 .read-less a {
@@ -2269,6 +2267,7 @@ section.logo-text .text .lead {
   font-size: 1.6rem;
   font-family: initial;
   margin-top: 2rem;
+  font-weight: 700;
 }
 .split-col.switch-order .slider-images {
   -webkit-box-ordinal-group: 3;
@@ -2992,7 +2991,7 @@ section.logo-text .text .lead {
 }
 .map .map-wrapper #map {
   width: 100%;
-  height: 55vh;
+  height: 70vh;
 }
 .map .daybanner {
   -ms-flex-preferred-size: 25%;
@@ -3026,13 +3025,16 @@ section.logo-text .text .lead {
 .map .listings {
   height: 100%;
   overflow: auto;
-  padding-bottom: 60px;
 }
 .map .listings .item {
   display: block;
   border-bottom: 1px solid #eee;
   padding: 10px;
   text-decoration: none;
+  max-height: 7rem;
+  overflow: hidden;
+  -webkit-transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
 }
 .map .listings .item:last-child {
   border-bottom: none;
@@ -3041,16 +3043,25 @@ section.logo-text .text .lead {
   display: block;
   color: #931116;
   font-weight: 700;
+  padding-bottom: 0.5rem;
+}
+.map .listings .item .title span {
+  color: #6a6f71;
 }
 .map .listings .item .title small {
   font-weight: 400;
 }
-.map .listings .item.active .title,
 .map .listings .item .title:hover {
   color: #931116;
 }
 .map .listings .item.active {
   background-color: #f8f8f8;
+  max-height: 90rem;
+  -webkit-transition: max-height 1s ease-in-out;
+  transition: max-height 1s ease-in-out;
+}
+.map .listings .item.active .title {
+  color: #931116;
 }
 .map ::-webkit-scrollbar {
   width: 3px;

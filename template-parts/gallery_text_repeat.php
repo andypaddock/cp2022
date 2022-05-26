@@ -26,7 +26,7 @@ if( $images ): ?>
             <div class="text-box">
 
 
-                <h3 class="heading-tertiary <?php
+                <h3 class="heading-secondary <?php
 if(get_sub_field('switch_text'))
 {
 	echo 'alt-color';

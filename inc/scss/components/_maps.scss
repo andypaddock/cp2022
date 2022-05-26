@@ -1,19 +1,17 @@
 .map {
-    .map-wrapper {
-        display: flex;
-        #map {
-    width: 100%;
-    height: 55vh;
-        }
+  .map-wrapper {
+    display: flex;
+    #map {
+      width: 100%;
+      height: 70vh;
     }
+  }
 
-.daybanner {
+  .daybanner {
     flex-basis: 25%;
     overflow: hidden;
     border-right: 1px solid rgba(0, 0, 0, 0.25);
   }
-
-  
 
   h1 {
     font-size: 22px;
@@ -41,39 +39,46 @@
     background-color: $color-primary-light;
     color: #fff;
   }
-
   .listings {
     height: 100%;
     overflow: auto;
-    padding-bottom: 60px;
+    .item {
+      display: block;
+      border-bottom: 1px solid #eee;
+      padding: 10px;
+      text-decoration: none;
+      max-height: 7rem;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+      &:last-child {
+        border-bottom: none;
+      }
+      .title {
+        display: block;
+        color: $color-primary-light;
+        font-weight: 700;
+        padding-bottom: 0.5rem;
+        span {
+          color: $color-black;
+        }
+        small {
+          font-weight: 400;
+        }
+        &:hover {
+          color: $color-primary-light;
+        }
+      }
+    }
+    .item.active {
+      .title {
+        color: $color-primary-light;
+      }
+      background-color: #f8f8f8;
+      max-height: 90rem;
+      transition: max-height 1s ease-in-out;
+    }
   }
 
-  .listings .item {
-    display: block;
-    border-bottom: 1px solid #eee;
-    padding: 10px;
-    text-decoration: none;
-  }
-
-  .listings .item:last-child {
-    border-bottom: none;
-  }
-  .listings .item .title {
-    display: block;
-    color: $color-primary-light;
-    font-weight: 700;
-  }
-
-  .listings .item .title small {
-    font-weight: 400;
-  }
-  .listings .item.active .title,
-  .listings .item .title:hover {
-    color: $color-primary-light;
-  }
-  .listings .item.active {
-    background-color: #f8f8f8;
-  }
   ::-webkit-scrollbar {
     width: 3px;
     height: 3px;
@@ -105,7 +110,7 @@
     display: none;
   }
   .mapboxgl-popup-content {
-    font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+    font: 400 15px/22px "Source Sans Pro", "Helvetica Neue", sans-serif;
     padding: 0;
     width: 180px;
   }

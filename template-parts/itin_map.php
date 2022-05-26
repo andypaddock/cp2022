@@ -4,10 +4,6 @@
             <div class="daybanner">
                 <div class="heading">
                     <h1>Itinerary Map</h1>
-                    <h2><?php
-$ip = $_SERVER['REMOTE_ADDR'];
-echo $ip;
-?></h2>
                 </div>
                 <div id="listings" class="listings">
                 </div><button id="zoomto" class="btn-control">Zoom to bounds</button>
@@ -30,7 +26,11 @@ const map = new mapboxgl.Map({
     scrollZoom: false
 });
 
-const stores = {
+map.addControl(new mapboxgl.FullscreenControl());
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
+
+const camps = {
     "type": "FeatureCollection",
     "features": [
         <?php if( have_rows('days_plan') ): ?>
@@ -47,6 +47,7 @@ if( $location ): ?> {
             'properties': {
                 'stepname': '<?php the_sub_field('title');?>',
                 'description': '<?php the_sub_field('days');?>',
+                'copy': '<?php echo wp_trim_words( get_sub_field('description'), 40, '...' ); ?>',
             }
         },
 
@@ -103,12 +104,12 @@ if( $location ): ?>origin<?php echo get_row_index(); ?>,
 
 
 /**
- * Assign a unique id to each store. You'll use this `id`
+ * Assign a unique id to each camp. You'll use this `id`
  * later to associate each point on the map with a listing
  * in the sidebar.
  */
-stores.features.forEach((store, i) => {
-    store.properties.id = i;
+camps.features.forEach((camp, i) => {
+    camp.properties.id = i;
 });
 
 /**
@@ -121,7 +122,7 @@ map.on('load', () => {
      */
     map.addSource('places', {
         'type': 'geojson',
-        'data': stores
+        'data': camps
     });
     map.addSource('route', {
         'type': 'geojson',
@@ -140,7 +141,7 @@ map.on('load', () => {
     });
 
 
-    buildLocationList(stores);
+    buildLocationList(camps);
     addMarkers();
 
 
@@ -166,11 +167,11 @@ map.fitBounds(bounds, {
 });
 
 /**
- * Add a marker to the map for every store listing.
+ * Add a marker to the map for every camp listing.
  **/
 function addMarkers() {
     /* For each feature in the GeoJSON object above: */
-    for (const marker of stores.features) {
+    for (const marker of camps.features) {
         /* Create a div element for the marker. */
         const el = document.createElement('div');
         /* Assign a unique `id` to the marker. */
@@ -191,13 +192,13 @@ function addMarkers() {
         /**
          * Listen to the element and when it is clicked, do three things:
          * 1. Fly to the point
-         * 2. Close all other popups and display popup for clicked store
+         * 2. Close all other popups and display popup for clicked camp
          * 3. Highlight listing in sidebar (and remove highlight for all other listings)
          **/
         el.addEventListener('click', (e) => {
             /* Fly to the point */
-            flyToStore(marker);
-            /* Close all other popups and display popup for clicked store */
+            flyTocamp(marker);
+            /* Close all other popups and display popup for clicked camp */
             createPopUp(marker);
 
 
@@ -210,20 +211,21 @@ function addMarkers() {
             const listing = document.getElementById(
                 `listing-${marker.properties.id}`
             );
+            listing.classList.add('active');
         });
     }
 }
 
 /**
- * Add a listing for each store to the sidebar.
+ * Add a listing for each camp to the sidebar.
  **/
-function buildLocationList(stores) {
-    for (const store of stores.features) {
+function buildLocationList(camps) {
+    for (const camp of camps.features) {
         /* Add a new listing section to the sidebar. */
         const listings = document.getElementById('listings');
         const listing = listings.appendChild(document.createElement('div'));
         /* Assign a unique `id` to the listing. */
-        listing.id = `listing-${store.properties.id}`;
+        listing.id = `listing-${camp.properties.id}`;
         /* Assign the `item` class to each listing for styling. */
         listing.className = 'item';
 
@@ -231,27 +233,27 @@ function buildLocationList(stores) {
         const link = listing.appendChild(document.createElement('h2'));
         link.href = '';
         link.className = 'title';
-        link.id = `link-${store.properties.id}`;
-        link.innerHTML = `${store.properties.stepname}`;
+        link.id = `link-${camp.properties.id}`;
+        link.innerHTML = `${camp.properties.description}`;
+        link.innerHTML += ` &middot; <span>${camp.properties.stepname}</span>`;
+
 
         /* Add details to the individual listing. */
         const details = listing.appendChild(document.createElement('p'));
-        details.innerHTML = `${store.properties.description}`;
-        if (store.properties.phone) {
-            details.innerHTML += ` &middot; ${store.properties.phoneFormatted}`;
-        }
+        details.innerHTML = `${camp.properties.copy}`;
+
 
         /**
          * Listen to the element and when it is clicked, do four things:
-         * 1. Update the `currentFeature` to the store associated with the clicked link
+         * 1. Update the `currentFeature` to the camp associated with the clicked link
          * 2. Fly to the point
-         * 3. Close all other popups and display popup for clicked store
+         * 3. Close all other popups and display popup for clicked camp
          * 4. Highlight listing in sidebar (and remove highlight for all other listings)
          **/
         link.addEventListener('click', function() {
-            for (const feature of stores.features) {
+            for (const feature of camps.features) {
                 if (this.id === `link-${feature.properties.id}`) {
-                    flyToStore(feature);
+                    flyTocamp(feature);
                     createPopUp(feature);
                 }
             }
@@ -270,10 +272,10 @@ function buildLocationList(stores) {
  * Use Mapbox GL JS's `flyTo` to move the camera smoothly
  * a given center point.
  **/
-function flyToStore(currentFeature) {
+function flyTocamp(currentFeature) {
     map.flyTo({
         center: currentFeature.geometry.coordinates,
-        zoom: 15
+        zoom: 12
     });
 }
 

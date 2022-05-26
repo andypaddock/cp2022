@@ -56,7 +56,7 @@
   margin-top: 8em;
   .heading-secondary--main {
     font-weight: 400;
-}
+  }
   .alt-text {
     color: $color-white;
     font-size: 2.5rem;
@@ -117,10 +117,8 @@ article {
   padding-top: 6rem;
   padding-bottom: 5.5em;
   p {
-    font-size: 25px;
     font-weight: 400;
     font-family: $default-font-family;
-    line-height: 47px;
   }
   a {
     text-decoration: none;
@@ -142,7 +140,6 @@ article {
 }
 
 section.logo-text {
-  
   .bottom-self {
     display: flex;
     align-self: flex-end;
@@ -156,14 +153,12 @@ section.logo-text {
       }
     }
     h3 {
-      
     }
   }
   .text {
     font-family: $default-font-family;
-    
+
     p {
-      
     }
     .lead {
       font-weight: 900;
@@ -198,7 +193,7 @@ section.logo-text {
     @include respond(tab-port) {
       margin: 0;
     }
-    p.text  {
+    p.text {
       font-family: $default-font-family;
     }
   }
@@ -212,6 +207,7 @@ section.logo-text {
     font-size: 1.6rem;
     font-family: initial;
     margin-top: 2rem;
+    font-weight: 700;
   }
   &.switch-order {
     .slider-images {

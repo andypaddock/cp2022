@@ -1,8 +1,10 @@
 <?php $bgColor = get_sub_field('bg_colour');
 $noMobile = get_sub_field('hide_on_mobile'); ?>
-<section class="post-block <?php if ($bgColor == true) : echo 'alt-bg';
+<section
+    class="post-block <?php if ($bgColor == true) : echo 'alt-bg';
                             endif; ?> <?php the_sub_field('margin_size'); ?> <?php if ($noMobile == true) : echo 'no-mob';
-                                                                                                                        endif; ?>" <?php if (get_sub_field('section_id')) : ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
+                                                                                                                        endif; ?>"
+    <?php if (get_sub_field('section_id')) : ?>id="<?php the_sub_field('section_id'); ?>" <?php endif; ?>>
 
     <div class="row <?php the_sub_field('column_size'); ?>">
         <div class="controls">
@@ -13,8 +15,8 @@ $noMobile = get_sub_field('hide_on_mobile'); ?>
                 <li>Filters</li>
                 <li type="button" data-toggle="all">All</li>
                 <?php foreach ($all_categories as $category) : ?>
-                    <li type="button" class="control" data-toggle=".<?php echo $category->slug; ?>">
-                        <?php echo $category->name; ?></li>
+                <li type="button" class="control" data-toggle=".<?php echo $category->slug; ?>">
+                    <?php echo $category->name; ?></li>
                 <?php endforeach; ?>
             </ul>
         </div>
@@ -28,7 +30,7 @@ $noMobile = get_sub_field('hide_on_mobile'); ?>
                             <h3><i class="fa-light fa-clock-rotate-left"></i><span class="icon-dashboard"></span>Archive
                             </h3>
 
-                            <ul data-toggle-group id="timeselector">
+                            <ul data-filter-group id="timeselector">
                             </ul>
                         </li>
                     </ul>
@@ -54,29 +56,31 @@ $noMobile = get_sub_field('hide_on_mobile'); ?>
                     $counter++;
 
                 ?>
-                    <?php $terms = get_the_category($post->ID);
+                <?php $terms = get_the_category($post->ID);
                     $post_date = get_the_date('Y'); ?>
 
-                    <div class="card-item mix <?php foreach ($terms as $term) echo ' ' . $term->slug; ?> <?php echo 'm' . $post_date; ?>">
-                        <div class="card-image">
-                            <a href="<?php the_permalink(); ?>"><img src="<?php echo get_the_post_thumbnail_url($post->ID, 'medium_large'); ?>"></a>
-                        </div>
-                        <div class="post-text">
-                            <span class="meta"><?php echo get_the_date('d.m.y'); ?></span>
-                            <h2 class="heading-secondary">
-                                <a href="<?php echo get_permalink($post->ID); ?>">
-                                    <span class="heading-secondary--sub underscores"><?php the_title(); ?></span>
-                                </a>
-                            </h2>
-                            <p><?php echo wp_trim_words(get_the_excerpt(), 30, '...'); ?></p>
-                            <div class="post-link">
-                                <a class="textonly" href="<?php echo get_permalink($post->ID); ?>">
-                                    Read more
-                                </a>
-                            </div>
-                        </div>
-
+                <div
+                    class="card-item mix <?php foreach ($terms as $term) echo ' ' . $term->slug; ?> <?php echo 'm' . $post_date; ?>">
+                    <div class="card-image">
+                        <a href="<?php the_permalink(); ?>"><img
+                                src="<?php echo get_the_post_thumbnail_url($post->ID, 'medium_large'); ?>"></a>
                     </div>
+                    <div class="post-text">
+                        <span class="meta"><?php echo get_the_date('d.m.y'); ?></span>
+                        <h2 class="heading-secondary">
+                            <a href="<?php echo get_permalink($post->ID); ?>">
+                                <span class="heading-secondary--sub underscores"><?php the_title(); ?></span>
+                            </a>
+                        </h2>
+                        <p><?php echo wp_trim_words(get_the_excerpt(), 30, '...'); ?></p>
+                        <div class="post-link">
+                            <a class="textonly" href="<?php echo get_permalink($post->ID); ?>">
+                                Read more
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
                 <?php endwhile;
                 wp_reset_postdata();
                 ?>

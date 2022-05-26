@@ -1,6 +1,6 @@
 <div class="itin-map">
     <div id="map"></div>
-    
+
 </div>
 <script>
 // TO MAKE THE MAP APPEAR YOU MUST
@@ -33,21 +33,6 @@ var origin<?php echo get_row_index(); ?> = [<?php echo esc_attr($location['lng']
 <?php endwhile; ?>
 <?php endif; ?>
 
-
-// // San Francisco
-// var origin = [-122.414, 37.176];
-// // San Francisco
-// var origin2 = [-99.414, 37.776];
-// // San Francisco
-// var origin3 = [-89.414, 37.776];
-// // San Francisco
-// var origin4 = [-82.414, 32.776];
-// // San Francisco
-// var origin5 = [-80.414, 42.776];
-
-
-// // Washington DC
-// var destination = [-77.032, 38.913];
 
 // A simple line from origin to destination.
 var route = {
@@ -272,7 +257,7 @@ map.on('load', function() {
     function flyToStore(currentFeature) {
         map.flyTo({
             center: currentFeature.geometry.coordinates,
-            zoom: 6
+            zoom: 8
         });
     }
     /**

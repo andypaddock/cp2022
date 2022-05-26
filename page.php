@@ -11,6 +11,8 @@ get_header(); ?>
 <?php while( have_rows('main_page_elements') ): the_row(); ?>
 <?php if( get_row_layout() == 'faq_blocks' ): ?>
 <?php get_template_part('template-parts/faqblock');?>
+<?php elseif( get_row_layout() == 'legacy_faq_blocks' ): ?>
+<?php get_template_part('template-parts/legacy_faqblock');?>
 <?php elseif( get_row_layout() == 'main_cat_links' ): ?>
 <?php get_template_part('template-parts/main-boxes-page');?>
 <?php elseif( get_row_layout() == 'text_blocks' ):?>
