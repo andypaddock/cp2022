@@ -1727,6 +1727,25 @@ span.wpcf7-not-valid-tip {
   opacity: 1;
 }
 
+.contact-block .contact-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 4fr;
+  grid-template-columns: 1fr 4fr;
+}
+.contact-block .contact-wrapper .address-blocks .block__item {
+  padding: 2rem;
+}
+.contact-block .contact-wrapper .address-blocks .block__text {
+  padding: 0;
+}
+.contact-block .contact-wrapper .address-blocks .block__text a {
+  display: block;
+}
+.contact-block .contact-wrapper .form-shortcode {
+  padding: 0 30% 0 10%;
+}
+
 .popup {
   height: 100vh;
   width: 100%;

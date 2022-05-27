@@ -95,6 +95,8 @@ get_header(); ?>
 <?php get_template_part('template-parts/itin_filter_block');?>
 <?php elseif( get_row_layout() == 'itin_map' ):?>
 <?php get_template_part('template-parts/itin-map');?>
+<?php elseif( get_row_layout() == 'contact_block' ):?>
+<?php get_template_part('template-parts/contact_block');?>
 
 
 <?php endif; ?>

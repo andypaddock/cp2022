@@ -101,3 +101,23 @@ span.wpcf7-not-valid-tip {
   color: $color-white;
   opacity: 1;
 }
+.contact-block {
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    .address-blocks {
+      .block__item {
+        padding: 2rem;
+      }
+      .block__text {
+        padding: 0;
+        a {
+          display: block;
+        }
+      }
+    }
+    .form-shortcode {
+      padding: 0 30% 0 10%;
+    }
+  }
+}
